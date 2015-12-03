@@ -1,0 +1,11 @@
+= simple_form_for(@website) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :name-slug
+    = f.input :primary_color
+    = f.input :secondary_color
+
+  .form-actions
+    = f.button :submit

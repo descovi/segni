@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @website.name
+%p
+  %b Name-slug:
+  = @website.name-slug
+%p
+  %b Primary color:
+  = @website.primary_color
+%p
+  %b Secondary color:
+  = @website.secondary_color
+
+= link_to 'Edit', edit_website_path(@website)
+\|
+= link_to 'Back', websites_path
