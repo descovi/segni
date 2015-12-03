@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @opera.name
+%p
+  %b Year:
+  = @opera.year
+%p
+  %b Archive index:
+  = @opera.archive_index
+%p
+  %b Website:
+  = @opera.website_id
+%p
+  %b Image:
+  = @opera.image
+
+= link_to 'Edit', edit_opera_path(@opera)
+\|
+= link_to 'Back', operas_path
