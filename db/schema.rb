@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203154811) do
+ActiveRecord::Schema.define(version: 20151204122253) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 20151203154811) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "page_translations", force: :cascade do |t|
+    t.integer  "page_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.text     "content"
+  end
+
+  add_index "page_translations", ["locale"], name: "index_page_translations_on_locale"
+  add_index "page_translations", ["page_id"], name: "index_page_translations_on_page_id"
+
+  create_table "pages", force: :cascade do |t|
+    t.text    "title"
+    t.text    "content"
+    t.integer "website_id"
   end
 
   create_table "users", force: :cascade do |t|
