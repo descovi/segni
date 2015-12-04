@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :operas
   resources :websites
+  resources :pages
   root 'websites#show'
 end
