@@ -18,10 +18,10 @@
         %td= website.name_slug
         %td= website.primary_color
         %td= website.secondary_color
-        %td= link_to 'Show', website
-        %td= link_to 'Edit', edit_website_path(website)
-        %td= link_to 'Destroy', website, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', [:great_admin, website]
+        %td= link_to 'Edit', [:edit, :great_admin, website]
+        %td= link_to 'Destroy', [:great_admin, website, locale: 'en'], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Website', new_website_path
+= link_to 'New Website', new_great_admin_website_path(locale: 'en')

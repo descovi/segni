@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  
+  namespace :great_admin do
+    resources :websites
+    resources :users
+  end
+
   scope "/:locale" do
     resources :operas
-    resources :websites
     resources :pages
 
     root 'websites#show'
+    
+    namespace :admin do
+      resources :pages
+      resources :opera
+    end
+
   end
+  
 end
