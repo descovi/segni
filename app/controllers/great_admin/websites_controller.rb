@@ -21,7 +21,6 @@ class GreatAdmin::WebsitesController < GreatAdminController
   end
   
   def destroy
-    @website = Website.find params[:id]
     @website.destroy
     redirect_to [:great_admin, Website]
   end
