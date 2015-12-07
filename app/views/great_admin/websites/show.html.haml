@@ -1,1 +1,3 @@
 = @website.name
+= @website.user.name if @website.user.present?
+= @website.user.email if @website.user.present?

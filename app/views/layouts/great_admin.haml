@@ -6,5 +6,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %hr(style="margin-top: 0; padding-top: 0")
+    .container
+      .pull-left
+        %strong Great Admin Area
+      .pull-right
+        = link_to 'Users', great_admin_users_path
+        = link_to 'Websites', great_admin_websites_path
+    %hr
     .container
       = yield

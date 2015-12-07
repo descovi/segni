@@ -1,0 +1,10 @@
+= simple_form_for([:great_admin, @user]) do |f|
+
+  .form-inputs
+    = f.input :name, as: :string
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation
+
+  .form-actions
+    = f.button :submit
