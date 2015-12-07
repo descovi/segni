@@ -6,16 +6,18 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  scope "/:locale" do
-    resources :operas, only: [:show]
-    resources :pages, only: [:show]
+  constraints subdomain: /.+/ do
+    scope "/:locale" do
+      resources :operas, only: [:show]
+      resources :pages, only: [:show]
 
-    
-    namespace :admin do
-      resources :pages
-      resources :operas
+      
+      namespace :admin do
+        resources :pages
+        resources :operas
+      end
+
     end
-
   end
   
   root 'welcome#hi'
