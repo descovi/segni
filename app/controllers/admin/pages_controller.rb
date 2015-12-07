@@ -32,7 +32,7 @@ class Admin::PagesController < AdminController
   end
 
   def set_page
-    @page = Page.find params[:id]
+    @page = Page.friendly.find params[:id]
   end
 
 end
