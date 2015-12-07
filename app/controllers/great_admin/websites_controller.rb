@@ -1,13 +1,21 @@
 class GreatAdmin::WebsitesController < GreatAdminController
+  
   def index
     @websites = Website.all
   end
+  
   def new
     @website = Website.new
   end
+  
   def show
     @website = Website.find params[:id]
   end
+
+  def edit
+    @website = Website.find params[:id]
+  end
+  
   def create
     @website = Website.new(website_params)
 
@@ -21,6 +29,7 @@ class GreatAdmin::WebsitesController < GreatAdminController
       end
     end
   end
+  
   def destroy
     @website = Website.find params[:id]
     @website.destroy
@@ -29,7 +38,9 @@ class GreatAdmin::WebsitesController < GreatAdminController
       format.json { head :no_content }
     end
   end
+
   def website_params
     params.require(:website).permit(:name, :year, :archive_index, :website_id, :image)
   end
+
 end
