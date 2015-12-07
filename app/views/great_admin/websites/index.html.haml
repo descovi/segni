@@ -13,14 +13,14 @@
   %tbody
     - @websites.each do |website|
       %tr
-        %td= website.name
+        %td= link_to website.name, [:great_admin, website]
         %td= website.name_slug
         %td= website.user.name if website.user.present?
         %td= website.primary_color
         %td= website.secondary_color
-        %td= link_to 'Show', [:great_admin, website]
-        %td= link_to 'Edit', [:edit, :great_admin, website]
-        %td= link_to 'Destroy', [:great_admin, website], :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td
+          = link_to 'Edit', [:edit, :great_admin, website]
+          = link_to 'Destroy', [:great_admin, website], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

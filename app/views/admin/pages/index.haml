@@ -1,1 +1,15 @@
-ciao
+%table.table
+  %tr
+    %th Title Italian
+    %th Title English
+    %th
+      .pull-right= link_to 'New page', new_admin_page_path
+  - @website.pages.each do |page|
+    %tr
+      %td
+        = link_to page.title_it, page, locale: 'it', target: '_blank'
+      %td
+        = link_to page.title_en, page, locale: 'en', target: '_blank'
+      %td
+        = link_to 'Edit', [:edit, :admin, page]
+        = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}
