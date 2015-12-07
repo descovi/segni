@@ -14,7 +14,10 @@
         .col-sm-4
           .pull-right
             - @website.pages.each do |page|
-              = link_to page.title, page
+              - if @page == page
+                = page.title
+              - else
+                = link_to page.title, page
             - if action_name == 'show'
               - if I18n.locale == :en
                 - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
