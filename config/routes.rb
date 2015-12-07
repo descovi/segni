@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   end
 
   scope "/:locale" do
-    resources :operas
-    resources :pages
+    resources :operas, only: [:show]
+    resources :pages, only: [:show]
 
     
     namespace :admin do
       resources :pages
-      resources :opera
+      resources :operas
     end
 
   end
