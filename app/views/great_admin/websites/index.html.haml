@@ -1,5 +1,3 @@
-%h1 Listing websites
-
 %table.table
   %thead
     %tr
@@ -22,7 +20,7 @@
         %td= website.secondary_color
         %td= link_to 'Show', [:great_admin, website]
         %td= link_to 'Edit', [:edit, :great_admin, website]
-        %td= link_to 'Destroy', [:great_admin, website, locale: 'en'], :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Destroy', [:great_admin, website], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
