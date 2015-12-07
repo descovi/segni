@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :operas
     resources :pages
 
-    root 'websites#show'
     
     namespace :admin do
       resources :pages
@@ -19,4 +18,5 @@ Rails.application.routes.draw do
 
   end
   
+  root 'welcome#hi'
 end
