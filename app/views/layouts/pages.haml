@@ -1,29 +1,30 @@
 !!!
 %html
   %head
-    %title Segni
+    %title= "#{@website.name} - #{@page.title}"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %hr(style="margin-top:0")
     .container
       .row
         .col-sm-8
-          %h1.title= @website.name
+          %strong= @website.name
         .col-sm-4
-          - @website.pages.each do |page|
-            = link_to page.title, page
-          = action_name 
-          - if action_name == 'show'
-            - if I18n.locale == :en
-              - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
-              = link_to 'Italiano', link
-            - elsif I18n.locale == :it
-              - link = I18n.with_locale(:en){page_path(@page, locale: 'en')}
-              = link_to 'English', link
-          - else
-            = link_to 'Italiano', url_for(locale: 'it')
-            = link_to 'English',  url_for(locale: 'en')
-      %hr
-      
-      = yield
+          .pull-right
+            - @website.pages.each do |page|
+              = link_to page.title, page
+            - if action_name == 'show'
+              - if I18n.locale == :en
+                - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
+                = link_to 'Italiano', link
+              - elsif I18n.locale == :it
+                - link = I18n.with_locale(:en){page_path(@page, locale: 'en')}
+                = link_to 'English', link
+            - else
+              = link_to 'Italiano', url_for(locale: 'it')
+              = link_to 'English',  url_for(locale: 'en')
+    %hr
+      .container
+        = yield
