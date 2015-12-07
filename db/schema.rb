@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204203129) do
+ActiveRecord::Schema.define(version: 20151206213012) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151204203129) do
 
   create_table "pages", force: :cascade do |t|
     t.integer "website_id"
+    t.text    "slug"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +70,9 @@ ActiveRecord::Schema.define(version: 20151204203129) do
     t.string   "secondary_color"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
+
+  add_index "websites", ["user_id"], name: "index_websites_on_user_id"
 
 end
