@@ -9,29 +9,15 @@ class GreatAdmin::WebsitesController < GreatAdminController
     @website = Website.new
   end
   
-  def show
-    @website = Website.find params[:id]
-  end
-
-  def edit
-    @website = Website.find params[:id]
-  end
-  
   def create
     @website = Website.new(website_params)
-    if @website.save
-      redirect_to [:great_admin, Website], notice: 'website was successfully created.'
-    else
-      render :new
-    end
+    return redirect_to [:great_admin, Website], notice: 'Website created' if @website.save
+    render :new
   end
 
   def update
-    if @website.update(website_params)
-      redirect_to [:great_admin, @website]
-    else
-      render :edit
-    end
+    return redirect_to [:great_admin, @website] if @website.update(website_params)
+    render :edit
   end
   
   def destroy
