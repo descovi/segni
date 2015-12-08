@@ -10,8 +10,8 @@
           = f.input :content_en, as: :text
         .col-sm-12
           = f.button :submit
-        - @page.simple_blocks.each do |block|
-          = render 'admin/simple_blocks/form', block: block
-%hr
+- @page.simple_blocks.each do |block|
+  %hr
+  .row(style="margin-bottom:20px")= render 'admin/simple_blocks/form', block: block
+
 = button_to 'Nuovo blocco', [:admin, SimpleBlock.new, page_id: @page.id]
-%hr
