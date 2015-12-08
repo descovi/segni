@@ -26,7 +26,11 @@ class GreatAdmin::WebsitesController < GreatAdminController
   end
 
   def website_params
-    params.require(:website).permit(:name_slug, :primary_color, :secondary_color, :user_id)
+    params.require(:website).permit(:name,
+                                    :name_slug, 
+                                    :primary_color, 
+                                    :secondary_color, 
+                                    :user_id)
   end
 
   def set_website
