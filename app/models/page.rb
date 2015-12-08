@@ -1,6 +1,7 @@
 class Page < ActiveRecord::Base
   belongs_to :website
   has_many :page_translations
+  has_many :simple_blocks
   
   translates :title, :content, :slug
   extend FriendlyId

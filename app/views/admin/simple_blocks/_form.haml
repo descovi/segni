@@ -1,0 +1,11 @@
+.col-sm-12
+  .row
+    = simple_form_for [:admin, block] do |f|
+      .col-sm-12
+        = f.input :title, as: :string
+        = f.input :content
+        = f.input :action, as: :string
+        = f.input :background_image
+      .col-sm-12
+        = f.button :submit
+        = link_to 'delete', [:admin, block], :method => :delete

@@ -1,10 +1,17 @@
 .row
-  = simple_form_for [:admin, @page] do |f|
-    .col-sm-6
-      = f.input :title_it
-      = f.input :content_it, as: :text
-    .col-sm-6
-      = f.input :title_en
-      = f.input :content_en, as: :text
-    .col-sm-12
-      = f.button :submit
+  .col-sm-12
+    .row
+      = simple_form_for [:admin, @page] do |f|
+        .col-sm-6
+          = f.input :title_it
+          = f.input :content_it, as: :text
+        .col-sm-6
+          = f.input :title_en
+          = f.input :content_en, as: :text
+        .col-sm-12
+          = f.button :submit
+        - @page.simple_blocks.each do |block|
+          = render 'admin/simple_blocks/form', block: block
+%hr
+= button_to 'Nuovo blocco', [:admin, SimpleBlock.new, page_id: @page.id]
+%hr

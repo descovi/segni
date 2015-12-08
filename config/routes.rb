@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         get '/', to: redirect("#{I18n.locale}/admin/pages")
         resources :pages
         resources :operas
+        resources :simple_blocks
       end
 
     end

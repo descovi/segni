@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206213012) do
+ActiveRecord::Schema.define(version: 20151208115843) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -43,6 +43,19 @@ ActiveRecord::Schema.define(version: 20151206213012) do
     t.integer "website_id"
     t.text    "slug"
   end
+
+  create_table "simple_blocks", force: :cascade do |t|
+    t.integer  "page_id"
+    t.string   "background_image_file_name"
+    t.string   "background_image_content_type"
+    t.integer  "background_image_file_size"
+    t.datetime "background_image_updated_at"
+    t.text     "title"
+    t.text     "content"
+    t.text     "action"
+  end
+
+  add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
 
   create_table "users", force: :cascade do |t|
     t.text     "name"

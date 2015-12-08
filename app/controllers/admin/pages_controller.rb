@@ -53,5 +53,7 @@ class Admin::PagesController < AdminController
       cooked_params.delete :title_it
       cooked_params.delete :content_it
     end
+
+    return cooked_params
   end
 end
