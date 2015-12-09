@@ -1,9 +1,18 @@
+= simple_form_for [:admin, @website] do |f|
+  = f.association :first_page
+          
+  = f.button :submit
+
+%br
+%br
+
 %table.table
   %tr
     %th Title Italian
     %th Title English
     %th
       .pull-right= link_to 'New page', new_admin_page_path
+  
   - @website.pages.each do |page|
     %tr
       %td
