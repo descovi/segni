@@ -6,6 +6,7 @@
         = f.input :content
         = f.input :action, as: :string
         = f.input :background_image
+        = f.input :full_height
       .col-sm-12
         = f.button :submit
         = link_to 'delete', [:admin, block], :method => :delete

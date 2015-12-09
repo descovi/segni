@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209175744) do
+ActiveRecord::Schema.define(version: 20151209211211) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20151209175744) do
     t.text     "title"
     t.text     "content"
     t.text     "action"
+    t.boolean  "full_height"
+    t.boolean  "background_color"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
