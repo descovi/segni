@@ -1,6 +1,12 @@
 .row
   .col-sm-12
     .row
+      .col-sm-12
+        = simple_form_for [:admin, @page.website] do |f|
+          = f.association :first_page
+          
+          = f.button :submit
+        %hr
       = simple_form_for [:admin, @page] do |f|
         .col-sm-6
           = f.input :title_it

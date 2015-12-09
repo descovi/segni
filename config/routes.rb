@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         resources :pages
         resources :operas
         resources :simple_blocks
+        resources :websites, only: [:update]
       end
 
     end

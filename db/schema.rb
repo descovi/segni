@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208115843) do
+ActiveRecord::Schema.define(version: 20151209175744) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20151208115843) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.integer  "first_page_id"
   end
 
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"
