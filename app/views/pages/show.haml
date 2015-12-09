@@ -1,8 +1,8 @@
 - @page.simple_blocks.each do |block|
   - image_url = block.background_image.url(:big)
-  %section.block{style: "background-image: url('#{image_url}'); background-size: cover"}
-    .container(style="padding: 20px; text-align: center")
-      %h2(style="margin-top:0")= block.title
-      %hr(style="border-color: black; border-width: 3px; max-width: 50px")
-      %p= block.content
+  %section.block{style: "background-image: url('#{image_url}')"}
+    .container
+      %h2= block.title
+      %p
+        = block.content
       %p.action= block.action
