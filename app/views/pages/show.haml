@@ -1,12 +1,11 @@
-- if @page.present? # page can be not present when create first time the website
-  - @page.simple_blocks.each do |block|
-    - image_url = block.background_image.url(:big)
-    - css_custom_block = ""
-    - if block.full_height
-      - css_custom_block = 'height: 100%;'
-    %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
-      .container
-        %h2= block.title
-        %p
-          = block.content
-        %p.action= block.action
+- @page.simple_blocks.each do |block|
+  - image_url = block.background_image.url(:big)
+  - css_custom_block = ""
+  - if block.full_height
+    - css_custom_block = 'height: 100%;'
+  %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
+    .container
+      %h2= block.title
+      %p
+        = block.content
+      %p.action= block.action
