@@ -1,4 +1,4 @@
-- if @page.simple_blocks.present?
+- if @page.present? # page can be not present when create first time the website
   - @page.simple_blocks.each do |block|
     - image_url = block.background_image.url(:big)
     - css_custom_block = ""
