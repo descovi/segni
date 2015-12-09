@@ -1,7 +1,7 @@
 - @page.simple_blocks.each do |block|
   - image_url = block.background_image.url(:big)
   - css_custom_block = ""
-  - if block.full_height
+  - if block.full_height == true
     - css_custom_block = 'min-height: 100%;'
   %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
     .container
