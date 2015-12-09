@@ -7,9 +7,9 @@
       = f.input :title_en
       = f.input :content_en, as: :text
     .col-sm-12
-      = f.button :submit
+      = f.button :submit, class: 'btn btn-primary'
 - @page.simple_blocks.each do |block|
-  %hr
-  .row(style="margin-bottom:20px")= render 'admin/simple_blocks/form', block: block
+  .row(style="margin-bottom:20px; margin-top: 40px")= render 'admin/simple_blocks/form', block: block
 
-= button_to 'Nuovo blocco', [:admin, SimpleBlock.new, page_id: @page.id]
+%p= button_to 'Nuovo blocco', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
+%br

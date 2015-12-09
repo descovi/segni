@@ -9,25 +9,25 @@
     %hr(style="margin-top:0")
     .container
       .row
-        .col-sm-8
+        .col-xs-8
           %strong= @website.name
-        .col-sm-4
+        .col-xs-4
           .pull-right
             - @website.pages.each do |page|
               - if @page == page
                 = page.title
               - else
                 = link_to page.title, page
-            - if action_name == 'show'
+            - if action_name == 'show' or action_name == "welcome"
               - if I18n.locale == :en
                 - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
-                = link_to 'Italiano', link
+                = link_to 'IT', link
               - elsif I18n.locale == :it
                 - link = I18n.with_locale(:en){page_path(@page, locale: 'en')}
-                = link_to 'English', link
+                = link_to 'EN', link
             - else
-              = link_to 'Italiano', url_for(locale: 'it')
-              = link_to 'English',  url_for(locale: 'en')
+              = link_to 'IT', url_for(locale: 'it')
+              = link_to 'EN',  url_for(locale: 'en')
     %hr(style="margin-bottom: 0")
     
     = yield
