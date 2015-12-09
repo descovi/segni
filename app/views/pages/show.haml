@@ -1,11 +1,12 @@
-- @page.simple_blocks.each do |block|
-  - image_url = block.background_image.url(:big)
-  - css_custom_block = ""
-  - if block.full_height
-    - css_custom_block = 'height: 100%;'
-  %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
-    .container
-      %h2= block.title
-      %p
-        = block.content
-      %p.action= block.action
+- if @page.simple_blocks.present?
+  - @page.simple_blocks.each do |block|
+    - image_url = block.background_image.url(:big)
+    - css_custom_block = ""
+    - if block.full_height
+      - css_custom_block = 'height: 100%;'
+    %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
+      .container
+        %h2= block.title
+        %p
+          = block.content
+        %p.action= block.action
