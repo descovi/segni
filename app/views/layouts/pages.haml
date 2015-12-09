@@ -28,6 +28,6 @@
             - else
               = link_to 'Italiano', url_for(locale: 'it')
               = link_to 'English',  url_for(locale: 'en')
-    %hr
-      .container
-        = yield
+    %hr(style="margin-bottom: 0")
+    
+    = yield
