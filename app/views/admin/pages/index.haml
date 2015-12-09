@@ -16,9 +16,10 @@
   - @website.pages.each do |page|
     %tr
       %td
-        = link_to page.title_it, page, locale: 'it', target: '_blank'
+        = link_to page.title_it, [:edit, :admin, page], locale: 'it'
       %td
-        = link_to page.title_en, page, locale: 'en', target: '_blank'
+        = link_to page.title_en, [:edit, :admin, page], locale: 'en'
       %td
-        = link_to 'Edit', [:edit, :admin, page]
-        = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}
+        .pull-right
+          = link_to 'Edit', [:edit, :admin, page]
+          = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}
