@@ -1,6 +1,21 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+
+$brand-primary: #000
+$link-color: lighten($brand-primary, 50%)
+$font-size-base: 14px
+$font-size-h1: $font-size-base
+$font-size-h2: $font-size-base
+$font-size-h3: $font-size-base
+$font-size-h4: $font-size-base
+
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
 .title
   text-transform: uppercase
+.block
+  
+  background-position: center
+  padding: 5%
+  h2
+    margin-top: 0
