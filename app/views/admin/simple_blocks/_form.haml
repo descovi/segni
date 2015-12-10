@@ -4,18 +4,14 @@
       = simple_form_for [:admin, block] do |f|
         .row
           - if block.custom_type == "image-block"
-            .col-sm-6= f.input :title_it, as: :string
-            .col-sm-6= f.input :title_en, as: :string
             .col-sm-12
               .row
-                .col-sm-4= f.input :image_1
-                .col-sm-4= f.input :image_2
-                .col-sm-4= f.input :image_3
-              .row
-                .col-sm-4= f.input :image_4
-                .col-sm-4= f.input :image_5
-                .col-sm-4= f.input :image_6
-              .row
+                - [1,2,3,4,5,6].each do |element|
+                  .col-sm-4
+                    - if block.send("image_#{element}").present?
+                      - url = block.send("image_#{element}").url(:block6)
+                      = image_tag url, class: 'btn-upload-img img-responsive'
+                    = f.input "image_#{element}".to_sym
                 .col-sm-12= f.button :submit, class: 'btn btn-primary'
           - else
             .col-sm-6

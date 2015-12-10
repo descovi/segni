@@ -2,7 +2,7 @@ class SimpleBlock < ActiveRecord::Base
   belongs_to :page
   styles = { 
     medium: "300x300>", 
-    thumb: "100x100>",
+    block6: "650x350>",
     big: "1024x1024#",
     big_standard: "1080x720",
     big_hq: "1600x1200"
