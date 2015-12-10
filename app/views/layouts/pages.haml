@@ -10,7 +10,8 @@
     .container
       .row
         .col-xs-8
-          %strong.title= @website.name
+          %strong.title
+            = link_to @website.name, @website.first_page
         .col-xs-4
           .pull-right
             - @website.pages.each do |page|
