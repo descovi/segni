@@ -2,7 +2,7 @@
 %html
   %head
     %title= "#{@website.name} - #{@page.title}"
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application-orange', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
@@ -10,24 +10,24 @@
     .container
       .row
         .col-xs-8
-          %strong= @website.name
+          %strong.title= @website.name
         .col-xs-4
           .pull-right
             - @website.pages.each do |page|
-              - if @page == page
+              - if @website.first_page == page
+                = ""
+              - elsif @page == page
                 = page.title
               - else
                 = link_to page.title, page
-            - if action_name == 'show' or action_name == "welcome"
+            - if action_name == 'show' or action_name == "hi"
               - if I18n.locale == :en
                 - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
-                = link_to 'IT', link
+                = link_to 'Italian', link
               - elsif I18n.locale == :it
                 - link = I18n.with_locale(:en){page_path(@page, locale: 'en')}
-                = link_to 'EN', link
-            - else
-              = link_to 'IT', url_for(locale: 'it')
-              = link_to 'EN',  url_for(locale: 'en')
+                = link_to 'English', link
+              
     %hr(style="margin-bottom: 0")
     
     = yield

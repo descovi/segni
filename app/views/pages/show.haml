@@ -3,9 +3,19 @@
   - css_custom_block = ""
   - if block.full_height == true
     - css_custom_block = 'min-height: 100%;'
-  %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}"}
-    .container
-      %h2= block.title
-      %p
-        = simple_format block.content
-      %p.action= block.action
+  - if block.background_image.blank?
+    - css_class_custom = 'block-only-text'
+
+  %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}", class: css_class_custom}
+    - if block.full_height.present?
+      .container.block-content
+        .block-content-inner
+          %h2= block.title
+          %hr
+          %p= simple_format block.content
+          %p.action= block.action
+    - else
+      .container
+        %h2= block.title
+        %p= simple_format block.content
+        %p.action= block.action
