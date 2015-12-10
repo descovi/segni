@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209230247) do
+ActiveRecord::Schema.define(version: 20151210155514) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20151209230247) do
 
   create_table "pages", force: :cascade do |t|
     t.integer "website_id"
-    t.text    "slug"
   end
 
   create_table "simple_block_translations", force: :cascade do |t|
@@ -68,6 +67,31 @@ ActiveRecord::Schema.define(version: 20151209230247) do
     t.text     "action"
     t.boolean  "full_height"
     t.boolean  "background_color"
+    t.string   "image_1_file_name"
+    t.string   "image_1_content_type"
+    t.integer  "image_1_file_size"
+    t.datetime "image_1_updated_at"
+    t.string   "image_2_file_name"
+    t.string   "image_2_content_type"
+    t.integer  "image_2_file_size"
+    t.datetime "image_2_updated_at"
+    t.string   "image_3_file_name"
+    t.string   "image_3_content_type"
+    t.integer  "image_3_file_size"
+    t.datetime "image_3_updated_at"
+    t.string   "image_4_file_name"
+    t.string   "image_4_content_type"
+    t.integer  "image_4_file_size"
+    t.datetime "image_4_updated_at"
+    t.string   "image_5_file_name"
+    t.string   "image_5_content_type"
+    t.integer  "image_5_file_size"
+    t.datetime "image_5_updated_at"
+    t.string   "image_6_file_name"
+    t.string   "image_6_content_type"
+    t.integer  "image_6_file_size"
+    t.datetime "image_6_updated_at"
+    t.string   "custom_type"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
