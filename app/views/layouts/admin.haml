@@ -6,15 +6,18 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %div(style="position: fixed; z-index:1000; width: 100%;background-color: #fff; ")
+    .menu-fixed
       %hr(style="margin-top: 0; padding-top: 0")
       .container
         .pull-left
           = link_to raw('<strong>Admin area</strong>'), admin_pages_path, class: 'btn btn-default'
+
           
         .pull-right
           - if action_name == 'edit'
-            = link_to 'See page', @page, target: '_blank', class: 'btn btn-primary'
+            = link_to 'See', @page, target: '_blank', class: 'btn btn-primary'
+          - if action_name == 'index'
+            = link_to 'See', @website.first_page, target: '_blank', class: 'btn btn-primary'
       %hr(style="margin-bottom:0")
     .container(style="padding-top: 90px")
       = yield
