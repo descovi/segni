@@ -2,7 +2,7 @@ class Admin::SimpleBlocksController < AdminController
   
   def create
     page = Page.find(params[:page_id])
-    s = SimpleBlock.new()
+    s = SimpleBlock.new(custom_type: params['custom_type'])
     s.page = page
     s.save
     redirect_to [:edit, :admin, page]

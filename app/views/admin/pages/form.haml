@@ -6,10 +6,12 @@
     .col-sm-6
       = f.input :title_en
       = f.input :content_en, as: :text
-    .col-sm-12
+    .col-sm-12(style="margin-bottom: 20px")
       = f.button :submit, class: 'btn btn-primary'
+
 - @page.simple_blocks.each do |block|
-  .row(style="margin-bottom:20px; margin-top: 40px")= render 'admin/simple_blocks/form', block: block
+  .row= render 'admin/simple_blocks/form', block: block
 
 %p= button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
+%p=button_to 'Add block image', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary'
 %br
