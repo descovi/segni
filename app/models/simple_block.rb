@@ -4,6 +4,7 @@ class SimpleBlock < ActiveRecord::Base
     medium: "300x300>", 
     thumb: "100x100>",
     big: "1024x1024#",
+    big_standard: "1080x720",
     big_hq: "1600x1200"
   }, default_url: "/images/:style/missing.png"
   translates :title, :content, :action
