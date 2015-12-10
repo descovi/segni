@@ -11,6 +11,9 @@ class GreatAdmin::WebsitesController < GreatAdminController
   
   def create
     @website = Website.new(website_params)
+    new_page = Page.new(title: 'Welcome')
+    @website.pages << new_page
+    @website.first_page = new_page
     return redirect_to [:great_admin, Website], notice: 'Website created' if @website.save
     render :new
   end
