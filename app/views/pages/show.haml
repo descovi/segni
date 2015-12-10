@@ -8,6 +8,10 @@
 
   %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}", class: css_class_custom}
     - if block.custom_type == 'image-block'
+      :css
+        .block {
+          padding: 0
+        }
       .container-fluid(style="padding: 0%")
         - [1,2,3,4,5,6].each do |element|
           - img = block.send("image_#{element}")
