@@ -14,6 +14,8 @@
             = f.input :action_en, as: :string
 
           .col-sm-12
+            - if block.background_image.present?
+              = image_tag block.background_image.url(:medium), class: 'btn-upload-img'
             = f.input :background_image
             = f.input :full_height
             = f.button :submit, class: 'btn btn-primary'

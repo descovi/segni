@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('document').ready(function(){
+  
+  $('.btn-upload-img').css('cursor', 'pointer')
+  $('.btn-upload-img').click(function(e){
+    var $input = $(this).next().find('input')
+    $input.trigger('click')
+  })
+
+})
