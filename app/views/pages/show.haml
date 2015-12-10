@@ -1,32 +1,26 @@
 - @page.simple_blocks.each do |block|
   - image_url = block.background_image.url(:big_standard)
-  - css_custom_block = ""
-  - if block.full_height == true
-    - css_custom_block = 'min-height: 100%;'
   - if block.background_image.blank?
     - css_class_custom = 'block-only-text'
 
-  %section.block{style: "background-image: url('#{image_url}'); #{css_custom_block}", class: css_class_custom}
-    - if block.custom_type == 'image-block'
-      :css
-        .block {
-          padding: 0
-        }
-      .container-fluid(style="padding: 0%")
+  - if block.custom_type == 'image-block'
+    %section.block(style="padding: 0")
+      .container-fluid(style="padding: 0")
         - [1,2,3,4,5,6].each do |element|
           - img = block.send("image_#{element}")
           - bg_img = asset_path(img.url(:block6)) if img.present?
           .col-lg-4.col-sm-6{style: "background-image:url(#{bg_img}); min-height: 300px; background-position: center; background-size: cover"}
-            
-            
-    - elsif block.full_height.present?
+          
+  - elsif block.full_height.present?
+    %section.block{style: "background-image: url('#{image_url}'); min-height: 100%;", class: css_class_custom}
       .container.block-content
         .block-content-inner
           %h2= block.title
           %hr
           %p= simple_format block.content
           %p.action= block.action
-    - else
+  - else
+    %section.block{style: "background-image: url('#{image_url}');", class: css_class_custom}
       .container
         %h2= block.title
         %hr

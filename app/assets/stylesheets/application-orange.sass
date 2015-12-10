@@ -30,12 +30,6 @@ html, body
   padding-bottom: 5%
   text-align: center
   position: relative
-  .block-content
-    position: absolute
-    top: 50%
-    width: 100%
-    .block-content-inner
-      transform: translateY(-50%)
   h2
     margin-top: 0
     font-size: 7vw
@@ -46,6 +40,14 @@ html, body
     max-width: 50px
     border-color: $brand-primary
     border-width: 3px
+
+.block-content
+  position: absolute
+  top: 50%
+  width: 100%
+
+.block-content-inner
+  transform: translateY(-50%)
 
 .block-foto
   color: $body-bg
