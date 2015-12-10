@@ -11,5 +11,5 @@
 - @page.simple_blocks.each do |block|
   .row(style="margin-bottom:20px; margin-top: 40px")= render 'admin/simple_blocks/form', block: block
 
-%p= button_to 'Nuovo blocco', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
+%p= button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
 %br

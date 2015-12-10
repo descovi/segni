@@ -1,11 +1,3 @@
-= simple_form_for [:admin, @website] do |f|
-  = f.association :first_page
-          
-  = f.button :submit
-
-%br
-%br
-
 %table.table
   %tr
     %th Title Italian
@@ -21,5 +13,12 @@
         = link_to page.title_en, [:edit, :admin, page], locale: 'en'
       %td
         .pull-right
-          = link_to 'Edit', [:edit, :admin, page]
-          = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}
+          = link_to 'Edit', [:edit, :admin, page], class: 'btn btn-primary btn-xs'
+          = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+
+.row
+  .col-sm-4
+    = simple_form_for [:admin, @website] do |f|
+      = f.association :first_page
+              
+      = f.button :submit
