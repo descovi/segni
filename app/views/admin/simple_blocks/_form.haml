@@ -3,20 +3,33 @@
     .panel-body
       = simple_form_for [:admin, block] do |f|
         .row
-          .col-sm-6
-            = f.input :title_it, as: :string
-            = f.input :content_it, as: :text
-            = f.input :action_it, as: :string
-
-          .col-sm-6
-            = f.input :title_en, as: :string
-            = f.input :content_en, as: :text
-            = f.input :action_en, as: :string
-
-          .col-sm-12
-            - if block.background_image.present?
-              = image_tag block.background_image.url(:medium), class: 'btn-upload-img'
-            = f.input :background_image
-            = f.input :full_height
-            = f.button :submit, class: 'btn btn-primary'
-            = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
+          - if block.custom_type == "image-block"
+            .col-sm-6= f.input :title_it, as: :string
+            .col-sm-6= f.input :title_en, as: :string
+            .col-sm-12
+              .row
+                .col-sm-4= f.input :image_1
+                .col-sm-4= f.input :image_2
+                .col-sm-4= f.input :image_3
+              .row
+                .col-sm-4= f.input :image_4
+                .col-sm-4= f.input :image_5
+                .col-sm-4= f.input :image_6
+              .row
+                .col-sm-12= f.button :submit, class: 'btn btn-primary'
+          - else
+            .col-sm-6
+              = f.input :title_it,   as: :string
+              = f.input :content_it, as: :text
+              = f.input :action_it,  as: :string
+            .col-sm-6
+              = f.input :title_en,   as: :string
+              = f.input :content_en, as: :text
+              = f.input :action_en,  as: :string
+            .col-sm-12
+              - if block.background_image.present?
+                = image_tag block.background_image.url(:medium), class: 'btn-upload-img'
+              = f.input :background_image
+              = f.input :full_height
+              = f.button :submit, class: 'btn btn-primary'
+              = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
