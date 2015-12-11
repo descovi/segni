@@ -1,6 +1,4 @@
-%h1 Listing operas
-
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -21,7 +19,7 @@
         %td= opera.website_id
         %td= opera.image
         %td= link_to 'Show', opera
-        %td= link_to 'Edit', edit_opera_path(opera)
+        %td= link_to 'Edit', edit_admin_opera_path(opera)
         %td= link_to 'Destroy', opera, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br

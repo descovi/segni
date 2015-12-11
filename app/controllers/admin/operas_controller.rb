@@ -25,10 +25,10 @@ before_action :set_opera, only: [:show, :edit, :update, :destroy]
   # POST /operas.json
   def create
     @opera = Opera.new(opera_params)
-
+    @opera.website =  @website
     respond_to do |format|
       if @opera.save
-        format.html { redirect_to @opera, notice: 'Opera was successfully created.' }
+        format.html { redirect_to [:admin, @opera], notice: 'Opera was successfully created.' }
         format.json { render :show, status: :created, location: @opera }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opera_params
-      params.require(:opera).permit(:name, :year, :archive_index, :website_id, :image)
+      params.require(:opera).permit(:name, :year, :archive_index, :website_id, :image, :description)
     end
 end
