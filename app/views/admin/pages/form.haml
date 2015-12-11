@@ -13,5 +13,5 @@
   .row= render 'admin/simple_blocks/form', block: block
 
 %p= button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
-%p=button_to 'Add block image', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary'
+%p= button_to 'Add block image', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary'
 %br

@@ -7,10 +7,8 @@
   
   - @website.pages.each do |page|
     %tr
-      %td
-        = link_to page.title_it, [:edit, :admin, page], locale: 'it'
-      %td
-        = link_to page.title_en, [:edit, :admin, page], locale: 'en'
+      %td= link_to page.title_it, [:edit, :admin, page], locale: 'it'
+      %td= link_to page.title_en, [:edit, :admin, page], locale: 'en'
       %td
         .pull-right
           = link_to 'Edit', [:edit, :admin, page], class: 'btn btn-primary btn-xs'
@@ -20,5 +18,4 @@
   .col-sm-4
     = simple_form_for [:admin, @website] do |f|
       = f.association :first_page
-              
       = f.button :submit

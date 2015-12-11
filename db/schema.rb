@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151210155514) do
+ActiveRecord::Schema.define(version: 20151211164729) do
 
   create_table "operas", force: :cascade do |t|
     t.text     "name"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20151210155514) do
     t.integer  "image_6_file_size"
     t.datetime "image_6_updated_at"
     t.string   "custom_type"
+    t.boolean  "colors_inverted"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"

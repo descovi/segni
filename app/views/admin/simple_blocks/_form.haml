@@ -12,7 +12,9 @@
                       - url = block.send("image_#{element}").url(:block6)
                       = image_tag url, class: 'btn-upload-img img-responsive'
                     = f.input "image_#{element}".to_sym
-                .col-sm-12= f.button :submit, class: 'btn btn-primary'
+                .col-sm-12
+                  = f.button :submit, class: 'btn btn-primary'
+                  = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
           - else
             .col-sm-6
               = f.input :title_it,   as: :string
@@ -26,6 +28,13 @@
               - if block.background_image.present?
                 = image_tag block.background_image.url(:medium), class: 'btn-upload-img'
               = f.input :background_image
-              = f.input :full_height
+              .row
+                .col-xs-2
+                  = f.input_field :full_height, label: false
+                  Full height
+                .col-xs-2 
+                  = f.input_field :colors_inverted, label: false
+                  Colors inverted
+
               = f.button :submit, class: 'btn btn-primary'
               = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
