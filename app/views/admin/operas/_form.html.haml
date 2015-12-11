@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @opera] do |f|
+
+  = f.input :name, as: :string
+  = f.input :description
+  - if false
+    = f.input :archive_index
+  = f.input :image
+  .actions
+    = f.submit 'Save'

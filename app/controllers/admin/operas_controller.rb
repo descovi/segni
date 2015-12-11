@@ -1,5 +1,5 @@
-class OperasController < ApplicationController
-  before_action :set_opera, only: [:show, :edit, :update, :destroy]
+class Admin::OperasController < AdminController
+before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
   # GET /operas
   # GET /operas.json
@@ -25,7 +25,6 @@ class OperasController < ApplicationController
   # POST /operas.json
   def create
     @opera = Opera.new(opera_params)
-    @opera.website = @opera
 
     respond_to do |format|
       if @opera.save

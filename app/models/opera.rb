@@ -10,5 +10,5 @@ class Opera < ActiveRecord::Base
     _1024x768d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :image, :website, presence: true
+  validates :website, presence: true
 end
