@@ -45,4 +45,5 @@
           %hr
           - if block.content.present?
             %p= simple_format block.content
-          .btn.action= block.action
+          - if block.action.present?
+            .btn.action= block.action
