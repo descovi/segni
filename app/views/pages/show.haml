@@ -33,7 +33,7 @@
           - if block.content.present? or block.action.present?
             %hr
             %p= simple_format block.content
-            %p= block.action
+            .btn.action= block.action
   
   - else
     / STANDARD BLOCK
