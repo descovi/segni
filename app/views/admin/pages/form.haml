@@ -1,11 +1,11 @@
 .row
   = simple_form_for [:admin, @page] do |f|
-    .col-sm-6
+    .col-sm-12
       = f.input :title_it
       = f.input :content_it, as: :text
-    .col-sm-6
-      = f.input :title_en
-      = f.input :content_en, as: :text
+    / .col-sm-6
+    /   = f.input :title_en
+    /   = f.input :content_en, as: :text
     .col-sm-12(style="margin-bottom: 20px")
       = f.button :submit, class: 'btn btn-primary'
 

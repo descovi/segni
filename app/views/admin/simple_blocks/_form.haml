@@ -20,21 +20,19 @@
               = f.input :title_it,   as: :string
               = f.input :content_it, as: :text
               = f.input :action_it,  as: :string
+            / .col-sm-6
+            /   = f.input :title_en,   as: :string
+            /   = f.input :content_en, as: :text
+            /   = f.input :action_en,  as: :string
             .col-sm-6
-              = f.input :title_en,   as: :string
-              = f.input :content_en, as: :text
-              = f.input :action_en,  as: :string
-            .col-sm-12
               - if block.background_image.present?
                 = image_tag block.background_image.url(:medium), class: 'btn-upload-img'
               = f.input :background_image
-              .row
-                .col-xs-2
-                  = f.input_field :full_height, label: false
-                  Full height
-                .col-xs-2 
-                  = f.input_field :colors_inverted, label: false
-                  Colors inverted
-
+            .col-sm-12
+              = f.input_field :full_height, label: false
+              Full height
+              = f.input_field :colors_inverted, label: false
+              Colors inverted
+            .col-sm-12
               = f.button :submit, class: 'btn btn-primary'
               = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
