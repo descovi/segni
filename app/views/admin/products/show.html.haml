@@ -14,7 +14,8 @@
   = @product.website_id
 %p
   %b Image:
-  = @product.image
+  %br
+  = image_tag @product.image
 
 = link_to 'Edit', edit_admin_product_path(@product)
 \|

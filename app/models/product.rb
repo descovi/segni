@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   # d is for dynamic
   # c is for cropped
   has_attached_file :image, styles: { 
+    _20x20c: '20x20#',
     _50x50c: '50x50#',
     _100x100c:  '100x100#',
     _1024x768d: '1024x768>' 
