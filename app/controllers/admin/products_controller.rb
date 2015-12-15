@@ -1,12 +1,6 @@
 class Admin::ProductsController < AdminController
 before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /operas
-  # GET /operas.json
-  def index
-    @products = Product.all
-  end
-
   # GET /operas/1
   # GET /operas/1.json
   def show
