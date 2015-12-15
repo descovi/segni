@@ -4,6 +4,7 @@
       %th Image
       %th Name
       %th Price
+      %th First page
       %th
         .pull-right
           = link_to 'Add product', new_admin_product_path, class: 'btn btn-primary btn-xs'
@@ -11,9 +12,14 @@
   %tbody
     - products.each do |product|
       %tr
-        %td= image_tag product.image.url(:_20x20c)
+        %td
+          - if product.image.present?
+            = image_tag product.image.url(:_20x20c)
+          - else
+            n/a
         %td= product.name
         %td= product.price
+        %td= product.first_page
         %td
           .pull-right
             = link_to 'Edit', edit_admin_product_path(product), class: 'btn btn-xs btn-link'

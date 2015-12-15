@@ -12,10 +12,11 @@
 %p
   %b Website:
   = @product.website_id
-%p
-  %b Image:
-  %br
-  = image_tag @product.image
+- if @product.image.present?
+  %p
+    %b Image:
+    %br
+    = image_tag @product.image
 
 = link_to 'Edit', edit_admin_product_path(@product)
 \|
