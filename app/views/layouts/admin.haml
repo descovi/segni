@@ -16,7 +16,7 @@
         .pull-right
           - if action_name == 'edit'
             = link_to 'See', @page, target: '_blank', class: 'btn btn-primary'
-          - if action_name == 'index'
+          - else
             = link_to 'See', @website.first_page, target: '_blank', class: 'btn btn-primary'
       %hr(style="margin-bottom:0")
     .container(style="padding-top: 90px")
