@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get '/', to: redirect("#{I18n.locale}/admin/pages")
+    get '/', to: redirect("#{I18n.locale}/admin")
   end
 
   constraints subdomain: /.+/ do
