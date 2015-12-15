@@ -8,8 +8,7 @@
     - css_class_custom = 'block-only-text' 
   - if block.colors_inverted == true
     - css_class_custom += ' block-inverted'
-    
-
+  
   - if block.custom_type == 'image-block' 
     / BLOCK OF SIX PHOTOS
     / [ - - - ]
@@ -21,6 +20,11 @@
           -if img.present?
             - bg_img = asset_path(img.url(:block6)) 
           .six-image-1-cell.col-lg-4.col-sm-6{style: "background-image:url(#{bg_img});"}
+  - elsif block.custom_type == 'products-block'
+    - @website.products_first_page.each do |product|
+      - if product.image.present?
+        - bg_img = asset_path(product.image.url(:_650x350d))
+      .six-image-1-cell.col-lg-4.col-sm-6{style: "background-image:url(#{bg_img});"}
   - elsif block.full_height.present?
     / BLOCK FULL HEIGHT
     / [  ]

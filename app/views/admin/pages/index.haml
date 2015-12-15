@@ -1,7 +1,6 @@
-= render 'list', pages: @website.pages
-
 .row
+  .col-sm-8= render 'list', pages: @website.pages
   .col-sm-4
     = simple_form_for [:admin, @website] do |f|
       = f.association :first_page
-      = f.button :submit
+      = f.button :submit, class: 'btn-block, btn-xs'

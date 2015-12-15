@@ -4,4 +4,7 @@ class Website < ActiveRecord::Base
   has_many :products
   belongs_to :user
   belongs_to :first_page, class_name: 'Page'
+  def products_first_page
+    products.where(first_page: true)
+  end
 end

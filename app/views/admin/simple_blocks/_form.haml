@@ -15,6 +15,14 @@
                 .col-sm-12
                   = f.button :submit, class: 'btn btn-primary'
                   = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
+          - elsif block.custom_type == "products-block"
+            .col-sm-12
+              .row
+                - @website.products_first_page.each do |product|
+                  .col-sm-4
+                    = link_to image_tag(product.image.url(:_200x200c))
+                    %br
+                    = link_to product.name, [:edit, :admin, product]
           - else
             .col-sm-6
               = f.input :title_it,   as: :string
@@ -34,5 +42,5 @@
               = f.input_field :colors_inverted, label: false
               Colors inverted
             .col-sm-12
-              = f.button :submit, class: 'btn btn-primary'
-              = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
+              = f.button :submit, class: 'btn btn-primary btn-xs'
+              = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger btn-xs'

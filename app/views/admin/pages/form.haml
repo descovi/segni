@@ -7,11 +7,19 @@
     /   = f.input :title_en
     /   = f.input :content_en, as: :text
     .col-sm-12(style="margin-bottom: 20px")
-      = f.button :submit, class: 'btn btn-primary'
+      .pull-right= f.button :submit, class: 'btn btn-primary btn-xs'
+
+- if action_name != 'new'
+  %hr(style="margin-top:0")
+  .row
+    .col-sm-7
+    .col-sm-5
+
+      = button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 0'
+      = button_to 'Add new block of images', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
+      = button_to 'Add new block of products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
+
+  %hr
 
 - @page.simple_blocks.each do |block|
   .row= render 'admin/simple_blocks/form', block: block
-
-%p= button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary'
-%p= button_to 'Add block image', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary'
-%br

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215114135) do
+ActiveRecord::Schema.define(version: 20151215154912) do
 
   create_table "page_translations", force: :cascade do |t|
     t.integer  "page_id",    null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20151215114135) do
     t.datetime "updated_at",         null: false
     t.text     "description"
     t.string   "price"
+    t.boolean  "first_page"
   end
 
   create_table "simple_block_translations", force: :cascade do |t|
