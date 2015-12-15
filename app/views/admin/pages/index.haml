@@ -1,21 +1,4 @@
-%table.table.table-striped
-  %thead
-    %tr
-      %th Title Italian
-      / %th Title English
-      %th
-        .pull-right= link_to 'New page', new_admin_page_path, class: 'btn btn-primary btn-xs'
-  
-  %tbody
-    - @website.pages.each do |page|
-      %tr
-        %td= link_to page.title_it, [:edit, :admin, page], locale: 'it'
-        / %td= link_to page.title_en, [:edit, :admin, page], locale: 'en'
-        %td
-          .pull-right
-            = link_to 'Preview', page, target: '_blank', class: 'btn btn-xs btn-primary'
-            = link_to 'Edit', [:edit, :admin, page], class: 'btn btn-primary btn-xs'
-            = link_to 'Destroy', [:admin, page], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+= render 'list', pages: @website.pages
 
 .row
   .col-sm-4
