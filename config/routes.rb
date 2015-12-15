@@ -13,14 +13,14 @@ Rails.application.routes.draw do
 
   constraints subdomain: /.+/ do
     scope "/:locale" do
-      resources :operas, only: [:show]
+      resources :products, only: [:show]
       resources :pages, only: [:show]
 
       
       namespace :admin do
         get '/', to: redirect("#{I18n.locale}/admin/pages")
         resources :pages
-        resources :operas
+        resources :products
         resources :simple_blocks
         resources :websites, only: [:update]
       end

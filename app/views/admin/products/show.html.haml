@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+%p
+  %b Year:
+  = @product.year
+%p
+  %b Archive index:
+  = @product.archive_index
+%p
+  %b Website:
+  = @product.website_id
+%p
+  %b Image:
+  = @product.image
+
+= link_to 'Edit', edit_admin_product_path(@product)
+\|
+= link_to 'Back', admin_products_path

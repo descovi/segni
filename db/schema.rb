@@ -11,21 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211193153) do
-
-  create_table "operas", force: :cascade do |t|
-    t.text     "name"
-    t.date     "year"
-    t.integer  "archive_index"
-    t.integer  "website_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.text     "description"
-  end
+ActiveRecord::Schema.define(version: 20151215110126) do
 
   create_table "page_translations", force: :cascade do |t|
     t.integer  "page_id",    null: false
@@ -42,6 +28,20 @@ ActiveRecord::Schema.define(version: 20151211193153) do
 
   create_table "pages", force: :cascade do |t|
     t.integer "website_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.text     "name"
+    t.date     "year"
+    t.integer  "archive_index"
+    t.integer  "website_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "description"
   end
 
   create_table "simple_block_translations", force: :cascade do |t|
