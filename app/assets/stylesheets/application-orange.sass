@@ -42,6 +42,21 @@ html, body
     border-color: #fff
     border-width: 3px
 
+  .block-hover
+    width: 100%
+    height: 300px
+    padding: 20px
+    color: white
+    opacity: 0
+    transition: all 1s ease
+    &:hover
+      opacity: 1
+      display: block
+      background-color: rgba(0,0,0,.5)
+
+      text-align: center
+      padding-top: 140px
+
   .block-content
     position: absolute
     top: 50%
@@ -77,14 +92,6 @@ html, body
     background-color: $brand-primary
     color: #fff
 
-.block-over
-  background-color: rgba(0,0,0,.8)
-  width: 100%
-  height: 300px
-  padding: 20px
-  color: white
-  text-align: center
-  padding-top: 140px
 
 .six-image-1-cell
   min-height: 300px
