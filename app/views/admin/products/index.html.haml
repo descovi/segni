@@ -1,20 +1,4 @@
-%table.table
-  %thead
-    %tr
-      %th Image
-      %th Name
-      %th
-
-  %tbody
-    - @products.each do |product|
-      %tr
-        %td= image_tag product.image.url(:_100x100c)
-        %td= product.name
-        %td
-          .pull-right
-            = link_to 'Show', [:admin, product]
-            = link_to 'Edit', edit_admin_product_path(product)
-            = link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render 'list'
 
 %br
 

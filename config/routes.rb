@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
       
       namespace :admin do
-        get '/', to: redirect("#{I18n.locale}/admin/pages")
+        get '/' => 'dashboard#home'
         resources :pages
         resources :products
         resources :simple_blocks
