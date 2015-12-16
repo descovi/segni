@@ -1,5 +1,6 @@
 class SimpleBlock < ActiveRecord::Base
   belongs_to :page
+  acts_as_list scope: :page
   styles = { 
     medium: "300x300>", 
     block6: "650x350>",

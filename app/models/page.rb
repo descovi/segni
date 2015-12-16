@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   belongs_to :website
   has_many :page_translations
-  has_many :simple_blocks
+  has_many :simple_blocks, -> { order(position: :asc) }
   
   translates :title, :content, :slug
   extend FriendlyId

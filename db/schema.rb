@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215154912) do
+ActiveRecord::Schema.define(version: 20151215221639) do
 
   create_table "page_translations", force: :cascade do |t|
     t.integer  "page_id",    null: false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20151215154912) do
     t.datetime "image_6_updated_at"
     t.string   "custom_type"
     t.boolean  "colors_inverted"
+    t.integer  "position"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
