@@ -18,8 +18,7 @@
 $('document').ready(function(){
   setupClickOfImageForUpload()
   // List with handle
-
-
+  setupSortable()
 })
 
 function setupSortable(){
@@ -27,6 +26,20 @@ function setupSortable(){
   Sortable.create(list, {
     handle: '.glyphicon-move',
     animation: 150,
+    onUpdate: function(evt){
+      
+      var splitted = $(evt.item).find('form').attr('id').split("_")
+      
+      var id_of_block = splitted[splitted.length-1]
+      
+      $.ajax({
+        type: "PUT",
+        url: '/it/admin/simple_blocks/'+id_of_block+'/sort',
+        data: {
+          position: evt.newIndex
+        }
+      })
+    }
   });
 }
 

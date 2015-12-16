@@ -1,7 +1,7 @@
-.col-sm-12
-  .panel.panel-default
-    .panel-body
-      = simple_form_for [:admin, block] do |f|
+= simple_form_for [:admin, block] do |f|
+  .col-sm-12.form-for-block
+    .panel.panel-default
+      .panel-body
         .row
           - if block.custom_type == "image-block"
             .col-sm-12

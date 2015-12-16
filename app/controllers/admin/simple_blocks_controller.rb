@@ -20,4 +20,10 @@ class Admin::SimpleBlocksController < AdminController
     return redirect_to [:edit, :admin, s.page]
   end
 
+
+  def sort
+    block = SimpleBlock.find(params[:simple_block_id])
+    block.insert_at(params[:position].to_i)
+    render nothing: true
+  end
 end

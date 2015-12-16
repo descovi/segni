@@ -21,7 +21,9 @@ Rails.application.routes.draw do
         get '/' => 'dashboard#home'
         resources :pages
         resources :products
-        resources :simple_blocks
+        resources :simple_blocks do
+          put :sort
+        end
         resources :websites, only: [:update]
       end
 
