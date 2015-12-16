@@ -5,6 +5,7 @@
         .row
           - if block.custom_type == "image-block"
             .col-sm-12
+              %span(class="glyphicon glyphicon-move" aria-hidden="true")
               .row
                 - [1,2,3,4,5,6].each do |element|
                   .col-sm-4
@@ -17,6 +18,7 @@
                   = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
           - elsif block.custom_type == "products-block"
             .col-sm-12
+              %span(class="glyphicon glyphicon-move" aria-hidden="true")
               .row
                 - @website.products_first_page.each do |product|
                   .col-sm-4
@@ -25,6 +27,7 @@
                     = link_to product.name, [:edit, :admin, product]
           - else
             .col-sm-6
+              %span(class="glyphicon glyphicon-move" aria-hidden="true")
               = f.input :title_it,   as: :string
               = f.input :content_it, as: :text
               = f.input :action_it,  as: :string

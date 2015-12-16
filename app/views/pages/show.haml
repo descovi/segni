@@ -22,6 +22,8 @@
           .six-image-1-cell.col-lg-4.col-sm-6{style: "background-image:url(#{bg_img});"}
 
   - elsif block.custom_type == 'products-block'
+    / BLOCK OF PRODUCTS
+    / [ - - - ]
     %section.block(style="padding:0")
       - @website.products_first_page.each do |product|
         - if product.image.present?

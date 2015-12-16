@@ -12,14 +12,28 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require sortable
 //= require_tree .
 
 $('document').ready(function(){
-  
+  setupClickOfImageForUpload()
+  // List with handle
+
+
+})
+
+function setupSortable(){
+  var list = document.getElementById('simpleList')
+  Sortable.create(list, {
+    handle: '.glyphicon-move',
+    animation: 150,
+  });
+}
+
+function setupClickOfImageForUpload(){
   $('.btn-upload-img').css('cursor', 'pointer')
   $('.btn-upload-img').click(function(e){
     var $input = $(this).next().find('input')
     $input.trigger('click')
   })
-
-})
+}

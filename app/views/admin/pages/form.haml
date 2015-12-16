@@ -20,6 +20,6 @@
       = button_to 'Add new block of products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
 
   %hr
-
-- @page.simple_blocks.each do |block|
-  .row= render 'admin/simple_blocks/form', block: block
+#simpleList
+  - @page.simple_blocks.each do |block|
+    .row= render 'admin/simple_blocks/form', block: block
