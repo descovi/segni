@@ -1,11 +1,18 @@
 = simple_form_for [:admin, block] do |f|
   .col-sm-12.form-for-block
     .panel.panel-default
+      .panel-heading
+        .pull-left= block.custom_type_label
+        .pull-right
+          %span(class="glyphicon glyphicon-move" aria-hidden="true")
+        .clearfix
       .panel-body
         .row
           - if block.custom_type == "image-block"
+            / BLOCK OF SIX IMAGE
+            / [-] [-] [-]
+            / [-] [-] [-]
             .col-sm-12
-              %span(class="glyphicon glyphicon-move" aria-hidden="true")
               .row
                 - [1,2,3,4,5,6].each do |element|
                   .col-sm-4
@@ -14,11 +21,11 @@
                       = image_tag url, class: 'btn-upload-img img-responsive'
                     = f.input "image_#{element}".to_sym
                 .col-sm-12
-                  = f.button :submit, class: 'btn btn-primary'
-                  = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger'
+                  = render 'admin/simple_blocks/submit_delete', form: f, block: block
           - elsif block.custom_type == "products-block"
+            / BLOCK OF PRODUCTS
+            / [-] [-] [-]
             .col-sm-12
-              %span(class="glyphicon glyphicon-move" aria-hidden="true")
               .row
                 - @website.products_first_page.each do |product|
                   .col-sm-4
@@ -27,10 +34,9 @@
                     = link_to product.name, [:edit, :admin, product]
           - else
             .col-sm-6
-              %span(class="glyphicon glyphicon-move" aria-hidden="true")
-              = f.input :title_it,   as: :string
-              = f.input :content_it, as: :text
-              = f.input :action_it,  as: :string
+              = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
+              = f.input :content_it, as: :text, input_html: { class: 'input-sm' }, placeholder: 'Content', label: false
+              = f.input :action_it,  as: :string, input_html: { class: 'input-sm' }, label: false, placeholder: 'Action'
             / .col-sm-6
             /   = f.input :title_en,   as: :string
             /   = f.input :content_en, as: :text
@@ -45,5 +51,4 @@
               = f.input_field :colors_inverted, label: false
               Colors inverted
             .col-sm-12
-              = f.button :submit, class: 'btn btn-primary btn-xs'
-              = link_to 'Delete', [:admin, block], :method => :delete, class: 'btn btn-danger btn-xs'
+              = render 'admin/simple_blocks/submit_delete', form: f, block: block

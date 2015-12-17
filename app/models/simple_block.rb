@@ -29,4 +29,10 @@ class SimpleBlock < ActiveRecord::Base
   translates :title, :content, :action
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   globalize_accessors locales: I18n.available_locales
+
+  def custom_type_label
+    return "Block" if self.custom_type.blank?
+    return "Products" if custom_type == "products-block"
+    return "Images" if custom_type == "image-block"
+  end
 end
