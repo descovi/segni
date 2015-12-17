@@ -6,18 +6,18 @@
     / .col-sm-6
     /   = f.input :title_en
     /   = f.input :content_en, as: :text
-    .col-sm-12(style="margin-bottom: 20px")
+    .col-sm-12
       .pull-right= f.button :submit, class: 'btn btn-primary btn-xs'
+      .clearfix
 
 - if action_name != 'new'
-  %hr(style="margin-top:0")
+  %hr
   .row
-    .col-sm-7
-    .col-sm-5
+    .col-sm-12
 
-      = button_to 'Add new block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 0'
-      = button_to 'Add new block of images', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
-      = button_to 'Add new block of products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
+      = button_to 'Add text block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 0'
+      = button_to 'Add images', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
+      = button_to 'Add products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
 
   %hr
 #simpleList
