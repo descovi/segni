@@ -11,6 +11,12 @@ class ShoppingCartsController < ApplicationController
     @title = 'Shop'
   end
 
+  def destroy
+    @product = Product.find(params[:product_id])
+    @shopping_cart.remove(@product)
+    redirect_to :back
+  end
+
   private
   def extract_shopping_cart
     shopping_cart_id = session[:shopping_cart_id]
