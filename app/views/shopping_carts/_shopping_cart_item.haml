@@ -1,0 +1,9 @@
+%tr.line-shopping-cart
+  %td.item(width=50)
+    = link_to image_tag(shopping_cart_item.item.image.url('_50x50c')), shopping_cart_item.item
+  %td.description
+    = link_to shopping_cart_item.item.name
+  %td.price.text-right= shopping_cart_item.item.price
+  %td.quantity.text-right
+    = link_to shopping_cart_item.quantity
+  %td.action.text-right= link_to 'cancella', '#'

@@ -12,4 +12,4 @@
             = t(:Price)
             %strong= @product.price
           %p= @product.description if @product.description.present?
-          = link_to 'Ordina', '#',class: 'btn btn-primary'
+          = link_to 'Ordina', shopping_cart_path(:product_id => @product), class: 'btn btn-primary', method: 'POST'

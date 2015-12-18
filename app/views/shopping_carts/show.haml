@@ -1,0 +1,31 @@
+.container
+   
+  %table.table.table-striped(style="margin-top: 20px;")
+    %thead
+      %th
+      %th= t(:Name)
+      
+      %th.text-right= t(:price)
+      %th.text-right(style='width: 100px;')= t(:Quantity)
+      %th
+
+    %tbody= render partial: 'shopping_cart_item', collection: @shopping_cart.shopping_cart_items
+    %tfoot
+      %tr
+        %td(style="text-align: right;" colspan='3')
+          %table(align="right")
+            %tr
+              %td(style="padding-right: 10px")
+                %strong= t(:Subtotal)
+              %td
+                = number_to_currency @shopping_cart.subtotal
+            %tr
+              %td(style="padding-right: 10px")
+                %strong= t(:Taxes)
+              %td
+                = number_to_currency @shopping_cart.taxes
+            %tr.text-success
+              %td(style="padding-right: 10px")
+                %strong= t(:Total)
+              %td= number_to_currency @shopping_cart.total
+        %td(colspan="2")
