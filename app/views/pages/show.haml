@@ -1,5 +1,5 @@
 - @page.simple_blocks.each do |block|
-  - image_url = block.background_image.url(:big_standard)
+  - image_url = block.background_image.url(:big_standard) if block.background_image.present?
   
   - css_class_custom = ''
   - if block.background_image.present?
