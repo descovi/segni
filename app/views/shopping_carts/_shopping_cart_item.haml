@@ -1,0 +1,10 @@
+- item = shopping_cart_item.item
+%tr.line-shopping-cart
+  %td.item(width=50)
+    = link_to image_tag(item.image.url('_50x50c')), shopping_cart_item.item
+  %td.description
+    = link_to item.name
+  %td.price.text-right= item.price
+  %td.quantity.text-right
+    = link_to shopping_cart_item.quantity
+  %td.action.text-right= link_to 'cancella', shopping_cart_path(product_id: item.id), method: :delete
