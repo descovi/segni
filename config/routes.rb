@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     scope "/:locale" do
       resources :products, only: [:show]
       resources :pages, only: [:show]
-
+      resource :shopping_cart
       
       namespace :admin do
         get '/' => 'dashboard#home'
