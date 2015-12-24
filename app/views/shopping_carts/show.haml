@@ -28,4 +28,4 @@
               %td= number_to_currency @shopping_cart.total
         %td(colspan="2")
 
-  .pull-right= link_to image_tag("https://www.paypal.com/it_IT/i/btn/btn_xpressCheckout.gif"), url_for(controller:'orders', action: 'express_checkout')
+  .pull-right= link_to 'Procedi con il pagamento', url_for(controller:'orders', action: 'express_checkout'), class: 'btn btn-danger'
