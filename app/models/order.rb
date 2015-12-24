@@ -26,30 +26,36 @@ class Order < ActiveRecord::Base
 
   def fill_details
     details = EXPRESS_GATEWAY.details_for(self.express_token)
-    self.express_payer_id = details.info["PayerID"]
-    self.address = details.address
-    self.details = details.details
-    self.email = details.email
-    self.info = details.info
-    self.name = details.name
-    self.note = details.note
-    self.payer_country = details.payer_country
-    self.shipping = details.shipping.to_s
+    self.update_attribute(
+      express_payer_id: details.info["PayerID"],
+      address: details.address,
+      email: details.email,
+      info: details.info,
+      name: details.name,
+      note: details.note,
+      payer_country: details.payer_country,
+      shipping: details.shipping
+    )
   end
 
   def do_payments
     response = EXPRESS_GATEWAY.purchase(self.shopping_cart.total, express_purchase_options)
     self.update_attribute(:purchased_at, Time.now) if response.success?
-    logger.warn '|-------------------------|'
-    logger.warn '|---- PAYPAL response ----|'
-    logger.warn express_purchase_options
-    logger.warn '|-------------------------|'
-    logger.warn response.inspect
-    logger.warn '|---- PAYPAL response ----|'
-    logger.warn '|-------------------------|'
+    log_paypal_response if Rails.env.development?
   end
 
   private
+
+  def log_paypal_response response
+    logger.warn """
+      |-------------------------|
+      |---- PAYPAL response ----|
+      #{response.inspect}
+      |-------------------------|
+      #{express_purchase_options}
+      |-------------------------|
+    """
+  end
 
   def express_purchase_options
     {
