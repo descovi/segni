@@ -71,6 +71,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
         :image, 
         :description,
         :first_page,
-        :price)
+        :price,
+        :price_label)
     end
 end

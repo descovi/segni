@@ -14,7 +14,6 @@
   %hr
   .row
     .col-sm-12
-
       = button_to 'Add text block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 0'
       = button_to 'Add images', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
       = button_to 'Add products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: right; margin-right: 10px'
