@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218094329) do
+ActiveRecord::Schema.define(version: 20151224095513) do
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "shopping_cart_id"
+    t.string  "ip"
+    t.string  "express_token"
+    t.string  "express_payer_id"
+    t.date    "purchased_at"
+    t.string  "address"
+    t.string  "details"
+    t.string  "email"
+    t.string  "info"
+    t.string  "name"
+    t.string  "note"
+    t.string  "payer_country"
+    t.string  "shipping"
+  end
 
   create_table "page_translations", force: :cascade do |t|
     t.integer  "page_id",    null: false
@@ -39,11 +55,13 @@ ActiveRecord::Schema.define(version: 20151218094329) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.text     "description"
-    t.string   "price"
+    t.string   "price_label"
     t.boolean  "first_page"
+    t.integer  "price_cents",        default: 0,     null: false
+    t.string   "price_currency",     default: "USD", null: false
   end
 
   create_table "shopping_cart_items", force: :cascade do |t|

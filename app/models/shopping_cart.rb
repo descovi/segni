@@ -1,6 +1,10 @@
 class ShoppingCart < ActiveRecord::Base
   acts_as_shopping_cart
 
+  def items
+    shopping_cart_items
+  end
+
 
   # Override with your own tax calculation
   #

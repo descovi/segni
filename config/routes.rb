@@ -29,6 +29,9 @@ Rails.application.routes.draw do
 
     end
   end
-  
+
+  get 'express_checkout', to: 'orders#express_checkout'
+  get 'express_checkout_confirm', to: 'orders#express_checkout_confirm'
+  resources :orders, only: [:new, :create, :show]  
   root 'welcome#hi'
 end

@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+website_one:
   name: MyString
-  name-slug: MyString
+  name_slug: mystring
   primary_color: MyString
   secondary_color: MyString
+  first_page_id: page_one
 
-two:
+website_two:
   name: MyString
-  name-slug: MyString
+  name_slug: mystring2
   primary_color: MyString
   secondary_color: MyString
+  first_page_id: page_two

@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+product_one:
   name: MyText
   year: 2015-12-03
   archive_index: 1
-  website_id: 1
-  image: 
+  website_id: website_one
+  price_cents: 10
+  price_label: 10 euro per 1kg
 
-two:
+product_two:
   name: MyText
   year: 2015-12-03
   archive_index: 1
-  website_id: 1
-  image: 
+  website_id: website_two
+  price_cents: 10
+  price_label: 10 euro per 1kg

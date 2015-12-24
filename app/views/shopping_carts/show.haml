@@ -17,15 +17,15 @@
             %tr
               %td(style="padding-right: 10px")
                 %strong= t(:Subtotal)
-              %td
-                = number_to_currency @shopping_cart.subtotal
+              %td= number_to_currency @shopping_cart.subtotal
             %tr
               %td(style="padding-right: 10px")
                 %strong= t(:Taxes)
-              %td
-                = number_to_currency @shopping_cart.taxes
+              %td= number_to_currency @shopping_cart.taxes
             %tr.text-success
               %td(style="padding-right: 10px")
                 %strong= t(:Total)
               %td= number_to_currency @shopping_cart.total
         %td(colspan="2")
+
+  .pull-right= link_to image_tag("https://www.paypal.com/it_IT/i/btn/btn_xpressCheckout.gif"), url_for(controller:'orders', action: 'express_checkout')
