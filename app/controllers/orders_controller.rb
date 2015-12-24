@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   layout 'shop'
   def express_checkout   
-    @order = Order.new_from_shopping_cart_id_and_ip session[:shopping_cart_id], request.remote_ip
+    @order = Order.new_from_shopping_cart_id_and_request session[:shopping_cart_id], request
     @order.save
     redirect_to EXPRESS_GATEWAY.redirect_url_for(@order.express_token) 
   end

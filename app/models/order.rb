@@ -2,17 +2,17 @@ class Order < ActiveRecord::Base
   belongs_to :shopping_cart
   validates :ip, :express_token, :shopping_cart_id, presence: true
 
-  def self.new_from_shopping_cart_id_and_ip shopping_cart_id, ip
+  def self.new_from_shopping_cart_id_and_request shopping_cart_id, request
     shopping_cart        = ShoppingCart.find shopping_cart_id
     total_amount         = Monetize.parse(shopping_cart.total).cents
 
-    response_from_paypal = EXPRESS_GATEWAY.setup_purchase(total_amount, options(shopping_cart, ip))
+    response_from_paypal = EXPRESS_GATEWAY.setup_purchase(total_amount, options(shopping_cart, request))
     logger.warn response_from_paypal.inspect
 
     Order.new(
       express_token:    response_from_paypal.token,
       shopping_cart_id: shopping_cart.id,
-      ip:               ip
+      ip:               request.ip
     )
   end
 
@@ -60,11 +60,11 @@ class Order < ActiveRecord::Base
     }
   end
 
-  def self.options shopping_cart, ip
+  def self.options shopping_cart, request
     {
-      ip: ip,
-      return_url: 'http://localhost:3000/express_checkout_confirm',
-      cancel_return_url: 'http://localhost:3000',
+      ip: request.ip,
+      return_url: 'http://'+request.host_with_port + '/express_checkout_confirm',
+      cancel_return_url: 'http://'+request.host_with_port,
       currency: "EUR",
       allow_guest_checkout: true,
       items: items_for_shopping_cart(shopping_cart),
