@@ -76,4 +76,12 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActiveMerchant::Billing::Base.mode = :production
+  paypal_options = {
+    login: ENV["PP_API_USERNAME"],
+    password: ENV["PP_API_PASSWORD"],
+    signature: ENV["PP_API_SIGNATURE"]
+  }
+  ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
 end
