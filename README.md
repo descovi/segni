@@ -1,4 +1,4 @@
-== README
+# README
 
 [![Code Climate](https://codeclimate.com/github/GoofyGoober/segni/badges/gpa.svg)](https://codeclimate.com/github/GoofyGoober/segni)
 
