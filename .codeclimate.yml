@@ -25,3 +25,4 @@ exclude_paths:
 - db/**/*
 - test/**/*
 - vendor/**/*
+- "app/assets/javascripts/sortable.js"
