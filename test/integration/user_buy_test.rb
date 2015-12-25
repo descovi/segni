@@ -32,9 +32,6 @@ class UserBuyTest < ActionDispatch::IntegrationTest
     assert :redirect
   end
 
-  test "user can see the product, put in the cart and place a order with paypal" do
-  end
-
   def put_item_in_cart product
     post shopping_cart_path(product_id: product.id, locale: 'it')
   end
