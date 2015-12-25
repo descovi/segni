@@ -12,6 +12,10 @@ group :development do
   gem 'quiet_assets'
 end
 
+group :test do
+  gem 'codeclimate-test-reporter'
+end
+
 group :production do
   gem 'puma'
 end
