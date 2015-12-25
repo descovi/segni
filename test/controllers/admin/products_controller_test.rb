@@ -15,11 +15,17 @@ class Admin::ProductsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:product)
   end
 
-  test 'cant visit websites show if not logged' do
+  test 'cant show if not logged' do
     get :show, locale: 'it', id: products(:product_one).id
     assert_response :redirect  
   end
 
-  
+  test 'should update product' do
+    sign_in users(:user_one)
+    product = products(:product_one)
+    patch :update, id: product.id, product: {name: 'new name'}, locale: 'it'
+    assert_redirected_to admin_products_path
+  end
+
 
 end

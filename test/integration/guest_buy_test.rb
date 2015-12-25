@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserBuyTest < ActionDispatch::IntegrationTest
+class GuestBuyTest < ActionDispatch::IntegrationTest
   
   setup do
     website = websites(:website_one)

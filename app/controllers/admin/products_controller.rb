@@ -19,7 +19,6 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    @product.website =  @website
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_products_path, notice: 'Product was successfully created.' }
@@ -71,6 +70,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
         :image, 
         :description,
         :first_page,
+        :website_id,
         :price,
         :price_label)
     end

@@ -17,7 +17,7 @@ class Product < ActiveRecord::Base
     _1024x768d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :website, presence: true
   belongs_to :website
+  validates :website_id, presence: true
   monetize :price_cents
 end
