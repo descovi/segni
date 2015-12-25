@@ -15,7 +15,7 @@
       %tr
         %td= link_to website.name, [:great_admin, website]
         %td= website.name_slug
-        %td= website.user.name if website.user.present?
+        %td= website.user.email if website.user.present?
         %td= website.primary_color
         %td= website.secondary_color
         %td

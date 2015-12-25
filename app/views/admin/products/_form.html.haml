@@ -2,7 +2,7 @@
 
   = f.input :name, as: :string
   = f.input :description
-  = f.association :website, include_blank: false, collection: Website.all.order(:name)
+  = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
   = f.input :price
   = f.input :price_label
   = f.input :first_page

@@ -19,7 +19,7 @@ class GreatAdmin::WebsitesController < GreatAdminController
   end
 
   def update
-    return redirect_to [:great_admin, @website] if @website.update(website_params)
+    return redirect_to [:great_admin, Website] if @website.update(website_params)
     render :edit
   end
   
