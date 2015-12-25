@@ -26,3 +26,4 @@ exclude_paths:
 - test/**/*
 - vendor/**/*
 - app/assets/javascripts/sortable.js
+- app/assets/javascripts/sortable_new.js
