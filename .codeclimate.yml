@@ -6,6 +6,8 @@ engines:
     enabled: true
   eslint:
     enabled: true
+    exclude_fingerprints:
+    - 5e7d98231fe12138c448a5a76f6bcf1b
   fixme:
     enabled: true
   rubocop:
@@ -21,4 +23,3 @@ exclude_paths:
 - db/**/*
 - test/**/*
 - vendor/**/*
-- app/assets/javascripts/sortable_new.js
