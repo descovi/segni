@@ -40,7 +40,7 @@ class Order < ActiveRecord::Base
 
   def do_payments
     response = EXPRESS_GATEWAY.purchase(self.shopping_cart.total, express_purchase_options)
-    self.update_attribute(:purchased_at, Time.now) if response.success?
+    self.update_attribute(:purchased_at, Time.zone.now) if response.success?
     log_paypal_response if Rails.env.development?
   end
 
