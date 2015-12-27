@@ -20,4 +20,8 @@ class Product < ActiveRecord::Base
   belongs_to :website
   validates :website_id, presence: true
   monetize :price_cents
+
+  def other_from_same_websites
+    Product.where(website: self.website).where.not(id: self.id)
+  end
 end
