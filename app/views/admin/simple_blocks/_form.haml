@@ -48,7 +48,7 @@
             /   = f.input :action_en,  as: :string
             .col-sm-6
               - if block.background_image.present?
-                = image_tag block.background_image.url(:medium), class: 'btn-upload-img', style: ''
+                = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive', style: ''
               = f.input :background_image
             .col-sm-12
               = f.input_field :full_height, label: false

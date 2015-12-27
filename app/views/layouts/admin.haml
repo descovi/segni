@@ -8,7 +8,7 @@
   %body
     .menu-fixed
       %hr(style="margin-top: 0; padding-top: 0")
-      .container
+      .container-fluid
         .pull-left
           = link_to raw('<strong>Admin area</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default'
 
@@ -19,5 +19,5 @@
           - else
             = link_to 'See', @website.first_page, target: '_blank', class: 'btn btn-primary'
       %hr(style="margin-bottom:0")
-    .container(style="padding-top: 90px")
+    .container-fluid(style="padding-top: 90px")
       = yield

@@ -7,7 +7,7 @@ class Admin::PagesController < AdminController
   end
 
   def edit
-    render 'form'
+    render 'form', layout: 'admin-page'
   end
 
   def create

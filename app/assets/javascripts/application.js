@@ -39,16 +39,24 @@ function setupSortable(){
         data: {
           position: evt.newIndex
         }
-      })
+      }).done(function(msg){
+        refreshIframe()        
+      });
     }
   });
 }
 
 function setupOpenCloseTab(){
   $('.panel-body').hide()
+  $('.panel-heading').css('cursor', 'pointer')
   $('.panel-heading').click(function(){
     $(this).next().toggle()
   })
+}
+
+function refreshIframe(){
+  var iframe = document.getElementById('iframe-preview');
+  iframe.src = iframe.src;
 }
 
 function setupClickOfImageForUpload(){
