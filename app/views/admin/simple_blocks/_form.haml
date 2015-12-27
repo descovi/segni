@@ -17,7 +17,7 @@
                 - [1,2,3,4,5,6].each do |element|
                   .col-sm-4
                     - if block.send("image_#{element}").present?
-                      - url = block.send("image_#{element}").url(:block6)
+                      - url = block.send("image_#{element}").url(:medium)
                       = image_tag url, class: 'btn-upload-img img-responsive'
                     = f.input "image_#{element}".to_sym
                 .col-sm-12
@@ -29,7 +29,7 @@
               .row
                 - @website.products_first_page.each do |product|
                   .col-sm-4
-                    = link_to image_tag(product.image.url(:_200x200c))
+                    = link_to image_tag(product.image.url(:_50x50c))
                     %br
                     = link_to product.name, [:edit, :admin, product]
           - else
