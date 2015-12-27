@@ -19,6 +19,7 @@ $('document').ready(function(){
   setupClickOfImageForUpload()
   // List with handle
   setupSortable()
+  setupOpenCloseTab()
 })
 
 function setupSortable(){
@@ -41,6 +42,13 @@ function setupSortable(){
       })
     }
   });
+}
+
+function setupOpenCloseTab(){
+  $('.panel-body').hide()
+  $('.panel-heading').click(function(){
+    $(this).next().toggle()
+  })
 }
 
 function setupClickOfImageForUpload(){
