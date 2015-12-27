@@ -15,7 +15,7 @@
       %hr
       .row
         - @product.other_from_same_websites.each do |product|
-          .col-sm-3.box-product-correlated
+          .col-sm-3.col-xs-6.box-product-correlated
             = link_to image_tag(product.image.url('_200x200c'), class: 'img-responsive'), product
             = link_to product.name, product
             = link_to product.price_label, product
