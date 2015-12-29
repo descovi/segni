@@ -1,0 +1,26 @@
+simple_block_one:
+  page: page_one
+  title: block one
+  custom_type: text-with-image
+  content: lorem
+  action: go
+  full_height: false
+  position: 1
+
+
+simple_block_products:
+  page: page_one
+  title: block one
+  custom_type: products-block
+  content: lorem
+  action: go
+  full_height: false
+  position: 1
+
+
+simple_block_image_block:
+  page: page_one
+  title: block one
+  custom_type: image-block
+  full_height: false
+  position: 1

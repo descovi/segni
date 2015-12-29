@@ -1,0 +1,32 @@
+- image_url = block.background_image.url(:big_standard) if block.background_image.present?
+
+- css_class_custom = ''
+
+- if block.colors_inverted == true
+  - css_class_custom += ' block-inverted'
+- if block.full_height.present?
+  / BLOCK FULL HEIGHT
+  / [  ]
+  / [  ]
+  / [  ]
+  %section.block{style: "background-image: url('#{image_url}'); min-height: 100%;", class: css_class_custom}
+    .container.block-content
+      .block-content-inner
+        %h2= block.title
+        - if block.content.present? or block.action.present?
+          %hr
+          %p= simple_format block.content
+          .btn.action= block.action
+  
+- else
+  / STANDARD BLOCK
+  / [ ]
+  %section.block{style: "background-image: url('#{image_url}');", class: css_class_custom}
+    .container
+      %h2= block.title
+      - if block.content.present? or block.action.present?
+        %hr
+        - if block.content.present?
+          %p= simple_format block.content
+        - if block.action.present?
+          .btn.action= block.action

@@ -1,0 +1,10 @@
+/ BLOCK OF SIX PHOTOS
+/ [ - - - ]
+/ [ - - - ]
+%section.block(style="padding: 0")
+  .container-fluid(style="padding: 0")
+    - [1,2,3,4,5,6].each do |element|
+      - img = block.send("image_#{element}")
+      -if img.present?
+        - bg_img = asset_path(img.url(:block6)) 
+      .six-image-1-cell.col-lg-4.col-sm-6{style: "background-image:url(#{bg_img});"}
