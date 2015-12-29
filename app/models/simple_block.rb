@@ -29,7 +29,7 @@ class SimpleBlock < ActiveRecord::Base
   translates :title, :content, :action
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   globalize_accessors locales: I18n.available_locales
-  validates :custom_type, presence: true
+  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block) }
 
   def custom_type_label
     map = {
