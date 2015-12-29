@@ -15,6 +15,9 @@
             = link_to @website.name, @website.first_page
         .col-xs-4
           .pull-right
+            - @page.simple_blocks.each do |block|
+              %a{href: "##{block.id}_anchor"}= block.menu_title
+              
             - @website.pages.each do |page|
               - if @website.first_page == page
                 = ""

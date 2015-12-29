@@ -13,6 +13,7 @@
         .clearfix
       .panel-body
         .row
+          .col-sm-12= f.input :menu_title, as: :string, placeholder: 'Menu title', label: false
           - if block.custom_type == "image-block"
             / BLOCK OF SIX IMAGE
             / [-] [-] [-]
