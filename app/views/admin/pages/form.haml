@@ -22,9 +22,12 @@
         %hr
         .row
           .col-sm-12
-            = button_to 'Add text block', [:admin, SimpleBlock.new, page_id: @page.id], class: 'btn btn-primary btn-xs', style: 'float: left; margin-right: 10px'
-            = button_to 'Add images', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "image-block"], class: 'btn btn-primary btn-xs', style: 'float: left; margin-right: 10px'
-            = button_to 'Add products', [:admin, SimpleBlock.new, page_id: @page.id, custom_type: "products-block"], class: 'btn btn-primary btn-xs', style: 'float: left; margin-right: 10px'
+            = render 'shared/notice'
+            - css_class = 'btn btn-primary btn-xs'
+            - style = 'float: left; margin-right: 10px'
+            = button_to 'Add text block', path_for_create_block('text_with_image'), class: css_class, style: style
+            = button_to 'Add images', path_for_create_block('image-block'), class: css_class, style: style
+            = button_to 'Add products', path_for_create_block('products-block'), class: css_class, style: style
 
         %hr
       #simpleList

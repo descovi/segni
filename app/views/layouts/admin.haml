@@ -20,4 +20,5 @@
             = link_to 'See', @website.first_page, target: '_blank', class: 'btn btn-primary'
       %hr(style="margin-bottom:0")
     .container-fluid(style="padding-top: 90px")
+      = render 'shared/notice'
       = yield

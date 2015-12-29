@@ -3,11 +3,9 @@
     .panel.panel-default
       .panel-heading
         .pull-left
-          - if block.title
-            %strong #{block.title}
-            %em #{block.custom_type_label}
-          - else
-            %strong #{block.custom_type_label}
+          %strong #{block.title}
+          %em #{block.custom_type_label}
+          
         .pull-right
           %span(class="glyphicon glyphicon-move" aria-hidden="true")
         .clearfix

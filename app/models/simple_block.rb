@@ -32,15 +32,13 @@ class SimpleBlock < ActiveRecord::Base
   validates :custom_type, presence: true
 
   def custom_type_label
-    return "Block" if self.custom_type.blank?
-    return "Products" if custom_type == "products-block"
-    return "Images" if custom_type == "image-block"
+    map = {
+      'products-block' => 'Products',
+      'text-with-image' => 'Text',
+      'image-block' => 'Images'
+    }
+    "#{map[self.custom_type]} block"
   end
-
-  def custom_type_label_with_id
-    "#{id}-#{custom_type_label.downcase}"
-  end
-
   def name_of_view
     custom_type.gsub!('-', '_')
   end
