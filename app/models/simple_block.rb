@@ -44,4 +44,15 @@ class SimpleBlock < ActiveRecord::Base
   def name_of_view
     custom_type.gsub!('-', '_')
   end
+
+  def css_class
+    css_class_custom = ''
+    [
+      ['block-background-photo', self.background_image.present?],
+      ['block-colors-inverted', self.colors_inverted]
+    ].each do |option|
+      css_class_custom += "#{option[0]} " if option[1] == true
+    end
+    css_class_custom
+  end
 end
