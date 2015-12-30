@@ -19,6 +19,7 @@
               - @page.simple_blocks.each do |block|
                 - if block.menu_title.present?
                   %a{href: "##{block.id}_anchor"}= block.menu_title
+                  %span(style="color: #eee")= '/'
 
             - @website.pages.each do |page|
               - if @website.first_page == page
