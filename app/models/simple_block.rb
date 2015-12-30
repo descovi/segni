@@ -28,7 +28,7 @@ class SimpleBlock < ActiveRecord::Base
   
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   
-  has_many :links
+  has_many :links, dependent: :destroy
 
   translates :title, :content, :action
   globalize_accessors locales: I18n.available_locales
