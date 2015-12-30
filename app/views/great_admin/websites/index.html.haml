@@ -1,26 +1,4 @@
-%table.table
-  %thead
-    %tr
-      %th Name
-      %th Name-slug
-      %th User
-      %th Primary color
-      %th Secondary color
-      %th
-      %th
-      %th
-
-  %tbody
-    - @websites.each do |website|
-      %tr
-        %td= link_to website.name, [:great_admin, website]
-        %td= website.name_slug
-        %td= website.user.email if website.user.present?
-        %td= website.primary_color
-        %td= website.secondary_color
-        %td
-          = link_to 'Edit', [:edit, :great_admin, website]
-          = link_to 'Destroy', [:great_admin, website], :method => :delete, :data => { :confirm => 'Are you sure?' }
+= render '/shared/list_websites', websites: @websites
 
 %br
 

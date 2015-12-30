@@ -1,0 +1,20 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Slug
+      - if show_user == true
+        %th User
+      %th
+
+  %tbody
+    - websites.each do |website|
+      %tr
+        %td= link_to website.name, [:great_admin, website]
+        %td= website.name_slug
+        - if show_user == true
+          %td= website.user.email if website.user.present?
+        %td
+          .pull-right
+            = link_to 'Edit', [:edit, :great_admin, website], class: 'btn btn link btn-xs'
+            = link_to 'Destroy', [:great_admin, website], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn link btn-xs'

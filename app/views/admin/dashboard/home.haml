@@ -1,6 +1,6 @@
 .row
-  .col-sm-6
-    = render 'admin/pages/list', pages: @website.pages
-  .col-sm-6
-    = render 'admin/products/list', products: @website.products
+  .col-md-4
+    = render 'shared/list_websites', websites: current_user.websites, show_user: false
+  .col-md-4= render 'admin/pages/list', pages: @website.pages
+  .col-md-4= render 'admin/products/list', products: @website.products
   

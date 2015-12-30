@@ -64,7 +64,6 @@
           - elsif block.custom_type == 'links-block'
             - block.links.build if block.links.empty? or params[:another].present?# add a field if nedded
             .col-sm-12
-              
               = f.simple_fields_for :links do |f|
                 = f.input :name
                 = f.input :url, as: :url, placeholder: 'http://terraumana.it'
