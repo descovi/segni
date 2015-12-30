@@ -11,8 +11,7 @@ class Admin::SimpleBlocksController < AdminController
   def update
     block = SimpleBlock.find(params[:id])
     block.update(simple_block_params)
-    @page = block.page
-    render '/admin/pages/form'
+    redirect_to [:edit, :admin, block.page, simple_block_updated: block.id], locale: 'it'
   end
 
   def destroy
