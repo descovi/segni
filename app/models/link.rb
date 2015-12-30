@@ -16,6 +16,6 @@ class Link < ActiveRecord::Base
     _1024x768d: '-quality 90 -strip'
   }
 
-  # validates :url, :name, presence: true
+  validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
 
 end

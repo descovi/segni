@@ -26,10 +26,11 @@ class SimpleBlock < ActiveRecord::Base
   has_attached_file :image_5, styles: styles, convert_options: convert_options
   has_attached_file :image_6, styles: styles, convert_options: convert_options
   
+  validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
+  
   has_many :links
 
   translates :title, :content, :action
-  validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   globalize_accessors locales: I18n.available_locales
   validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block) }
 
