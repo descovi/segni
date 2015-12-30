@@ -20,12 +20,12 @@ $('document').ready(function(){
   // List with handle
   setupSortable()
   setupOpenCloseTab()
+  setupIframe()
 })
 
 function setupSortable(){
-  var list = document.getElementById('simpleList')
-  Sortable.create(list, {
-    handle: '.glyphicon-move',
+  Sortable.create(document.getElementById("simpleList"), {
+    handle: ".glyphicon-move",
     animation: 150,
     onUpdate: function(evt){
       
@@ -46,12 +46,20 @@ function setupSortable(){
   });
 }
 
+function setupIframe(){
+  $('iframe').css('height', $(window).height()+'px')
+  $('#editor-container').css('height', $(window).height()+'px')
+  
+  //console.log
+}
+
 function setupOpenCloseTab(){
   $('.panel-body').hide()
   $('.panel-heading').css('cursor', 'pointer')
   $('.panel-heading').click(function(){
     $(this).next().toggle()
   })
+  $('.panel-heading-open').next().toggle()
 }
 
 function refreshIframe(){

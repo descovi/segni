@@ -1,0 +1,11 @@
+%section.block(style="padding:0")
+  - block.links.each do |link|
+
+    - if link.background_image.present?
+      - bg_img = asset_path(product.background_image.url(:_650x350d))
+    .six-image-1-cell.col-sm-6{style: "background-image:url(#{bg_img});"}
+      %a{ href: link}
+        .block-hover
+          %span(style="font-size:32px")
+            = link.name
+    

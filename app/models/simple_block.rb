@@ -26,16 +26,21 @@ class SimpleBlock < ActiveRecord::Base
   has_attached_file :image_5, styles: styles, convert_options: convert_options
   has_attached_file :image_6, styles: styles, convert_options: convert_options
   
+  has_many :links
+
   translates :title, :content, :action
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   globalize_accessors locales: I18n.available_locales
-  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block) }
+  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block) }
+
+  accepts_nested_attributes_for :links
 
   def custom_type_label
     map = {
       'products-block' => 'Products',
       'text-with-image' => 'Text',
-      'image-block' => 'Images'
+      'image-block' => 'Images',
+      'links-block' => 'Links'
     }
     "#{map[self.custom_type]} block"
   end
