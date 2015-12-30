@@ -46,7 +46,7 @@ class Admin::SimpleBlocksController < AdminController
       :colors_inverted,
       :position,
       :menu_title,
-      links_attributes: [:name, :url, :background_image, :simple_block_id]
+      links_attributes: [:name, :url, :background_image, :simple_block_id, :_destroy, :id]
     )
   end
 end

@@ -34,7 +34,7 @@ class SimpleBlock < ActiveRecord::Base
   globalize_accessors locales: I18n.available_locales
   validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block) }
 
-  accepts_nested_attributes_for :links
+  accepts_nested_attributes_for :links, allow_destroy: true
 
   def custom_type_label
     map = {
