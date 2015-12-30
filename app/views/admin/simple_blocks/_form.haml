@@ -9,6 +9,8 @@
           
         .pull-right
           %span(class="glyphicon glyphicon-move" aria-hidden="true")
+          - span_icon_trash = "<span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\")></span>"
+          = link_to raw(span_icon_trash), [:admin, block], method: :delete, data: { :confirm => 'Attention, you are deleting this record, are you sure?' }
         .clearfix
       .panel-body
         .row
@@ -26,7 +28,7 @@
                       = image_tag url, class: 'btn-upload-img img-responsive'
                     = f.input "image_#{element}".to_sym
                 .col-sm-12
-                  = render 'admin/simple_blocks/submit_and_delete', form: f, block: block
+                  
           - elsif block.custom_type == "products-block"
             / BLOCK OF PRODUCTS
             / [-] [-] [-]
@@ -57,8 +59,7 @@
               Full height
               = f.input_field :colors_inverted, label: false
               Colors inverted
-            .col-sm-12
-              = render 'admin/simple_blocks/submit_and_delete', form: f, block: block
+                            
 
           - elsif block.custom_type == 'links-block'
             - block.links.build # add a field if nedded
@@ -69,4 +70,6 @@
                 = f.input :name
                 = f.input :url, as: :url, placeholder: 'http://terraumana.it'
                 = f.input :background_image
-              = render 'admin/simple_blocks/submit_and_delete', form: f, block: block
+          
+          .col-sm-12
+            = render 'admin/simple_blocks/submit_and_delete', form: f
