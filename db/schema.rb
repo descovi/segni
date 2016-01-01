@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229184404) do
+ActiveRecord::Schema.define(version: 20151230123834) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(version: 20151229184404) do
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
     t.integer  "first_page_id"
+    t.string   "domain"
   end
 
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"

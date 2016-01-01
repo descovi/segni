@@ -1,6 +1,15 @@
 .row
   .col-md-4
-    = render 'shared/list_websites', websites: current_user.websites, show_user: false
-  .col-md-4= render 'admin/pages/list', pages: @website.pages
-  .col-md-4= render 'admin/products/list', products: @website.products
+    - head_elements = ['Name', 'Slug']
+    - body_elements = ['name', 'name_slug']
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
+
+  .col-md-4
+    = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
+  .col-md-4
+    
+    - body_elements = ['image','name', 'price','price_label', 'first_page']
+    - head_elements = ['', 'Name', 'Price', 'Price label', 'First']
+    
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Products', collections: @website.products, edit_resource: true, namespace: :admin
   

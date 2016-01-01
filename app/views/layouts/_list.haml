@@ -1,0 +1,23 @@
+%table.table.table-striped
+  %thead
+    %tr
+      - head_elements.each do |head_el|
+        %th= head_el
+      - if add_resource
+        %th
+          .pull-right
+            = link_to "Add #{resource_name}", new_admin_product_path, class: 'btn btn-primary btn-xs'
+  %tbody
+    - collections.each do |element|
+      %tr
+        - body_elements.each do |body_el|
+          %td
+            - if body_el.include? 'image'
+              = image_tag element.send(body_el).url(:_20x20c)
+            - else
+              = element.send(body_el)
+        - if edit_resource
+          %td
+            .pull-right
+              = link_to 'Edit', [:edit, namespace, element], class: 'btn btn link btn-xs'
+              = link_to 'Destroy', [namespace, element], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn link btn-xs'
