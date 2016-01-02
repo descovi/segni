@@ -1,4 +1,4 @@
-= render 'layouts/list', head_elements: ['Name', 'Slug'], body_elements: ['name', 'name_slug'], resource: @website, resource_name: 'Website', add_resource: false, edit_resource: false
+= render 'layouts/list', head_elements: ['Name', 'Slug'], body_elements: ['name', 'name_slug'], resource: @website, resource_name: 'Website', add_resource: false, edit_resource: false, collections: Website.all
 %br
 
 = link_to 'New Website', new_great_admin_website_path
