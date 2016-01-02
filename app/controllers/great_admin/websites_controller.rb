@@ -33,6 +33,7 @@ class GreatAdmin::WebsitesController < GreatAdminController
                                     :name_slug, 
                                     :primary_color, 
                                     :secondary_color, 
+                                    :domain,
                                     :user_id)
   end
 

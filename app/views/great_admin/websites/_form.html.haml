@@ -5,6 +5,7 @@
     = f.input :name_slug
     = f.input :primary_color
     = f.input :secondary_color
+    = f.input :domain, as: :url
     = f.association :user, include_blank: false, collection: User.all.order(:email), label_method: :email
 
   .form-actions
