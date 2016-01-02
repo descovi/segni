@@ -15,7 +15,7 @@
             = link_to @website.name, @website.first_page
         .col-xs-4
           .pull-right
-            - if controller_name == 'pages'
+            - if controller_name == 'pages' || controller_name == 'welcome'
               - @page.simple_blocks.each do |block|
                 - if block.menu_title.present?
                   %a{href: "##{block.id}_anchor"}= block.menu_title
