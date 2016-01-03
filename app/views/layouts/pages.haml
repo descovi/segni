@@ -10,10 +10,10 @@
     %hr(style="margin-top:0; border-color: white")
     .container
       .row
-        .col-xs-8
+        .col-xs-6
           %strong.title
             = link_to @website.name, @website.first_page
-        .col-xs-4
+        .col-xs-6
           .pull-right
             - if controller_name == 'pages' || controller_name == 'welcome'
               - @page.simple_blocks.each do |block|
@@ -21,13 +21,16 @@
                   %a{href: "##{block.id}_anchor"}= block.menu_title
                   %span(style="color: #eee")= '/'
 
-            - @website.pages.each do |page|
-              - if @website.first_page == page
-                = ""
-              - elsif @page == page
+            - @website.pages.each_with_index do |page, index|
+              - if @page == page
                 = page.title
               - else
                 = link_to page.title, page
+              %span(style="color: #eee")= '/'
+            - if session[:shopping_cart_id].present?
+              - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+              - label = "#{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}"
+              = link_to label, url_for(controller: 'shopping_carts', action: 'show')
             / - if action_name == 'show' or action_name == "hi"
             /   - if I18n.locale == :en
             /     - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
