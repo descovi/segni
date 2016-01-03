@@ -22,11 +22,14 @@
                   %span(style="color: #eee")= '/'
 
             - @website.pages.each_with_index do |page, index|
-              - if @page == page
+              - if page == @website.first_page
+                //
+              - elsif @page == page
                 = page.title
+                %span(style="color: #eee")= '/'
               - else
                 = link_to page.title, page
-              %span(style="color: #eee")= '/'
+                %span(style="color: #eee")= '/'
             - if session[:shopping_cart_id].present?
               - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
               - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'
