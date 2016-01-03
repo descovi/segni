@@ -29,7 +29,8 @@
               %span(style="color: #eee")= '/'
             - if session[:shopping_cart_id].present?
               - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
-              - label = "#{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}"
+              - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'
+              - label = raw("#{label_icon} #{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}")
               = link_to label, url_for(controller: 'shopping_carts', action: 'show')
             / - if action_name == 'show' or action_name == "hi"
             /   - if I18n.locale == :en
