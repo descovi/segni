@@ -32,5 +32,6 @@
         = link_to 'Procedi con il pagamento', url_for(controller:'orders', action: 'express_checkout'), class: 'btn btn-danger'
   .clearfix
   %hr
-  - @website.products.each do |product|
-    = render 'products/box_related', product: product, size_img: '_200x200c'
+  .row
+    - @website.products.each do |product|
+      = render 'products/box_related', product: product, size_img: '_200x200c'

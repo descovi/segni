@@ -10,9 +10,10 @@
           %p
             = t(:Price)
             %strong= @product.price
-          %p= @product.description if @product.description.present?
+          %p= @product.description
           = link_to 'Ordina', shopping_cart_path(:product_id => @product), class: 'btn btn-primary', method: 'POST'
       %hr
-      .row
-        - @product.other_from_same_websites.each do |product|
-          = render 'products/box_related', product: product, size_img: '_200x200c'
+    
+  .row
+    - @product.other_from_same_websites.each do |product|
+      = render 'products/box_related', product: product, size_img: '_200x200c'
