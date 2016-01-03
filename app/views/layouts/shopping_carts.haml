@@ -1,7 +1,11 @@
 !!!
 %html
   %head
-    %title= "Shop"
+    - if @website.present?
+      - title = "#{@website.name} - Shop"
+    - else
+      - title = "Shop"
+    %title= title
     = stylesheet_link_tag    'application-orange', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -12,7 +16,11 @@
       .row
         .col-xs-4
           %strong.title
-            Shop
+            - if @website.present?
+              - title = link_to "#{@website.name} - Shop", @website.first_page
+            - else
+              - title = 'Shop'
+            = title
         .col-xs-8
           .pull-right
 
