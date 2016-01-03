@@ -1,12 +1,12 @@
 - item = shopping_cart_item.item
 %tr.line-shopping-cart
   %td.item(width=50)
-    = link_to image_tag(item.image.url('_50x50c')), shopping_cart_item.item
+    = link_to image_tag(item.image.url('_50x50c')), item
   %td.description
-    = link_to item.name
+    = link_to item.name, item
   %td.price.text-right= item.price
   %td.quantity.text-right
-    = link_to shopping_cart_item.quantity
+    = link_to shopping_cart_item.quantity, item
   %td.text-right  
     - if shopping_cart_item.quantity > 1
       = link_to '-', {action: 'down', product_id: item.id}, method: :post, class: 'btn btn-default btn-xs'
