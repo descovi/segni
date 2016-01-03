@@ -31,13 +31,14 @@
       .pull-right
         = link_to 'Procedi con il pagamento', url_for(controller:'orders', action: 'express_checkout'), class: 'btn btn-danger'
   .clearfix
-  %hr
-  .row
-    - @website.products.all.each do |product|
-      = render 'products/box_related', product: product, size_img: '_200x200c'
-  %hr 
-  %strong Prodotti di Agricoltura Sociale da altre aziende
-  %hr 
-  .row
-    - @website.products_from_other_websites.all.each do |product|
-      = render 'products/box_related', product: product, size_img: '_200x200c'
+  - if @website.present?
+    %hr
+    .row
+      - @website.products.all.each do |product|
+        = render 'products/box_related', product: product, size_img: '_200x200c'
+    %hr 
+    %strong Prodotti di Agricoltura Sociale da altre aziende
+    %hr 
+    .row
+      - @website.products_from_other_websites.all.each do |product|
+        = render 'products/box_related', product: product, size_img: '_200x200c'
