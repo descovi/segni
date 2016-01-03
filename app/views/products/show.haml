@@ -9,7 +9,8 @@
         .col-sm-8
           %p
             = t(:Price)
-            %strong= @product.price
+            %strong= number_to_currency @product.price
+            = "- #{@product.price_label}"
           %p= @product.description
           = link_to 'Ordina', shopping_cart_path(:product_id => @product), class: 'btn btn-primary', method: 'POST'
       %hr
