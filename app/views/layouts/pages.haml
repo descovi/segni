@@ -10,10 +10,10 @@
     %hr(style="margin-top:0; border-color: white")
     .container
       .row
-        .col-xs-6
+        .col-xs-4
           %strong.title
             = link_to @website.name, @website.first_page
-        .col-xs-6
+        .col-xs-8
           .pull-right
             - if controller_name == 'pages' || controller_name == 'welcome'
               - @page.simple_blocks.each do |block|

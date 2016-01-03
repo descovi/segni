@@ -15,4 +15,4 @@
       %hr
       .row
         - @product.other_from_same_websites.each do |product|
-          = render 'related', product: product
+          = render 'products/box_related', product: product, size_img: '_200x200c'
