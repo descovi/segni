@@ -25,6 +25,19 @@ class GuestBuyTest < ActionDispatch::IntegrationTest
     assert_equal item, @product
   end
 
+  test "user can change quantity of product" do
+    @product = products(:product_one)
+    put_item_in_cart @product
+    post "/it/shopping_cart/up/#{@product.id}"
+    assert :redirect
+    cart = assigns(:shopping_cart)
+    item = cart.shopping_cart_items.take
+    assert_equal item.quantity, 2
+    post "/it/shopping_cart/down/#{@product.id}"
+    item = cart.shopping_cart_items.take
+    assert_equal item.quantity, 1
+  end
+
   test "user can place a order of a cart" do
     @product = products(:product_one)
     put_item_in_cart @product

@@ -17,4 +17,16 @@ class ShoppingCartsController < ApplicationController
     redirect_to :back
   end
 
+  def up
+    @product = Product.find(params[:product_id])
+    @shopping_cart.add(@product, @product.price)
+    redirect_to shopping_cart_path
+  end
+
+  def down
+    @product = Product.find(params[:product_id])
+    @shopping_cart.remove(@product,1)
+    redirect_to shopping_cart_path
+  end
+
 end
