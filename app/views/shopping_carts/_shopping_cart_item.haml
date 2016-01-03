@@ -7,7 +7,10 @@
   %td.price.text-right= item.price
   %td.quantity.text-right
     = link_to shopping_cart_item.quantity
-    = link_to '+', {action: 'up', product_id: item.id}, method: :post
-    = link_to '-', {action: 'down', product_id: item.id}, method: :post
+  %td.text-right  
+    - if shopping_cart_item.quantity > 1
+      = link_to '-', {action: 'down', product_id: item.id}, method: :post, class: 'btn btn-default btn-xs'
+    = link_to '+', {action: 'up', product_id: item.id}, method: :post, class: 'btn btn-default btn-xs'
+
     
   %td.action.text-right= link_to 'cancella', shopping_cart_path(product_id: item.id), method: :delete

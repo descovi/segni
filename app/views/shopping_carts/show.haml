@@ -1,12 +1,13 @@
 .container
    
-  %table.table.table-striped(style="margin-top: 20px;")
+  %table.table.table-striped.table-responsive(style="margin-top: 20px;")
     %thead
       %th
       %th= t(:Name)
       
       %th.text-right= t(:price)
       %th.text-right(style='width: 100px;')= t(:Quantity)
+      %th.text-right(style='width: 100px;')= t(:Quantity_more_less)
       %th
 
     %tbody= render partial: 'shopping_cart_item', collection: @shopping_cart.shopping_cart_items
@@ -26,6 +27,6 @@
               %td(style="padding-right: 10px")
                 %strong= t(:Total)
               %td= number_to_currency @shopping_cart.total
-        %td(colspan="2")
+        %td(colspan="3")
 
   .pull-right= link_to 'Procedi con il pagamento', url_for(controller:'orders', action: 'express_checkout'), class: 'btn btn-danger'
