@@ -4,9 +4,9 @@
       %h3= @product.name
       %hr
       .row
-        .col-sm-8
-          = image_tag @product.image.url('_1024x768d'), class: 'img-responsive'
         .col-sm-4
+          = image_tag @product.image.url('_1024x768d'), class: 'img-responsive'
+        .col-sm-8
           %p
             = t(:Price)
             %strong= @product.price
