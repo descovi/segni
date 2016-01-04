@@ -17,7 +17,7 @@
         .col-xs-4
           %strong.title
             - if @website.present?
-              - title = link_to "#{@website.name} - Shop", @website.first_page
+              - title = link_to "#{@website.name}", @website.first_page
             - else
               - title = 'Shop'
             = title

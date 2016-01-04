@@ -5,7 +5,7 @@
       - bg_img = asset_path(link.background_image.url(:_650x350d))
     .six-image-1-cell.col-sm-4{style: "background-image:url(#{bg_img});"}
       %a{ href: link.url, target: '_blank'}
-        .block-hover
-          %span(style="font-size:32px")
+        .block-hover.block-hover-link
+          %span.name.name-link(style="font-size:32px")
             = link.name
   %div(style="clear: both")
