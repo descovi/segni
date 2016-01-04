@@ -1,4 +1,4 @@
 .col-sm-2.col-xs-6.box-product-correlated
-  = link_to image_tag(product.image.url(size_img), class: 'img-responsive'), product
-  = link_to product.name, product
-  = link_to product.price_label, product
+  = link_to image_tag(product.image.url(size_img), class: 'img-responsive'), product_url(product,subdomain: product.website.name_slug)
+  = link_to product.name, product_url(product,subdomain: product.website.name_slug)
+  = link_to product.price_label, product_url(product,subdomain: product.website.name_slug)
