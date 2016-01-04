@@ -10,4 +10,8 @@ class Website < ActiveRecord::Base
   def products_from_other_websites
     Product.where.not(website_id: self.id)
   end
+
+  def others_websites_with_same_domain
+    Website.where("domain = ? AND id != ?", self.domain, self.id)
+  end
 end
