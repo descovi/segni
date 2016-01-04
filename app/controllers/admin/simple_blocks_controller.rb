@@ -37,6 +37,8 @@ class Admin::SimpleBlocksController < AdminController
       :title_en,
       :content_en,
       :action,
+      :action_it,
+      :action_en,
       :full_height,
       :background_color,
       :image_1,
