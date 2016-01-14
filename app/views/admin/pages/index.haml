@@ -1,5 +1,5 @@
 .row
-  .col-sm-8= render 'list', pages: @website.pages
+  .col-sm-8= render 'layouts/list', pages: @website.pages, head_elements:['']
   .col-sm-4
     = simple_form_for [:admin, @website] do |f|
       = f.association :first_page

@@ -1,0 +1,12 @@
+= simple_form_for [:admin, @opera] do |f|
+
+  = f.input :name, as: :string
+  - if current_user.websites.size > 1
+    = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
+  - else
+    = f.input :website_id, as: :hidden, value: @website.id
+
+  = f.input :archive_index
+  = f.input :image
+  .actions
+    = f.button :submit

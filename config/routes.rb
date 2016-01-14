@@ -23,12 +23,14 @@ Rails.application.routes.draw do
   constraints subdomain: /.+/ do
     scope "/:locale" do
       resources :products, only: [:show]
+      resources :operas, only: [:show]
       resources :pages, only: [:show]
       
       namespace :admin do
         get '/' => 'dashboard#home'
         resources :pages
         resources :products
+        resources :operas
         resources :simple_blocks do
           put :sort
         end

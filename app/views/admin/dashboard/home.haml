@@ -1,15 +1,29 @@
-.row
-  .col-md-4
-    - head_elements = ['Name', 'Slug']
-    - body_elements = ['name', 'name_slug']
-    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
+- elements = 1
+- elements += 1 if current_user.websites.size > 1
+- elements += 1 if @website.product?
+- elements += 1 if @website.opera?
 
-  .col-md-4
-    = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
-  .col-md-4
-    
-    - body_elements = ['image','name', 'price','price_label', 'first_page']
-    - head_elements = ['', 'Name', 'Price', 'Label', 'First']
-    
-    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Product', collections: @website.products, edit_resource: true, namespace: :admin
+.row
+  - if current_user.websites.size > 1
+    #websites{class: "col-md-#{12/elements}"}
+      - head_elements = ['Name', 'Slug']
+      - body_elements = ['name', 'name_slug']
+      = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
+
+  #pages{class: "col-md-#{12/elements}"}
+    - head_elements = ['Title']
+    - body_elements = ['title_it']
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
+
+  - if @website.product?
+    #products{class: "col-md-#{12/elements}"}
+      - body_elements = ['image','name', 'price','price_label', 'first_page']
+      - head_elements = ['', 'Name', 'Price', 'Label', 'First']
+      = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Product', collections: @website.products, edit_resource: true, namespace: :admin
   
+  - if @website.opera?
+    #operas{class: "col-md-#{12/elements}"}
+      - body_elements = ['image', 'name', 'year']
+      - head_elements = ['', 'Name', 'Year']
+      = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
+    

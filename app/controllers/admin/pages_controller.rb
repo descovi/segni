@@ -3,7 +3,7 @@ class Admin::PagesController < AdminController
 
   def new
     @page = Page.new
-    render 'form'
+    render 'form', layout: 'admin-page'
   end
 
   def edit

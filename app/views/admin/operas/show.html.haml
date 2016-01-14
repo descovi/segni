@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product.name
+- if @product.image.present?
+  = image_tag @product.image.url(:_1024x768d)
+%br
+= link_to 'Edit', edit_admin_product_path(@product)

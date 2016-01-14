@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114141347) do
+ActiveRecord::Schema.define(version: 20160114153934) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20160114141347) do
     t.integer  "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.integer  "simple_block_id"
+  end
+
+  create_table "operas", force: :cascade do |t|
+    t.text     "name"
+    t.date     "year"
+    t.integer  "archive_index"
+    t.integer  "website_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.text     "description"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -76,8 +90,6 @@ ActiveRecord::Schema.define(version: 20160114141347) do
 
   create_table "products", force: :cascade do |t|
     t.text     "name"
-    t.date     "year"
-    t.integer  "archive_index"
     t.integer  "website_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
