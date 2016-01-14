@@ -18,9 +18,7 @@ class Admin::PagesController < AdminController
   end
 
   def update
-    if @page.update(pages_params_param_without_blank_values)
-      return redirect_to [:admin, Page] 
-    end
+    return redirect_to [:admin, Page]  if @page.update(pages_params_param_without_blank_values)
     render :form
   end
   

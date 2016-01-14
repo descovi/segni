@@ -6,7 +6,7 @@
       - if add_resource
         %th
           .pull-right
-            = link_to "Add #{resource_name}", new_admin_product_path, class: 'btn btn-primary btn-xs'
+            = link_to "Add #{resource_name}", [:new, namespace, resource_name], class: 'btn btn-primary btn-xs'
   %tbody
     - collections.each do |element|
       %tr
