@@ -34,6 +34,8 @@ class GreatAdmin::WebsitesController < GreatAdminController
                                     :primary_color, 
                                     :secondary_color, 
                                     :domain,
+                                    :template,
+                                    :template_id,
                                     :user_id)
   end
 

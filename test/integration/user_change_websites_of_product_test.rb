@@ -7,7 +7,6 @@ class UserChangeWebsitesOfProduct < ActionDispatch::IntegrationTest
     host! "#{website.name_slug}.example.com"
   end
 
-
   test 'should update product' do
     new_website = websites(:website_two)
     product = products(:product_one)

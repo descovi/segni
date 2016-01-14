@@ -11,5 +11,5 @@
     - body_elements = ['image','name', 'price','price_label', 'first_page']
     - head_elements = ['', 'Name', 'Price', 'Label', 'First']
     
-    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Products', collections: @website.products, edit_resource: true, namespace: :admin
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Product', collections: @website.products, edit_resource: true, namespace: :admin
   
