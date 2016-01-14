@@ -36,6 +36,8 @@ class GreatAdmin::WebsitesController < GreatAdminController
                                     :domain,
                                     :template,
                                     :template_id,
+                                    :product,
+                                    :opera,
                                     :user_id)
   end
 

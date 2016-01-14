@@ -14,6 +14,9 @@
           %td
             - if body_el.include? 'image'
               = image_tag element.send(body_el).url(:_20x20c)
+            - elsif body_el.include? '.'
+              - splitted = body_el.split('.')
+              = element.send(splitted[0]).send(splitted[1])
             - else
               = element.send(body_el)
         - if edit_resource

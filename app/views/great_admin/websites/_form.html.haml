@@ -6,6 +6,8 @@
     = f.input :primary_color
     = f.input :secondary_color
     = f.input :domain, as: :url
+    = f.input :product
+    = f.input :opera
     = f.association :user, include_blank: false, collection: User.all.order(:email), label_method: :email
     = f.association :template, prompt: false
 
