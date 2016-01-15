@@ -2,5 +2,5 @@
   .row
 
     - @website.operas.order('archive_index').each do |opera|
-      .col-sm-4(style="margin: 0; padding:0")
-        = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive'), opera
+      .col-sm-3(style="margin: 0; padding:0")
+        = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%'), opera
