@@ -22,7 +22,7 @@ class Opera < ActiveRecord::Base
   belongs_to :surface
   belongs_to :subject
   validates :website_id, presence: true
-  translates :title, :description
+  #translates :title, :description
 
   def other_from_same_websites
     Opera.where(website: self.website).where.not(id: self.id)
