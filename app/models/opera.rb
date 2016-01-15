@@ -16,8 +16,13 @@ class Opera < ActiveRecord::Base
     _1024x768d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates :archive_index, uniqueness: true
+
   belongs_to :website
+  belongs_to :surface
+  belongs_to :subject
   validates :website_id, presence: true
+  translates :title, :description
 
   def other_from_same_websites
     Opera.where(website: self.website).where.not(id: self.id)

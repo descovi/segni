@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114153934) do
+ActiveRecord::Schema.define(version: 20160115112012) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20160114153934) do
     t.integer  "simple_block_id"
   end
 
+  create_table "opera_translations", force: :cascade do |t|
+    t.integer  "opera_id",   null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "opera_translations", ["locale"], name: "index_opera_translations_on_locale"
+  add_index "opera_translations", ["opera_id"], name: "index_opera_translations_on_opera_id"
+
   create_table "operas", force: :cascade do |t|
     t.text     "name"
     t.date     "year"
@@ -53,6 +64,14 @@ ActiveRecord::Schema.define(version: 20160114153934) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.text     "description"
+    t.text     "tecnical"
+    t.text     "size"
+    t.integer  "surface_id"
+    t.integer  "subject_id"
+    t.boolean  "circa_date"
+    t.text     "tag_1"
+    t.text     "tag_2"
+    t.text     "tag_3"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -175,6 +194,36 @@ ActiveRecord::Schema.define(version: 20160114153934) do
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
+
+  create_table "subject_translations", force: :cascade do |t|
+    t.integer  "subject_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "subject_translations", ["locale"], name: "index_subject_translations_on_locale"
+  add_index "subject_translations", ["subject_id"], name: "index_subject_translations_on_subject_id"
+
+  create_table "subjects", force: :cascade do |t|
+    t.text "name"
+  end
+
+  create_table "surface_translations", force: :cascade do |t|
+    t.integer  "surface_id", null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "surface_translations", ["locale"], name: "index_surface_translations_on_locale"
+  add_index "surface_translations", ["surface_id"], name: "index_surface_translations_on_surface_id"
+
+  create_table "surfaces", force: :cascade do |t|
+    t.text "name"
+  end
 
   create_table "templates", force: :cascade do |t|
     t.string "name"

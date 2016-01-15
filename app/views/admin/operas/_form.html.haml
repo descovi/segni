@@ -2,8 +2,18 @@
   .row
     .col-sm-8
       .row
-        .col-sm-8= f.input :name, as: :string
-        .col-sm-4= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1960, end_year: 2000
+        .col-sm-6= f.input :name, as: :string
+        .col-sm-2= f.input :archive_index
+        .col-sm-2= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996
+        .col-sm-2= f.input :circa_date, as: :boolean
+      .row
+        .col-sm-2= f.association :surface, prompt: true
+        .col-sm-2= f.association :subject, prompt: true
+        .col-sm-2= f.input :size, as: :string
+        .col-sm-2= f.input :tag_1, as: :string
+        .col-sm-2= f.input :tag_2, as: :string
+        .col-sm-2= f.input :tag_3, as: :string
+
         
       .row
         .col-sm-12= f.input :description
