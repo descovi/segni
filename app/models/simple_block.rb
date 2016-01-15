@@ -32,7 +32,7 @@ class SimpleBlock < ActiveRecord::Base
 
   translates :title, :content, :action
   globalize_accessors locales: I18n.available_locales
-  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block) }
+  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block gallery) }
 
   accepts_nested_attributes_for :links, allow_destroy: true
 
@@ -41,12 +41,18 @@ class SimpleBlock < ActiveRecord::Base
       'products-block' => 'Products',
       'text-with-image' => 'Text',
       'image-block' => 'Images',
-      'links-block' => 'Links'
+      'links-block' => 'Links',
+      'gallery' => 'Gallery'
     }
     "#{map[self.custom_type]} block"
   end
+
   def name_of_view
-    custom_type.gsub!('-', '_')
+    if custom_type.include? '-'
+      custom_type.gsub!('-', '_')
+    else
+      custom_type
+    end
   end
 
   def css_class
