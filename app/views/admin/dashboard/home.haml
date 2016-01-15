@@ -1,28 +1,24 @@
-- elements = 1
-- elements += 1 if current_user.websites.size > 1
-- elements += 1 if @website.product?
-- elements += 1 if @website.opera?
 
 .row
   - if current_user.websites.size > 1
-    #websites{class: "col-md-#{12/elements}"}
+    #websites.col-sm-12
       - head_elements = ['Name', 'Slug']
       - body_elements = ['name', 'name_slug']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
 
-  #pages{class: "col-md-#{12/elements}"}
+  #pages.col-sm-12
     - head_elements = ['Title']
     - body_elements = ['title_it']
     = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
 
   - if @website.product?
-    #products{class: "col-md-#{12/elements}"}
+    #products.col-sm-12
       - body_elements = ['image','name', 'price','price_label', 'first_page']
       - head_elements = ['', 'Name', 'Price', 'Label', 'First']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Product', collections: @website.products, edit_resource: true, namespace: :admin
   
   - if @website.opera?
-    #operas{class: "col-md-#{12/elements}"}
+    #operas.col-sm-12
       - head_elements = ['', 'N°', 'Name', 'Year', 'Circa', 'Size', 'Subject', 'Surface/Tecnhiques', 'tag 1', 'tag 2', 'tag 3']
       - body_elements = ['image', 'archive_index','name', 'year.year', 'circa_date','size', 'subject.name', 'surface.name', 'tag_1', 'tag_2', 'tag_3']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
