@@ -1,12 +1,20 @@
 = simple_form_for [:admin, @opera] do |f|
-
-  = f.input :name, as: :string
-  - if current_user.websites.size > 1
-    = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
-  - else
-    = f.input :website_id, as: :hidden, value: @website.id
-
-  = f.input :archive_index
-  = f.input :image
-  .actions
-    = f.button :submit
+  .row
+    .col-sm-8
+      .row
+        .col-sm-8= f.input :name, as: :string
+        .col-sm-4= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1960, end_year: 2000
+        
+      .row
+        .col-sm-12= f.input :description
+      - if current_user.websites.size > 1
+        = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
+      - else
+        = f.input :website_id, input_html: {value: @website.id}, as: :hidden
+    .col-sm-4
+      = f.input :image
+      - if @opera.image.present?
+        = image_tag @opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
+  
+  .row(style="padding-top: 20px")
+    .col-sm-12= f.button :submit, class: 'btn btn-primary btn-block'

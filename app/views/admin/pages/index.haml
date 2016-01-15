@@ -1,6 +1,5 @@
 .row
-  .col-sm-8= render 'layouts/list', pages: @website.pages, head_elements:['']
-  .col-sm-4
-    = simple_form_for [:admin, @website] do |f|
-      = f.association :first_page
-      = f.button :submit, class: 'btn-block, btn-xs'
+  .col-sm-12
+    - head_elements = ['Title']
+    - body_elements = ['title_it']
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: false, collections: @website.pages, edit_resource: true, namespace: 'admin'

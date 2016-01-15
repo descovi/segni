@@ -6,7 +6,6 @@ class Opera < ActiveRecord::Base
     _50x50c: '50x50#',
     _100x100c:  '100x100#',
     _200x200c:  '200x200#',
-    _650x350d:  '650x350>',
     _1024x768d: '1024x768>' 
   }, 
   convert_options: { 

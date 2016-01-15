@@ -3,7 +3,7 @@
     %tr
       - head_elements.each do |head_el|
         %th= head_el
-      - if add_resource
+      - if defined?(add_resource) and add_resource == true
         %th
           .pull-right
             = link_to "Add #{resource_name}", [:new, namespace, resource_name.downcase], class: 'btn btn-primary btn-xs'

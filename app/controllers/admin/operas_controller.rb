@@ -1,5 +1,5 @@
 class Admin::OperasController < AdminController
-before_action :set_product, only: [:show, :edit, :update, :destroy]
+before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
   # GET /operas/1
   # GET /operas/1.json
@@ -18,7 +18,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   # POST /operas
   # POST /operas.json
   def create
-    @opera = Opera.new(product_params)
+    @opera = Opera.new(opera_params)
     respond_to do |format|
       if @opera.save
         format.html { redirect_to admin_operas_path, notice: 'Opera was successfully created.' }
@@ -34,7 +34,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
   # PATCH/PUT /operas/1.json
   def update
     respond_to do |format|
-      if @product.update(product_params)
+      if @product.update(opera_params)
         format.html { redirect_to admin_operas_path, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -56,13 +56,13 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
+    def set_opera
+      @opera = Opera.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(
+    def opera_params
+      params.require(:opera).permit(
         :name, 
         :year, 
         :archive_index, 
