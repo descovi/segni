@@ -16,7 +16,8 @@
               = image_tag element.send(body_el).url(:_100x100c)
             - elsif body_el.include? '.'
               - splitted = body_el.split('.')
-              = element.send(splitted[0]).send(splitted[1])
+              - if element.send(splitted[0]).present?
+                = element.send(splitted[0]).send(splitted[1])
             - else
               = element.send(body_el)
         - if edit_resource
