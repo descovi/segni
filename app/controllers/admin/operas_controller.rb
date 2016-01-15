@@ -62,13 +62,13 @@ before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opera_params
-      params.require(:opera).permit(
-        :name, 
-        :year, 
-        :archive_index, 
-        :website_id, 
-        :image, 
-        :description,
-        :website_id)
+      params.require(:opera).permit!#.permit(
+        # :name, 
+        # :year, 
+        # :archive_index, 
+        # :website_id, 
+        # :image, 
+        # :description,
+        # :website_id)
     end
 end
