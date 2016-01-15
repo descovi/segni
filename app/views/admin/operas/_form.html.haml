@@ -4,7 +4,7 @@
       .row
         .col-sm-6= f.input :name, as: :string
         .col-sm-2= f.input :archive_index
-        .col-sm-2= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996
+        .col-sm-2= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true
         .col-sm-2= f.input :circa_date, as: :boolean
       .row
         .col-sm-2= f.association :surface, prompt: true

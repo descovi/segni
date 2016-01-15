@@ -16,7 +16,11 @@ class Opera < ActiveRecord::Base
     _1024x768d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  
   validates :archive_index, uniqueness: true
+  validates :archive_index, presence: true
+  validates :name, presence: true
+  validates :year, presence: true
 
   belongs_to :website
   belongs_to :surface

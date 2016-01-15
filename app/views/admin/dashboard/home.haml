@@ -23,7 +23,7 @@
   
   - if @website.opera?
     #operas{class: "col-md-#{12/elements}"}
-      - body_elements = ['image', 'name', 'year.year']
-      - head_elements = ['', 'Name', 'Year']
+      - head_elements = ['', 'N°', 'Name', 'Year', 'Subject', 'Surface/Tecnhiques', 'tag 1', 'tag 2', 'tag 3']
+      - body_elements = ['image', 'archive_index','name', 'year.year', 'subject.name', 'surface.name', 'tag_1', 'tag_2', 'tag_3']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
     
