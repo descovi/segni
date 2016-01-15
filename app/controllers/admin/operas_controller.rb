@@ -34,12 +34,12 @@ before_action :set_opera, only: [:show, :edit, :update, :destroy]
   # PATCH/PUT /operas/1.json
   def update
     respond_to do |format|
-      if @product.update(opera_params)
-        format.html { redirect_to admin_operas_path, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
+      if @opera.update(opera_params)
+        format.html { redirect_to admin_operas_path, notice: 'opera was successfully updated.' }
+        format.json { render :show, status: :ok, location: @opera }
       else
         format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @opera.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,9 +47,9 @@ before_action :set_opera, only: [:show, :edit, :update, :destroy]
   # DELETE /operas/1
   # DELETE /operas/1.json
   def destroy
-    @product.destroy
+    @opera.destroy
     respond_to do |format|
-      format.html { redirect_to admin_operas_path, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to admin_operas_path, notice: 'opera was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
