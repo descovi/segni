@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-sm-12
+      %h3= @opera.name
+      %hr
+      .row
+        .col-sm-12
+          = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive'

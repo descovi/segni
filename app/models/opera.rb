@@ -6,14 +6,16 @@ class Opera < ActiveRecord::Base
     _50x50c: '50x50#',
     _100x100c:  '100x100#',
     _200x200c:  '200x200#',
-    _1024x768d: '1024x768>' 
+    _1024x768d: '1024x768>',
+    _1150x850d: '1150x850>' 
   }, 
   convert_options: { 
     _20x20c: '-quality 75 -strip',
     _50x50c: '-quality 75 -strip',
     _100x100c: '-quality 75 -strip',
     _200x200c: '-quality 75 -strip',
-    _1024x768d: '-quality 90 -strip'
+    _1024x768d: '-quality 90 -strip',
+    _1150x850d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
