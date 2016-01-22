@@ -19,7 +19,7 @@ $('img').hide()
   }
 
   function fix_image_height(){
-    if ( image_have_to_be_resized()) {
+    if ( window_width_more_big_than_image()) {
       height_at_100_per_cent()      
     } else {
       $('img').css('height', 'auto')  
@@ -27,22 +27,13 @@ $('img').hide()
     }
   }
 
-  function image_have_to_be_resized(){
-    return window_width_more_big_than_image() && $(window).width() > 750 
-  }
 
   function window_width_more_big_than_image(){
     var image = new Image()
     image.src = $('img').attr('src')
-    return $(window).width() > image.naturalWidth
+    return ($(window).width()) > image.naturalWidth+20
   }
 
-
-  function window_height_more_big_than_image(){
-    var image = new Image()
-    image.src = $('img').attr('src')
-    return $(window).width() > image.naturalWidth
-  }
 
 
   function height_at_100_per_cent(){
@@ -52,7 +43,7 @@ $('img').hide()
     // 400px is a hard coded number that is a good relative measure
     // when window height is too much little to contain entire image
     if ($(window).height() < 400){
-      altezza = 400 - offset.top 
+      altezza = 400 - offset.top - 20
     }
     if (altezza > 0){
       $('img').css('height', altezza)  
