@@ -3,7 +3,8 @@
     .col-xs-8(style="padding-top:20px")
       %strong
         = @opera.name
-      = " / #{@opera.year.year}" if @opera.year.present?
+      = " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
+      = " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
       = " / #{@opera.surface.name}" if @opera.surface.present?
       = " / #{@opera.size}" if @opera.size.present?
     .col-xs-4(style="padding-top:20px")
