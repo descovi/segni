@@ -1,4 +1,5 @@
 <script type="text/javascript">
+$(document).ready(function(){
   $(window).resize(fix_image_height)
   fix_image_height()
 
@@ -39,9 +40,7 @@
       altezza = 400 - offset.top - 20
     }
     
-    
-      $('img').css('height', altezza)  
-
+    $('img').css('height', altezza)  
     var image = new Image()
     image.src = $('img').attr('src')
     if ($('img').height() > image.naturalHeight ){
@@ -55,18 +54,20 @@
       switch(key){
         //left arrow
         case 37:
-          document.getElementById("prev").click();
+          $("#prev").css('font-weight', 'bold')
+          $("#prev").css('text-decoration', 'underline')
+          $("#prev")[0].click()
         break;
         //right arrow
         case 39:
-          document.getElementById("next").click();
+          //$("#next").click()
+          $("#next").css('font-weight', 'bold')
+          $("#next").css('text-decoration', 'underline')
+          $("#next")[0].click()
         break;
       }
     }
 
-   document.addEventListener("keydown",function(e){
-    console.log("CIAO")
-    keydown_(e)
-  })
-
+   $(document).keyup(function(e){ keydown_(e) })
+})
 </script>
