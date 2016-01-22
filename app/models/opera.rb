@@ -17,7 +17,7 @@ class Opera < ActiveRecord::Base
     _200x200c: '-quality 75 -strip',
     _400x400c: '-quality 90 -strip',
     _1024x768d: '-quality 90 -strip',
-    _1150x850d: '-quality 90 -strip'
+    _1150x850d: '-quality 100 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
