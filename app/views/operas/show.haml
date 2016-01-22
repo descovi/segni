@@ -3,7 +3,9 @@
     .col-sm-12(style="padding-top:20px")
       %strong
         = @opera.name
-      = " / #{@opera.year.year} / #{@opera.surface.name} / #{@opera.size}"
+      = " / #{@opera.year.year}" if @opera.year.present?
+      = " / #{@opera.surface.name}" if @opera.surface.present?
+      = " / #{@opera.size}" if @opera.size.present?
 
       .pull-right
         - if @opera.prev.present?
