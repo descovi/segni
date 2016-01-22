@@ -1,7 +1,10 @@
 .container
   .row
     .col-sm-12(style="padding-top:20px")
-      %strong= @opera.name
+      %strong
+        = @opera.name
+      = " / #{@opera.year.year} / #{@opera.surface.name} / #{@opera.size}"
+
       .pull-right
         - if @opera.prev.present?
           = link_to '<', @opera.prev, id: 'prev'
