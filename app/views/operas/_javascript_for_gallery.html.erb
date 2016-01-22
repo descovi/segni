@@ -1,7 +1,15 @@
 <script type="text/javascript">
 $(document).ready(function(){
-  $(window).resize(fix_image_height)
-  fix_image_height()
+  $("img").one("load", function(){
+    var img = this;
+    setTimeout(start, 100);
+  }
+);
+
+  function start(){
+    $(window).resize(fix_image_height)
+    fix_image_height()
+  }
 
   function fix_image_height(){
     if ( image_have_to_be_resized()) {
@@ -39,10 +47,13 @@ $(document).ready(function(){
     if ($(window).height() < 400){
       altezza = 400 - offset.top - 20
     }
-    
-    $('img').css('height', altezza)  
+    if (altezza > 0){
+      $('img').css('height', altezza)  
+    }
+    console.log(altezza)
     var image = new Image()
     image.src = $('img').attr('src')
+    console.log(image)
     if ($('img').height() > image.naturalHeight ){
       $('img').height(image.naturalHeight)
     }
