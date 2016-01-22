@@ -20,4 +20,6 @@
         = link_to image_tag_, @opera.next
       - else
         = link_to image_tag_, @opera.first_of_album
+      - if @opera.description.present?
+        %p(style="margin-top:20px")= simple_format @opera.description
 = render 'operas/javascript_for_gallery'

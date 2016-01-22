@@ -3,7 +3,8 @@
   fix_image_height()
 
   function fix_image_height(){
-    if ( window_width_more_big_than_image() && $(window).width() > 750 ) {
+    if ( image_have_to_be_resized()) {
+      console.log("RESIZO!")
       height_at_100_per_cent()      
     } else {
       $('img').css('height', 'auto')  
@@ -11,9 +12,28 @@
     }
   }
 
+  function image_have_to_be_resized(){
+    return window_width_more_big_than_image() && $(window).width() > 750 && window_height_more_little_than_image()
+  }
+
   function window_width_more_big_than_image(){
     return $(window).width() > $('img').width()
   }
+
+  function window_height_more_little_than_image(){
+    var image = new Image()
+    image.src = $('img').attr('src')
+    return $(window).height() < image.naturalHeight
+  }
+
+
+  function window_height_more_big_than_image(){
+    var image = new Image()
+    image.src = $('img').attr('src')
+    console.log(image.naturalWidth)
+    return $(window).width() > image.naturalWidth
+  }
+
 
   function height_at_100_per_cent(){
     var img = $('img')
