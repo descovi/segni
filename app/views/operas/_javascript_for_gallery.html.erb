@@ -1,14 +1,16 @@
 <script type="text/javascript">
 $(document).ready(function(){
+  
   $("img").one("load", function(){
     var img = this;
-    setTimeout(start, 100);
+    setTimeout(start, 1000);
   }
 );
 
   function start(){
     $(window).resize(fix_image_height)
     fix_image_height()
+    $("img").fadeIn(100)
   }
 
   function fix_image_height(){
@@ -50,10 +52,10 @@ $(document).ready(function(){
     if (altezza > 0){
       $('img').css('height', altezza)  
     }
-    console.log(altezza)
+    
     var image = new Image()
     image.src = $('img').attr('src')
-    console.log(image)
+    
     if ($('img').height() > image.naturalHeight ){
       $('img').height(image.naturalHeight)
     }
