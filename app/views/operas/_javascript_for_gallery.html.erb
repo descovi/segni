@@ -52,7 +52,7 @@ $('img').hide()
     var image = new Image()
     image.src = $('img').attr('src')
     
-    if ($('img').height() > image.naturalHeight ){
+    if ($('img').height() > image.naturalHeight && image.naturalHeight > 0){
       $('img').height(image.naturalHeight)
     }
   }
