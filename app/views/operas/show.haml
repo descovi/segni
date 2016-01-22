@@ -9,9 +9,9 @@
 
       .pull-right
         - if @opera.prev.present?
-          = link_to '<', @opera.prev, id: 'prev'
+          = link_to '<', @opera.prev, id: 'prev', class: 'btn btn-default btn-xs'
         - if @opera.next.present?
-          = link_to '>', @opera.next, id: 'next'
+          = link_to '>', @opera.next, id: 'next', class: 'btn btn-default btn-xs'
 %hr
 .container
   .row
