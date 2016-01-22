@@ -22,7 +22,27 @@
     if ($(window).height() < 400){
       altezza = 400 - offset.top - 20
     }
-    
     $('img').css('height', altezza)  
-}
+  }
+
+
+    function keydown_(e){
+      var key = e.which||e.keyCode;
+      switch(key){
+        //left arrow
+        case 37:
+          document.getElementById("prev").click();
+        break;
+        //right arrow
+        case 39:
+          document.getElementById("next").click();
+        break;
+      }
+    }
+
+   document.addEventListener("keydown",function(e){
+    console.log("CIAO")
+    keydown_(e)
+  })
+
 </script>

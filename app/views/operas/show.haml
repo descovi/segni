@@ -6,7 +6,7 @@
         - if @opera.prev.present?
           = link_to '<', @opera.prev, id: 'prev'
         - if @opera.next.present?
-          = link_to '>', @opera.last_of_album, id: 'prev'
+          = link_to '>', @opera.next, id: 'next'
 %hr
 .container
   .row
