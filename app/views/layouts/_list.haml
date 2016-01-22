@@ -14,7 +14,7 @@
           %td
             - if body_el.include? 'image'
               = image_tag element.send(body_el).url(:_100x100c)
-            - elsif body_el.include? '.'
+            - elsif body_el.include? '.' # ex: association.name
               - splitted = body_el.split('.')
               - if element.send(splitted[0]).present?
                 = element.send(splitted[0]).send(splitted[1])
@@ -23,5 +23,6 @@
         - if edit_resource
           %td
             .pull-right
+              = link_to 'See', element, target: '_blank'
               = link_to 'Edit', [:edit, namespace, element], class: 'btn btn link btn-xs'
               = link_to 'Destroy', [namespace, element], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn link btn-xs'

@@ -35,4 +35,21 @@ class Opera < ActiveRecord::Base
   def other_from_same_websites
     Opera.where(website: self.website).where.not(id: self.id)
   end
+
+
+  def next
+    Opera.where('id > ?', id).first
+  end
+
+  def prev
+    Opera.where('id < ?', id).last
+  end
+
+  def first_of_album
+    Opera.first
+  end
+
+  def last_of_album
+    Opera.last
+  end
 end
