@@ -16,7 +16,7 @@
 .container
   .row
     .col-sm-12
-      - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style:'margin: 0 auto'
+      - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style:'margin: 0 auto; display:none'
 
       - if @opera.next.present?
         = link_to image_tag_, @opera.next
