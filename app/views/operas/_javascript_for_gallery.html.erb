@@ -1,0 +1,28 @@
+<script type="text/javascript">
+  $(window).resize(fix_image_height)
+  fix_image_height()
+
+  function fix_image_height(){
+    if ( window_width_more_big_than_image() && $(window).width() > 750 ) {
+      height_at_100_per_cent()      
+    } else {
+      $('img').css('height', 'auto')  
+      $('img').css('min-width', '')  
+    }
+  }
+
+  function window_width_more_big_than_image(){
+    return $(window).width() > $('img').width()
+  }
+
+  function height_at_100_per_cent(){
+    var img = $('img')
+    var offset = img.offset();
+    var altezza = $(window).height() - offset.top - 20
+    if ($(window).height() < 400){
+      altezza = 400 - offset.top - 20
+    }
+    
+    $('img').css('height', altezza)  
+}
+</script>
