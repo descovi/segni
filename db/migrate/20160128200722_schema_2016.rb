@@ -1,4 +1,4 @@
-class AddCoverSliderToOpera < ActiveRecord::Migration
+class Schema2016 < ActiveRecord::Migration
   def change
     create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
