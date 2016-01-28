@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115112012) do
+ActiveRecord::Schema.define(version: 20160128200722) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160115112012) do
     t.text     "tag_1"
     t.text     "tag_2"
     t.text     "tag_3"
+    t.boolean  "cover_slider"
   end
 
   create_table "orders", force: :cascade do |t|

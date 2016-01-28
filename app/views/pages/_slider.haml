@@ -1,0 +1,20 @@
+- opera_selected = Opera.where(cover_slider: true, website_id: @website.id)
+.container
+  .col-sm-12(style="text-align: center")
+    #cycler
+      - opera_selected.each do |opera|
+        = image_tag opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
+
+:css
+  #cycler{position:relative;}
+  #cycler img{position:absolute;z-index:1}
+  #cycler img.active{z-index:3}
+
+:javascript
+
+
+  $(document).ready(function(){
+    $('#cycler img').first().addClass( "active" );
+    // run every 7s
+    setInterval('cycleImages()', 2000);
+  })

@@ -32,7 +32,7 @@ class SimpleBlock < ActiveRecord::Base
 
   translates :title, :content, :action
   globalize_accessors locales: I18n.available_locales
-  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block gallery) }
+  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block gallery slider) }
 
   accepts_nested_attributes_for :links, allow_destroy: true
 
@@ -42,7 +42,8 @@ class SimpleBlock < ActiveRecord::Base
       'text-with-image' => 'Text',
       'image-block' => 'Images',
       'links-block' => 'Links',
-      'gallery' => 'Gallery'
+      'gallery' => 'Gallery',
+      'slider' => 'Slider'
     }
     "#{map[self.custom_type]} block"
   end
