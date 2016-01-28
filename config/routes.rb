@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   constraints subdomain: /.+/ do
     scope "/:locale" do
       resources :products, only: [:show]
@@ -28,14 +27,15 @@ Rails.application.routes.draw do
       
       namespace :admin do
         get '/' => 'dashboard#home'
-        resources :pages
+        resources :pages do
+          post 'first_page' # 'pages#first_page'
+        end
         resources :products
         resources :operas
         resources :simple_blocks do
           put :sort
         end
       end
-
     end
   end
 

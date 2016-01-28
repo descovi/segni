@@ -2,16 +2,12 @@
 
 product_one:
   name: MyText
-  year: 2015-12-03
-  archive_index: 1
   website: website_one
   price_cents: 10
   price_label: 10 euro per 1kg
 
 product_two:
   name: MyText
-  year: 2015-12-03
-  archive_index: 1
   website: website_two
   price_cents: 10
   price_label: 10 euro per 1kg

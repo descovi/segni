@@ -27,6 +27,11 @@ class Admin::PagesController < AdminController
     redirect_to [:admin, Page]
   end
   
+  def first_page
+    page = Page.find(params[:page_id])
+    @website.first_page = page
+    redirect_to [:admin, Page]
+  end
   
   private
 

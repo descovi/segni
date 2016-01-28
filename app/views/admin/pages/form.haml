@@ -18,6 +18,8 @@
           .col-sm-12
             = f.button :submit, class: 'btn btn-primary btn-xs'
             .clearfix
+        - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
+        = link_to 'first_page', path, method: :post
 
       - if action_name != 'new'
         %hr
