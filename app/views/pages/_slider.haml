@@ -1,20 +1,28 @@
 - opera_selected = Opera.where(cover_slider: true, website_id: @website.id)
 .container
-  .col-sm-offset-2.col-sm-8(style="text-align: center; padding-top: 25px")
-    #cycler
-      - opera_selected.each do |opera|
-        = image_tag opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
+  .col-sm-offset-1.col-sm-10(style="padding-top: 20px")
+    .row
+      #cycler
+        - opera_selected.each do |opera|
+          = image_tag opera.image.url(:_950x450c), class: 'center-block img-responsive'
 
 :css
-  #cycler{position:relative;}
-  #cycler img{position:absolute;z-index:1}
+  #cycler{
+    position:relative;
+  }
+  #cycler img{
+    position: absolute;
+    z-index:1; 
+    width: 100%; 
+  }
   #cycler img.active{z-index:3}
 
 :javascript
-
+  time = 3000 // global for debug
 
   $(document).ready(function(){
+    
     $('#cycler img').first().addClass( "active" );
     // run every 7s
-    setInterval('cycleImages()', 2000);
+    setInterval('cycleImages()', time);
   })

@@ -7,6 +7,7 @@ class Opera < ActiveRecord::Base
     _100x100c:  '100x100#',
     _200x200c:  '200x200#',
     _400x400c:  '400x400#',
+    _950x450c:  '940x450#',
     _1024x768d: '1024x768>',
     _1150x850d: '1150x850>' 
   }, 
@@ -16,6 +17,7 @@ class Opera < ActiveRecord::Base
     _100x100c: '-quality 75 -strip',
     _200x200c: '-quality 75 -strip',
     _400x400c: '-quality 90 -strip',
+    _950x450c: '-quality 90 -strip',
     _1024x768d: '-quality 90 -strip',
     _1150x850d: '-quality 90 -strip'
   }
