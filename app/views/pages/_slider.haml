@@ -1,6 +1,6 @@
 - opera_selected = Opera.where(cover_slider: true, website_id: @website.id)
 .container
-  .col-sm-12(style="text-align: center")
+  .col-sm-offset-2.col-sm-8(style="text-align: center; padding-top: 25px")
     #cycler
       - opera_selected.each do |opera|
         = image_tag opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
