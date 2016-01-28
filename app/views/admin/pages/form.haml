@@ -17,9 +17,9 @@
           /   = f.input :content_en, as: :text
           .col-sm-12
             = f.button :submit, class: 'btn btn-primary btn-xs'
-            .clearfix
-        - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
-        = link_to 'first_page', path, method: :post
+            
+            - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
+            = link_to 'first page', path, method: :post, class: 'btn btn-primary btn-xs'
 
       - if action_name != 'new'
         %hr

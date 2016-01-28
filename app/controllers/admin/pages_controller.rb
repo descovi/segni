@@ -30,6 +30,7 @@ class Admin::PagesController < AdminController
   def first_page
     page = Page.find(params[:page_id])
     @website.first_page = page
+    @website.save
     redirect_to [:admin, Page]
   end
   
