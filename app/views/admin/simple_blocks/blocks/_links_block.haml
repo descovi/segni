@@ -1,22 +1,11 @@
-= simple_form_for [:admin, block] do |f|
-  .col-sm-12.form-for-block
-    .panel.panel-default
-      - open_or_close = 'panel-heading-open' if block.id == params[:simple_block_updated].to_i
-      .panel-heading{class: open_or_close}
-        .pull-left
-          %strong #{block.title}
-          %em #{block.custom_type_label}
-          
-        .pull-right
-          %span(class="glyphicon glyphicon-move" aria-hidden="true")
-          - span_icon_trash = "<span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\")></span>"
-          = link_to raw(span_icon_trash), [:admin, block], method: :delete, data: { :confirm => 'Attention, you are deleting this record, are you sure?' }
-        .clearfix
-      .panel-body
-        .row
-          .col-sm-12= f.input :menu_title, as: :string, placeholder: 'Menu title', label: false
-          = render 'admin/simple_blocks/'+block.name_of_view, block: block, f: f    
-          - if block.custom_type == 'links-block'
-            - block.links.build if block.links.empty? or params[:another].present?# add a field if nedded
-          .col-sm-12
-            = render 'admin/simple_blocks/submit_and_delete', form: f
+- block.links.build if block.links.empty? or params[:another].present?# add a field if nedded
+.col-sm-12
+  = f.simple_fields_for :links do |f|
+    = f.input :name
+    = f.input :url, as: :url, placeholder: 'http://terraumana.it'
+    = f.input :background_image
+    = f.input :_destroy, as: :boolean, label: 'Delete this link'
+
+  = link_to 'Add another link', {another: true, simple_block_updated: block.id}, class: 'btn btn-default btn-xs'
+  %br
+  %br
