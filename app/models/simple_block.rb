@@ -19,13 +19,10 @@ class SimpleBlock < ActiveRecord::Base
 
   has_attached_file :background_image, styles: styles, convert_options: convert_options
 
-  has_attached_file :image_1, styles: styles, convert_options: convert_options
-  has_attached_file :image_2, styles: styles, convert_options: convert_options
-  has_attached_file :image_3, styles: styles, convert_options: convert_options
-  has_attached_file :image_4, styles: styles, convert_options: convert_options
-  has_attached_file :image_5, styles: styles, convert_options: convert_options
-  has_attached_file :image_6, styles: styles, convert_options: convert_options
-  
+  [1,2,3,4,5,6].each do |numero|
+    has_attached_file "image_#{numero}".to_sym, styles: styles, convert_options: convert_options
+  end
+    
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   
   has_many :links, dependent: :destroy
