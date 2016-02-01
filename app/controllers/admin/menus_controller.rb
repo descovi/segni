@@ -1,6 +1,9 @@
 class Admin::MenusController < AdminController
-
-
+  layout 'admin-page'
+  def index
+    
+  end
+  
   # GET /operas/1
   # GET /operas/1.json
   def show
@@ -9,11 +12,14 @@ class Admin::MenusController < AdminController
   # GET /operas/new
   def new
     @menu = Menu.new
+    @menu.position = @website.menus.last_position+1
     render '_form'
   end
 
   # GET /products/1/edit
   def edit
+    @menu = Menu.find params[:id]
+    render '_form'
   end
 
   # POST /products
@@ -36,12 +42,13 @@ class Admin::MenusController < AdminController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @menu = Menu.find params[:id]
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
-        format.html { render :edit }
+        format.html { render '_form' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end

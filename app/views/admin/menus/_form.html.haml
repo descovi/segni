@@ -1,8 +1,15 @@
+= render 'layouts/list', head_elements: ['Name','Url', 'Position'], body_elements: ['name', 'url', 'position'], collections: @website.menus, resource_name: 'Menu', add_resource: false, edit_resource: true, namespace: :admin
+
 = simple_form_for [:admin, @menu] do |f|
+
   .row
-    .col-sm-8
-      .row
-        .col-sm-6= f.input :name
-        .col-sm-2= f.input :url, as: :string
-        .col-sm-2= f.input :position
-    .col-sm-12= f.button :submit, class: 'btn btn-primary btn-block'
+    .col-sm-12= f.input :name
+  .row
+    .col-sm-6= f.input :url, as: :string
+    .col-sm-6= f.input :position
+  
+  = f.button :submit, class: 'btn btn-primary btn-block'
+
+
+- content_for :iframe do
+  %iframe#iframe-preview{src: url_for(@website.first_page), style: 'width: 100%; height: 100vh; border: none'}

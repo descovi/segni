@@ -15,21 +15,13 @@
             = link_to @website.name, @website.first_page
         .col-xs-8
           .pull-right
-            - if controller_name == 'pages' || controller_name == 'welcome'
-              - @page.simple_blocks.each do |block|
-                - if block.menu_title.present?
-                  %a{href: "##{block.id}_anchor"}= block.menu_title
-                  %span(style="color: #eee")= '/'
-
-            - @website.pages.each_with_index do |page, index|
-              - if page == @website.first_page
-                //
-              - elsif @page == page
-                = page.title
-                %span(style="color: #eee")= '/'
+            - @page.website.menus.each do |menu_voice|
+              - if menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
+                = link_to menu_voice.name, menu_voice.url, target: '_blank'
               - else
-                = link_to page.title, page
-                %span(style="color: #eee")= '/'
+                = link_to menu_voice.name, menu_voice.url
+              %span(style="color: #eee")= '/'
+
             - if session[:shopping_cart_id].present?
               - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
               - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'

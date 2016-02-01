@@ -1,47 +1,44 @@
-.container-fluid
+
+- if @page.persisted?
+  .pull-right= link_to 'Close editor', @page, target: '_blank', class: 'btn btn-primary'
+%hr
+
+.row
+  = simple_form_for [:admin, @page] do |f|
+    .col-sm-12
+      = f.input :title_it
+      / = f.input :content_it, as: :text
+    / .col-sm-6
+    /   = f.input :title_en
+    /   = f.input :content_en, as: :text
+    .col-sm-12
+      = f.button :submit, class: 'btn btn-primary btn-xs'
+      
+      - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
+      = link_to 'First page', path, method: :post, class: 'btn btn-primary btn-xs'
+
+- if action_name != 'new'
+  %hr
   .row
-    #editor-container.col-xs-4(style="overflow: auto")
-      %hr(style="margin-top:0")
-      = link_to raw('<strong>Admin area</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default'
-      - if @page.persisted?
-        .pull-right= link_to 'Close editor', @page, target: '_blank', class: 'btn btn-primary'
-      %hr
+    .col-sm-12
+      = render 'shared/notice'
+      - css_class = 'btn btn-primary btn-xs'
+      - style = 'float: left; margin-right: 10px'
 
-      .row
-        = simple_form_for [:admin, @page] do |f|
-          .col-sm-12
-            = f.input :title_it
-            / = f.input :content_it, as: :text
-          / .col-sm-6
-          /   = f.input :title_en
-          /   = f.input :content_en, as: :text
-          .col-sm-12
-            = f.button :submit, class: 'btn btn-primary btn-xs'
-            
-            - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
-            = link_to 'First page', path, method: :post, class: 'btn btn-primary btn-xs'
+      = button_to 'Add text block', path_for_create_block('text-with-image'), class: css_class, style: style
+      = button_to 'Add images', path_for_create_block('image-block'), class: css_class, style: style
+      - if @website.product
+        = button_to 'Add products', path_for_create_block('products-block'), class: css_class, style: style
+      = button_to 'Add links', path_for_create_block('links-block'), class: css_class, style: style
+      - if @website.opera
+        = button_to 'Add gallery', path_for_create_block('gallery'), class: css_class, style: style
+        = button_to 'Add slider', path_for_create_block('slider'), class: css_class, style: style
 
-      - if action_name != 'new'
-        %hr
-        .row
-          .col-sm-12
-            = render 'shared/notice'
-            - css_class = 'btn btn-primary btn-xs'
-            - style = 'float: left; margin-right: 10px'
+%hr
+#simpleList
+  - @page.simple_blocks.each do |block|
+    .row= render 'admin/simple_blocks/form', block: block
 
-            = button_to 'Add text block', path_for_create_block('text-with-image'), class: css_class, style: style
-            = button_to 'Add images', path_for_create_block('image-block'), class: css_class, style: style
-            - if @website.product
-              = button_to 'Add products', path_for_create_block('products-block'), class: css_class, style: style
-            = button_to 'Add links', path_for_create_block('links-block'), class: css_class, style: style
-            - if @website.opera
-              = button_to 'Add gallery', path_for_create_block('gallery'), class: css_class, style: style
-              = button_to 'Add slider', path_for_create_block('slider'), class: css_class, style: style
-
-        %hr
-      #simpleList
-        - @page.simple_blocks.each do |block|
-          .row= render 'admin/simple_blocks/form', block: block
-    - if @page.persisted?
-      #iframe-container.col-xs-8(style="padding-right: 0")
-        %iframe#iframe-preview{src: url_for(@page), style: 'width: 100%; height: 100vh; border: none'}
+- if @page.persisted?
+  - content_for :iframe
+    %iframe#iframe-preview{src: url_for(@page), style: 'width: 100%; height: 100vh; border: none'}
