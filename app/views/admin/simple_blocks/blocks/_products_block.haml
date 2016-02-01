@@ -1,0 +1,9 @@
+/ BLOCK OF PRODUCTS
+/ [-] [-] [-]
+.col-sm-12
+  .row
+    - @website.products_first_page.each do |product|
+      .col-sm-4
+        = link_to image_tag(product.image.url(:_50x50c))
+        %br
+        = link_to product.name, [:edit, :admin, product]

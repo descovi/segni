@@ -23,10 +23,14 @@
         = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
       - else
         = f.input :website_id, input_html: {value: @website.id}, as: :hidden
-    .col-sm-4
-      = f.input :image
-      - if @opera.image.present?
-        = image_tag @opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
-  
+  .row
+    .col-sm-6
+      = f.cropbox :image, :width => 500
+    .col-sm-6
+      = f.crop_preview :image, :width => 500
+      / = f.input :image
+      / - if @opera.image.present?
+      /   = image_tag @opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
+
   .row(style="padding-top: 20px")
     .col-sm-12= f.button :submit, class: 'btn btn-primary btn-block'
