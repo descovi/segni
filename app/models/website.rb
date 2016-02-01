@@ -1,5 +1,6 @@
 class Website < ActiveRecord::Base
   validates :name, presence: true
+  has_one :menu
   has_many :pages
   has_many :products
   has_many :operas

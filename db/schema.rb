@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128200722) do
+ActiveRecord::Schema.define(version: 20160128233359) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20160128200722) do
     t.integer  "background_image_file_size"
     t.datetime "background_image_updated_at"
     t.integer  "simple_block_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string  "name"
+    t.string  "url"
+    t.integer "position"
+    t.integer "website_id"
   end
 
   create_table "opera_translations", force: :cascade do |t|
