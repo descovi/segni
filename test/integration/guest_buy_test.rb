@@ -38,7 +38,7 @@ class GuestBuyTest < ActionDispatch::IntegrationTest
     assert_equal item.quantity, 1
   end
 
-  if ENV['IS_TRAVIS'] # ignore with travis because travis dont like ssl to paypal
+  if !ENV['IS_TRAVIS'] # ignore with travis because travis dont like ssl to paypal
     test "user can place a order of a cart" do
       @product = products(:product_one)
       put_item_in_cart @product
