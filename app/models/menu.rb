@@ -7,6 +7,7 @@ class Menu < ActiveRecord::Base
   validates :position, uniqueness: { scope: :website_id, message: "This is position is already used" }
 
   def self.last_position
-    last.position
+    return last.position if last.present?
+    0
   end
 end

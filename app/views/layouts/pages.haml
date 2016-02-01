@@ -15,12 +15,13 @@
             = link_to @website.name, @website.first_page
         .col-xs-8
           .pull-right
-            - @page.website.menus.each do |menu_voice|
-              - if menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
-                = link_to menu_voice.name, menu_voice.url, target: '_blank'
-              - else
-                = link_to menu_voice.name, menu_voice.url
-              %span(style="color: #eee")= '/'
+            - if @page.present? and @page.website.present?
+              - @page.website.menus.each do |menu_voice|
+                - if menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
+                  = link_to menu_voice.name, menu_voice.url, target: '_blank'
+                - else
+                  = link_to menu_voice.name, menu_voice.url
+                %span(style="color: #eee")= '/'
 
             - if session[:shopping_cart_id].present?
               - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
