@@ -1,6 +1,6 @@
 
 - if @page.persisted?
-  .pull-right= link_to 'Close editor', @page, target: '_blank', class: 'btn btn-primary'
+  .pull-right= link_to 'Close editor', @page, target: '_blank', class: 'btn btn-primary btn-xs'
 %hr
 
 .row
@@ -40,5 +40,5 @@
     .row= render 'admin/simple_blocks/form', block: block
 
 - if @page.persisted?
-  - content_for :iframe
+  - content_for :iframe do
     %iframe#iframe-preview{src: url_for(@page), style: 'width: 100%; height: 100vh; border: none'}

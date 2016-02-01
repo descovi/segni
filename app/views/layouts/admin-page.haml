@@ -1,16 +1,13 @@
 !!!
 %html
   %head
-    %title Segni
-    = stylesheet_link_tag    'application-admin', media: 'all'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
+    = render 'shared/admin_head'
   %body
     .container-fluid
       .row
         #editor-container.col-xs-4(style="overflow: auto")
           %hr(style="margin-top:0")
-          = link_to raw('<strong>Admin area</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default'
+          = link_to raw('<strong>Admin area</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
           = yield
         #iframe-container.col-xs-8(style="padding-right: 0")
           = yield(:iframe)

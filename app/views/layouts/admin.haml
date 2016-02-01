@@ -1,10 +1,6 @@
 !!!
 %html
-  %head
-    %title Segni
-    = stylesheet_link_tag    'application-admin', media: 'all'
-    = javascript_include_tag 'application-admin'
-    = csrf_meta_tags
+  = render 'shared/admin_head'
   %body
     .menu-fixed
       %hr(style="margin-top: 0; padding-top: 0")
