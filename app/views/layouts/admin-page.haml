@@ -7,7 +7,13 @@
       .row
         #editor-container.col-xs-4(style="overflow: auto")
           %hr(style="margin-top:0")
-          = link_to raw('<strong>Admin area</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
+          = render 'shared/notice'
+          = link_to raw('<strong>Admin</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
+          %hr
           = yield
+
         #iframe-container.col-xs-8(style="padding-right: 0")
-          = yield(:iframe)
+          - if yield(:iframe).present?
+            = yield(:iframe)
+          - else
+            %iframe#iframe-preview{src: url_for(@website.first_page), style: 'width: 100%; height: 100vh; border: none'}
