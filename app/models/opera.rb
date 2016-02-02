@@ -32,6 +32,8 @@ class Opera < ActiveRecord::Base
   belongs_to :surface
   belongs_to :subject
   validates :website_id, presence: true
+
+  acts_as_taggable
   #translates :title, :description
 
   def other_from_same_websites

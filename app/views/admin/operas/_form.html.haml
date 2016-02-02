@@ -1,28 +1,25 @@
 = simple_form_for [:admin, @opera] do |f|
-  .row
-    .col-sm-8
-      .row
-        .col-sm-6= f.input :name, as: :string
-        .col-sm-2= f.input :archive_index
-        .col-sm-2= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true
-        .col-sm-2= f.input :circa_date, as: :boolean
-      .row
-        .col-sm-2= f.association :surface, prompt: true
-        .col-sm-2= f.association :subject, prompt: true
-        .col-sm-2= f.input :size, as: :string
-        .col-sm-2= f.input :tag_1, as: :string
-        .col-sm-2= f.input :tag_2, as: :string
-        .col-sm-2= f.input :tag_3, as: :string
-      .row
-        .col-sm-2= f.input :cover_slider
 
-        
-      .row
-        .col-sm-12= f.input :description
-      - if current_user.websites.size > 1
-        = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
-      - else
-        = f.input :website_id, input_html: {value: @website.id}, as: :hidden
+  .row
+    .col-sm-12= f.input :name, as: :string
+  .row
+    .col-sm-6= f.input :archive_index
+    .col-sm-4= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true
+    .col-sm-2= f.input :circa_date, as: :boolean
+  .row
+    .col-sm-6= f.association :surface, prompt: true
+    .col-sm-6= f.association :subject, prompt: true
+    .col-sm-6= f.input :size, as: :string
+    .col-sm-6= f.input :tag_1, as: :string
+    .col-sm-6= f.input :tag_2, as: :string
+    .col-sm-6= f.input :tag_3, as: :string
+  = f.input :tag_list, input_html: {value: @opera.tag_list.to_s}
+  .col-sm-2= f.input :cover_slider
+  .col-sm-12= f.input :description
+  - if current_user.websites.size > 1
+    = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
+  - else
+    = f.input :website_id, input_html: {value: @website.id}, as: :hidden
   .row
     .col-sm-6
       = f.input :image, :width => 500
