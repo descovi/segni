@@ -14,7 +14,5 @@
         .clearfix
       .panel-body
         .row
-          .col-sm-12
-            = f.input :menu_title, as: :string, placeholder: 'Menu title', label: false
           = render 'admin/simple_blocks/blocks/'+block.name_of_view, block: block, f: f
           .col-sm-12= render 'admin/simple_blocks/submit_and_delete', form: f
