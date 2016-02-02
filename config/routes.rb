@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   constraints subdomain: /.+/ do
     scope "/:locale" do
       resources :products, only: [:show]
-      resources :operas, only: [:show]
+      resources :operas, only: [:show] do
+        collection do
+          get 'tag/:tag' => 'operas#tag'
+        end
+      end
       resources :pages, only: [:show]
       
       namespace :admin do

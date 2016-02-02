@@ -10,9 +10,6 @@
     .col-sm-6= f.association :surface, prompt: true
     .col-sm-6= f.association :subject, prompt: true
     .col-sm-6= f.input :size, as: :string
-    .col-sm-6= f.input :tag_1, as: :string
-    .col-sm-6= f.input :tag_2, as: :string
-    .col-sm-6= f.input :tag_3, as: :string
   = f.input :tag_list, input_html: {value: @opera.tag_list.to_s}
   .col-sm-2= f.input :cover_slider
   .col-sm-12= f.input :description

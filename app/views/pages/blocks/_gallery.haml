@@ -1,6 +1,5 @@
 .container
   .row(style="padding-top: 20px")
-
     - @website.operas.order('archive_index').each do |opera|
       .col-sm-3(style="margin-top:10px; margin-bottom: 20px")
         = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%'), opera
