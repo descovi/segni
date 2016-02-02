@@ -22,7 +22,7 @@ class Admin::SimpleBlocksController < AdminController
 
   def sort
     block = SimpleBlock.find(params[:simple_block_id])
-    block.insert_at(params[:position].to_i)
+    block.insert_at(params[:position].to_i+1)
     render nothing: true
   end
 

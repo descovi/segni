@@ -4,7 +4,7 @@
 .col-sm-12
   .row
     - [1,2,3,4,5,6].each do |element|
-      .col-sm-4
+      .col-sm-12
         - if block.send("image_#{element}").present?
           - url = block.send("image_#{element}").url(:medium)
           = image_tag url, class: 'btn-upload-img img-responsive'

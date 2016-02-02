@@ -1,5 +1,5 @@
 class Admin::OperasController < AdminController
-before_action :set_opera, only: [:show, :edit, :update, :destroy]
+  before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
   # GET /operas/1
   # GET /operas/1.json

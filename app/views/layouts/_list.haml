@@ -9,7 +9,7 @@
             .pull-right= link_to "Add #{resource_name}", [:new, namespace, resource_name.downcase], class: 'btn btn-primary btn-xs'
     %tbody#menuOrderable
       - collections.each do |element|
-        %tr.item
+        %tr.item{id: "sortable_index_#{element.id}"}
           - body_elements.each do |body_el|
             %td
               - if body_el.include? 'image' # ex: image-of-collections

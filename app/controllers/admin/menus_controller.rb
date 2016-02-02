@@ -1,4 +1,5 @@
 class Admin::MenusController < AdminController
+  before_action :set_menu, only: [:edit, :update, :destroy]
   layout 'admin-page'
   def index
     
@@ -18,7 +19,6 @@ class Admin::MenusController < AdminController
 
   # GET /products/1/edit
   def edit
-    @menu = Menu.find params[:id]
     render '_form'
   end
 
@@ -42,7 +42,6 @@ class Admin::MenusController < AdminController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    @menu = Menu.find params[:id]
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
@@ -64,9 +63,15 @@ class Admin::MenusController < AdminController
     end
   end
 
+  def sort
+    @menu = Menu.find(params[:menu_id])
+    @menu.insert_at(params[:position].to_i+1)
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_product
+    def set_menu
       @menu = Menu.find(params[:id])
     end
 

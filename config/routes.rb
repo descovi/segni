@@ -31,7 +31,9 @@ Rails.application.routes.draw do
           post 'first_page' # 'pages#first_page'
         end
         resources :products
-        resources :menus
+        resources :menus do
+          put :sort
+        end
         resources :operas
         resources :simple_blocks do
           put :sort
