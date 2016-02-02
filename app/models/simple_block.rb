@@ -47,7 +47,7 @@ class SimpleBlock < ActiveRecord::Base
 
   def name_of_view
     if custom_type.include? '-'
-      custom_type.gsub!('-', '_')
+      custom_type.tr!('-', '_')
     else
       custom_type
     end
