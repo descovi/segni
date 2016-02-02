@@ -1,4 +1,3 @@
-
 .row
   - if current_user.websites.size > 1
     #websites.col-sm-12
@@ -19,7 +18,7 @@
   
   - if @website.opera?
     #operas.col-sm-12
-      - head_elements = ['', 'N°', 'Name', 'Year', 'Circa', 'Size', 'Subject', 'Surface/Tecnhiques', 'tag 1', 'tag 2', 'tag 3']
-      - body_elements = ['image', 'archive_index','name', 'year.year', 'circa_date','size', 'subject.name', 'surface.name', 'tag_1', 'tag_2', 'tag_3']
+      - head_elements = ['', 'Name', 'Year']
+      - body_elements = ['image', 'name', 'year.year']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
     
