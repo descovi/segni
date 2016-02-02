@@ -42,11 +42,13 @@ class Opera < ActiveRecord::Base
 
 
   def next
-    Opera.where('id > ?', id).first
+    opera = Opera.where('id > ?', id)
+    opera.first
   end
 
   def prev
-    Opera.where('id < ?', id).last
+    opera = Opera.where('id < ?', id)
+    opera.last
   end
 
   def first_of_album
