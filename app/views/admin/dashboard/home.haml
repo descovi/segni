@@ -8,7 +8,7 @@
   #pages.col-sm-12
     = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
 
-    = render 'layouts/list', head_elements: ['Name',''], body_elements: ['name', 'url'], collections: @website.menus, resource_name: 'Menu', add_resource: true, edit_resource: true, namespace: :admin
+    = render 'admin/menus/menu_list'
 
   - if @website.product?
     #products.col-sm-12
