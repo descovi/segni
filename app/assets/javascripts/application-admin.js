@@ -26,7 +26,7 @@ $('document').ready(function(){
 
 function setupSortable(id, path){
   var element = document.getElementById(id)
-  if (element != null){ doSortable(element, path) }
+  if (element !== null){ doSortable(element, path) }
 }
 
 function doSortable(element, path){
@@ -35,7 +35,7 @@ function doSortable(element, path){
       animation: 200,
       onEnd: function(evt){
         var id = $(evt.item).find('form').attr('id')
-        if (id == undefined){ id = $(evt.item).attr('id') }
+        if (id === undefined){ id = $(evt.item).attr('id') }
         var splitted = id.split("_")
         
         var id_of_block = splitted[splitted.length-1]
