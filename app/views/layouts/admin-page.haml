@@ -5,15 +5,16 @@
   %body
     .container-fluid
       .row
-        #editor-container.col-xs-4(style="overflow: auto")
+        - cols = 12
+        - cols = 4 if @preview.present?
+          
+        #editor-container{style:"overflow: auto", class: "col-xs-#{cols}"}
           %hr(style="margin-top:0")
           = render 'shared/notice'
           = link_to raw('<strong>Admin</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
           %hr
           = yield
-
-        #iframe-container.col-xs-8(style="padding-right: 0")
-          - if yield(:iframe).present?
-            = yield(:iframe)
-          - else
-            %iframe#iframe-preview{src: url_for(@website.first_page), style: 'width: 100%; height: 100vh; border: none'}
+        - if @preview.present?
+          #iframe-container.col-xs-8(style="padding-right: 0")
+            %iframe#iframe-preview{src: url_for(@preview), style: 'width: 100%; height: 100vh; border: none'}
+        

@@ -14,6 +14,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products/1/edit
   def edit
+    @preview = @product
   end
 
   # POST /products

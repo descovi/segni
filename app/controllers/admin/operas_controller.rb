@@ -1,6 +1,7 @@
 class Admin::OperasController < AdminController
   before_action :set_opera, only: [:show, :edit, :update, :destroy]
 
+
   # GET /operas/1
   # GET /operas/1.json
   def show
@@ -13,6 +14,7 @@ class Admin::OperasController < AdminController
 
   # GET /operas/1/edit
   def edit
+    @preview = @opera
   end
 
   # POST /operas
@@ -33,6 +35,7 @@ class Admin::OperasController < AdminController
   # PATCH/PUT /operas/1
   # PATCH/PUT /operas/1.json
   def update
+    @preview = @opera
     respond_to do |format|
       if @opera.update(opera_params)
         format.html { redirect_to admin_operas_path, notice: 'opera was successfully updated.' }

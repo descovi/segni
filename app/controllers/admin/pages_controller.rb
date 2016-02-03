@@ -7,13 +7,14 @@ class Admin::PagesController < AdminController
   end
 
   def edit
+    @preview = @page
     render 'form', layout: 'admin-page'
   end
 
   def create
     @page = Page.new(pages_params_param_without_blank_values)
     @page.website = @website
-    return redirect_to action: :index if @page.save
+    return redirect_to action: :edit, id: @page.id if @page.save
     render 'form'
   end
 

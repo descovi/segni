@@ -8,6 +8,7 @@ class Admin::MenusController < AdminController
   # GET /operas/1
   # GET /operas/1.json
   def show
+    @preview = @website.first_page
   end
 
   # GET /operas/new
@@ -19,6 +20,7 @@ class Admin::MenusController < AdminController
 
   # GET /products/1/edit
   def edit
+    @preview = @website.first_page
     render '_form'
   end
 
@@ -42,6 +44,7 @@ class Admin::MenusController < AdminController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @preview = @website.first_page
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
