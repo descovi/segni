@@ -77,6 +77,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  # Paperclip S3
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_host_name: 's3-eu-west-1.amazonaws.com',
+    s3_credentials: {
+      bucket: 'segni',
+      access_key_id: ENV['amazon_key_id'],
+      secret_access_key: ENV['amazon_access_key_id']
+    } 
+  }
+
   ActiveMerchant::Billing::Base.mode = :production
   paypal_options = {
     login: ENV["PP_API_USERNAME"],
