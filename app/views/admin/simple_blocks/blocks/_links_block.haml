@@ -1,4 +1,4 @@
-- block.links.build if block.links.empty? or params[:another].present?# add a field if nedded
+- block.links.build if block.links.empty? or params[:another_link].present?# add a field if nedded
 .col-sm-12
   = f.simple_fields_for :links do |f|
     = f.input :name
@@ -6,6 +6,6 @@
     = f.input :background_image
     = f.input :_destroy, as: :boolean, label: 'Delete this link'
 
-  = link_to 'Add another link', {another: true, simple_block_updated: block.id}, class: 'btn btn-default btn-xs'
+  = link_to 'Add another link', {another_link: true, simple_block_updated: block.id}, class: 'btn btn-default btn-xs'
   %br
   %br

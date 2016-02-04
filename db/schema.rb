@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204093359) do
+ActiveRecord::Schema.define(version: 20160204170631) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160204093359) do
     t.string   "url_content_type"
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
+    t.integer  "simple_block_id"
   end
 
   create_table "links", force: :cascade do |t|

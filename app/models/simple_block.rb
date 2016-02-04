@@ -1,6 +1,8 @@
 class SimpleBlock < ActiveRecord::Base
+  
   belongs_to :page
   acts_as_list scope: :page
+
   styles = { 
     medium: "300x300>", 
     block6: "650x350>",
@@ -26,12 +28,15 @@ class SimpleBlock < ActiveRecord::Base
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   
   has_many :links, dependent: :destroy
+  has_many :images, dependent: :destroy
 
   translates :title, :content, :action
   globalize_accessors locales: I18n.available_locales
   validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block gallery slider) }
-
+  
   accepts_nested_attributes_for :links, allow_destroy: true
+  accepts_nested_attributes_for :images, allow_destroy: true
+
 
   def custom_type_label
     map = {

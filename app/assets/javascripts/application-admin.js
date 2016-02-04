@@ -15,6 +15,8 @@
 //= require sortable_new
 //= require jquery.jcrop
 //= require papercrop
+//= require cocoon
+
 //= require_tree .
 
 $('document').ready(function(){
