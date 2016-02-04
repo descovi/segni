@@ -38,7 +38,7 @@ class Admin::OperasController < AdminController
     @preview = @opera
     respond_to do |format|
       if @opera.update(opera_params)
-        format.html { redirect_to admin_operas_path, notice: 'opera was successfully updated.' }
+        format.html { redirect_to [:edit, :admin, @opera], notice: 'opera was successfully updated.' }
         format.json { render :show, status: :ok, location: @opera }
       else
         format.html { render :edit }
