@@ -39,18 +39,6 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  # Paperclip S3
-  config.paperclip_defaults = {
-    storage: :s3,
-    s3_host_name: 's3-eu-west-1.amazonaws.com',
-    s3_credentials: {
-      bucket: 'segni-dev2',
-      access_key_id: ENV['amazon_key_id'],
-      secret_access_key: ENV['amazon_access_key_id']
-    }
-    
-  }
-
   # Paypal Active Merchant
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
