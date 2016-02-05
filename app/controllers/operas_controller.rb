@@ -7,6 +7,6 @@ class OperasController < ApplicationController
 
   def tag
     tags = params[:tag].split(" ")
-    @operas = Opera.tagged_with(tags).where(website: @website)
+    @operas = Opera.tagged_with(tags, any: true).where(website: @website)
   end
 end
