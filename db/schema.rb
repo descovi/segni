@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202204435) do
+ActiveRecord::Schema.define(version: 20160204170631) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20160202204435) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+
+  create_table "images", force: :cascade do |t|
+    t.string   "url_file_name"
+    t.string   "url_content_type"
+    t.integer  "url_file_size"
+    t.datetime "url_updated_at"
+    t.integer  "simple_block_id"
+  end
 
   create_table "links", force: :cascade do |t|
     t.string   "name"

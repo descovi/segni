@@ -46,6 +46,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :images
+
   get 'express_checkout', to: 'orders#express_checkout'
   get 'express_checkout_confirm', to: 'orders#express_checkout_confirm'
   resources :orders, only: [:new, :create, :show]  

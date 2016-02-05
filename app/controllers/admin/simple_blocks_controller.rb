@@ -52,7 +52,8 @@ class Admin::SimpleBlocksController < AdminController
       :position,
       :menu_title,
       :slider,
-      links_attributes: [:name, :url, :background_image, :simple_block_id, :_destroy, :id]
+      links_attributes: [:name, :url, :background_image, :simple_block_id, :_destroy, :id, :_destroy],
+      images_attributes: [:url, :_destroy, :id]
     )
   end
 end

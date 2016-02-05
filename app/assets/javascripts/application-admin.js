@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require sortable_new
+//= require jquery.jcrop
+//= require papercrop
+//= require cocoon
+
 //= require_tree .
 
 $('document').ready(function(){
@@ -20,9 +24,33 @@ $('document').ready(function(){
   // List with handle
   setupSortable("blocksOrderable", 'admin/simple_blocks/')
   setupSortable("menuOrderable", 'admin/menus/')
+  setupWhenChangeImageRemoveCrop()
   setupOpenCloseTab()
   setupIframe()
 })
+
+function setupWhenChangeImageRemoveCrop(){
+  $('#opera_image').change(function(){
+    $('#col-cropbox').empty();
+    //readURL(this)
+  })
+}
+
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          var img = $('<img id="dynamic" style="max-width: 100%">'); //Equivalent: $(document.createElement('img'))
+          img.attr('src',  e.target.result);
+          img.appendTo('#col-cropbox');
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
 
 function setupSortable(id, path){
   var element = document.getElementById(id)

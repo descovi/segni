@@ -23,7 +23,7 @@ class Admin::OperasController < AdminController
     @opera = Opera.new(opera_params)
     respond_to do |format|
       if @opera.save
-        format.html { redirect_to admin_operas_path, notice: 'Opera was successfully created.' }
+        format.html { redirect_to [:edit, :admin, @opera], notice: 'Opera was successfully created.' }
         format.json { render :show, status: :created, location: @opera }
       else
         format.html { render :new }
@@ -38,7 +38,7 @@ class Admin::OperasController < AdminController
     @preview = @opera
     respond_to do |format|
       if @opera.update(opera_params)
-        format.html { redirect_to admin_operas_path, notice: 'opera was successfully updated.' }
+        format.html { redirect_to [:edit, :admin, @opera], notice: 'Opera was successfully updated.' }
         format.json { render :show, status: :ok, location: @opera }
       else
         format.html { render :edit }

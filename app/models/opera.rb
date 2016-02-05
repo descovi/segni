@@ -22,6 +22,7 @@ class Opera < ActiveRecord::Base
     _1150x850d: '-quality 90 -strip'
   }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  crop_attached_file :image, :aspect => false
   
   validates :archive_index, uniqueness: true
   validates :archive_index, presence: true

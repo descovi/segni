@@ -2,27 +2,23 @@
   .row
     .col-sm-12= f.input :name, as: :string
   .row
-    .col-sm-6= f.input :archive_index
-    .col-sm-4= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true
-    .col-sm-2= f.input :circa_date, as: :boolean
+    .col-sm-12= f.input :image
   .row
-    .col-sm-6= f.association :surface, prompt: true
-    .col-sm-6= f.association :subject, prompt: true
-    .col-sm-6= f.input :size, as: :string
+    .col-sm-12= f.input :archive_index
+    .col-sm-12= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true
+    .col-sm-12= f.input :circa_date, as: :boolean
+  .row
+    .col-sm-12= f.association :surface, prompt: true
+    .col-sm-12= f.association :subject, prompt: true
+    .col-sm-12= f.input :size, as: :string
   = f.input :tag_list, input_html: {value: @opera.tag_list.to_s}
-  .col-sm-2= f.input :cover_slider
-  .col-sm-12= f.input :description
+
+  = f.input :description
   - if current_user.websites.size > 1
     = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
   - else
     = f.input :website_id, input_html: {value: @website.id}, as: :hidden
-  .row
-    .col-sm-6
-      = f.input :image, :width => 500
-    
-      / = f.input :image
-      / - if @opera.image.present?
-      /   = image_tag @opera.image.url(:_1024x768d), class: 'img-responsive', style: 'min-width: 100%'
 
-  .row(style="padding-top: 20px")
+      
+  .row
     .col-sm-12= f.button :submit, class: 'btn btn-primary btn-block'
