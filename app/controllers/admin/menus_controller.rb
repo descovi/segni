@@ -2,7 +2,7 @@ class Admin::MenusController < AdminController
   before_action :set_menu, only: [:edit, :update, :destroy]
   layout 'admin-page'
   def index
-    
+    @preview = @website.first_page
   end
   
   # GET /operas/1
@@ -15,6 +15,7 @@ class Admin::MenusController < AdminController
   def new
     @menu = Menu.new
     @menu.position = @website.menus.last_position+1
+    @preview = @website.first_page
     render '_form'
   end
 

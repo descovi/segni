@@ -21,7 +21,10 @@
                   = link_to menu_voice.name, menu_voice.url, target: '_blank'
                 - elsif menu_voice.url.include? 'tag:'
                   - value_of_tag = menu_voice.url.split(':').last
-                  = link_to menu_voice.name, {controller: 'operas', action: 'tag', tag: value_of_tag, locale: 'it'}
+                  = link_to menu_voice.name, {controller: 'operas', action: 'tag', tag: value_of_tag, locale: I18n.locale}
+                - elsif menu_voice.url.include? 'page:'
+                  - value_of_tag = menu_voice.url.split(':').last
+                  = link_to menu_voice.name, {controller: 'pages', action: 'show', id: value_of_tag, locale: I18n.locale}
                 - else
                   = menu_voice.name
                 %span(style="color: #eee")= '/'
