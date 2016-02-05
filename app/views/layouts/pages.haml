@@ -15,8 +15,8 @@
             = link_to @website.name, @website.first_page
         .col-xs-8
           .pull-right
-            - if @page.present? and @page.website.present?
-              - @page.website.menus.each do |menu_voice|
+            - if @website.menus.present?
+              - @website.menus.each do |menu_voice|
                 - if menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
                   = link_to menu_voice.name, menu_voice.url, target: '_blank'
                 - elsif menu_voice.url.include? 'tag:'
