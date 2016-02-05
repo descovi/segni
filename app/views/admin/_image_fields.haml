@@ -1,6 +1,6 @@
 .nested-fields.col-sm-12
 
-  = f.input :url, as: :file
+  = f.input :url, as: :file, label: false
   - if f.object.url.present?
     = image_tag f.object.url(:_100x100c)
   %br
