@@ -14,9 +14,8 @@
         - if block.content.present? or block.action.present?
           %hr
           - if block.content.present?
-            %p= simple_format block.content
-          - if block.action.present?
-            .btn.action= block.action
+            %p= simple_format block.content, {}, sanitize: false
+
   
 - else
   / STANDARD BLOCK

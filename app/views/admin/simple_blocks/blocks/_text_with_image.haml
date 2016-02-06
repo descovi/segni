@@ -3,11 +3,9 @@
 .col-sm-12
   = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
   = f.input :content_it, as: :text,   input_html: { class: 'input-sm' }, placeholder: 'Content', label: false
-  = f.input :action_it,  as: :string, input_html: { class: 'input-sm' }, label: false, placeholder: 'Action'
 / .col-sm-6
 /   = f.input :title_en,   as: :string
 /   = f.input :content_en, as: :text
-/   = f.input :action_en,  as: :string
 .col-sm-12
   - if block.background_image.present?
     = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive', style: ''
