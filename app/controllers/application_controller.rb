@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   end
   
   def get_site
-    @website = Website.find_by(name_slug: request.subdomain)
+    @website = Website.find_by(domain: request.host)
+    @website = Website.find_by(name_slug: request.subdomain) if @website.nil?
   end
   
   def extract_shopping_cart
