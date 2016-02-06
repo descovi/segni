@@ -6,9 +6,10 @@
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
 
   #pages.col-sm-12
+    = render 'admin/menus/menu_list'
     = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
 
-    = render 'admin/menus/menu_list'
+    
 
   - if @website.product?
     #products.col-sm-12
@@ -21,4 +22,3 @@
       - head_elements = ['', 'Name', 'Year']
       - body_elements = ['image', 'name', 'year.year']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
-    
