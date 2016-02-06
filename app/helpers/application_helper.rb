@@ -13,4 +13,13 @@ module ApplicationHelper
     true
   end
 
+  def operas_from_tag_and_website tag, website
+    if tag.present?
+      tags = tag.split(" ")
+      Opera.tagged_with(tags, any: true).where(website: website).order('archive_index')
+    else
+      Opera.where(website: website).order('archive_index')
+    end
+  end
+
 end
