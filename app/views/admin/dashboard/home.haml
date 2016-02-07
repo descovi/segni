@@ -23,6 +23,12 @@
       - body_elements = ['image', 'name', 'year.year']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
 
-= simple_form_for [:admin, @website]  do |f|
-  = f.association :template, prompt: false
-  = f.submit
+.panel.panel-default
+  .panel-heading
+    %strong Design
+  .panel-body
+    = simple_form_for [:admin, @website]  do |f|
+      = f.association :template, prompt: false
+      = f.input :css, input_html: {rows: 10}
+      = f.input :js, input_html: {rows: 10}
+      = f.button :submit

@@ -6,6 +6,6 @@ class Admin::WebsitesController < AdminController
     redirect_to :back
   end
   def website_params
-    params.require(:website).permit(:template_id)
+    params.require(:website).permit(:template_id, :css, :js)
   end
 end
