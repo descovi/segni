@@ -3,7 +3,11 @@ class Admin::WebsitesController < AdminController
   end
   def update
     @website.update(website_params)
-    redirect_to :back
+    if request.xhr?
+      render format: :js, text: 'refreshIframe()'
+    else
+      redirect_to :back
+    end
   end
   def website_params
     params.require(:website).permit(:template_id, :css, :js)

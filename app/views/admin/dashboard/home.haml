@@ -27,7 +27,7 @@
   .panel-heading
     %strong Design
   .panel-body
-    = simple_form_for [:admin, @website]  do |f|
+    = simple_form_for [:admin, @website], remote: true  do |f|
       = f.association :template, prompt: false
       = f.input :css, input_html: {rows: 10}
       = f.input :js, input_html: {rows: 10}
