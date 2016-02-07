@@ -39,6 +39,7 @@ Rails.application.routes.draw do
           put :sort
         end
         resources :operas
+        resources :websites
         resources :simple_blocks do
           put :sort
         end

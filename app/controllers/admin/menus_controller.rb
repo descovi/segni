@@ -35,10 +35,6 @@ class Admin::MenusController < AdminController
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
-        logger.warn "------------"
-        logger.warn "------------"
-        logger.warn @menu.errors.inspect
-        logger.warn "------------"
         format.html { render '_form' }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
