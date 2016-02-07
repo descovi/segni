@@ -2,6 +2,7 @@
   = simple_form_for [:admin, @page] do |f|
     .col-sm-12
       = f.input :title_it
+      = f.input :slug
       / = f.input :content_it, as: :text
     / .col-sm-6
     /   = f.input :title_en
@@ -23,6 +24,3 @@
   - @page.simple_blocks.each do |block|
     .row= render 'admin/simple_blocks/form', block: block
 
-- if @page.persisted?
-  - content_for :iframe do
-    %iframe#iframe-preview{src: url_for(@page), style: 'width: 100%; height: 100vh; border: none'}
