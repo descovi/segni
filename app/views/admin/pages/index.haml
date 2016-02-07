@@ -2,4 +2,4 @@
   .col-sm-12
     - head_elements = ['Title']
     - body_elements = ['title_it']
-    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: false, collections: @website.pages, edit_resource: true, namespace: 'admin'
+    = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: @website.pages, edit_resource: true, namespace: 'admin', resource_name: 'Page'
