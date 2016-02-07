@@ -14,7 +14,6 @@ class Admin::MenusController < AdminController
   # GET /operas/new
   def new
     @menu = Menu.new
-    @menu.position = @website.menus.last_position+1
     @preview = @website.first_page
     render '_form'
   end
@@ -30,12 +29,16 @@ class Admin::MenusController < AdminController
   def create
     @menu = Menu.new(menu_params)
     @menu.website = @website
-
+    @menu.position = Menu.last_position+1 if @menu.position.blank?
     respond_to do |format|
       if @menu.save
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
+        logger.warn "------------"
+        logger.warn "------------"
+        logger.warn @menu.errors.inspect
+        logger.warn "------------"
         format.html { render '_form' }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
@@ -46,6 +49,7 @@ class Admin::MenusController < AdminController
   # PATCH/PUT /products/1.json
   def update
     @preview = @website.first_page
+
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }

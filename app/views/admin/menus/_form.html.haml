@@ -1,9 +1,6 @@
-= render 'menu_list'
 = simple_form_for [:admin, @menu] do |f|
 
   .row
     .col-sm-12= f.input :name
-    .col-sm-12= f.input :url, as: :string
-    .col-sm-4= f.input :position, as: :integer
-  
+    .col-sm-12= f.input :url, as: :string  
   = f.button :submit, class: 'btn btn-primary btn-block'
