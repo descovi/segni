@@ -38,7 +38,7 @@ class Admin::PagesController < AdminController
   private
 
   def pages_params
-    params.require(:page).permit(*Page.globalize_attribute_names)
+    params.require(:page).permit(:slug, *Page.globalize_attribute_names)
   end
 
   def set_page
