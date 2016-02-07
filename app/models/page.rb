@@ -5,7 +5,7 @@ class Page < ActiveRecord::Base
   
   translates :title, :content, :slug
   extend FriendlyId
-  friendly_id :title, use: [:slugged, :globalize]
+  friendly_id :title, use: [:slugged, :globalize, :scoped], scope: :website
 
   globalize_accessors locales: I18n.available_locales, attributes: [:title, :content]
 end
