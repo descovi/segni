@@ -42,7 +42,7 @@ class Admin::PagesController < AdminController
   end
 
   def set_page
-    @page = Page.friendly.find params[:id]
+    @page = Page.where(website: @website).friendly.find params[:id]
   end
 
   # This function avoid Globalize gem to create blank records
