@@ -1,4 +1,4 @@
-.container
+%div{class: container_fluid_or_not(block)}
   - if block.sliding
     .col-sm-12(style="padding-top: 20px")
       .row
@@ -30,4 +30,5 @@
     .row
       - block.images.each do |image|
         - bg_img = asset_path(image.url(:block6)) 
-        .col-sm-4= image_tag image.url(:block6), class: 'img-responsive'
+        %div{style: margin_for_elements(block), class: columns_for_elements(block)}
+          = image_tag image.url(:block6), class: 'img-responsive', style: 'min-width: 100%'

@@ -13,6 +13,20 @@ module ApplicationHelper
     true
   end
 
+  def container_fluid_or_not block
+    return "container-fluid" if block.container_fluid
+    "container"
+  end
+
+  def margin_for_elements block
+    "#{block.margin}px" if block.margin.present? 
+  end
+
+  def columns_for_elements block
+    return "col-sm-4" if block.num_elements.blank?
+    "col-sm-#{12/block.num_elements}"
+  end
+
   def operas_from_tag_and_website tag, website
     if tag.present?
       tags = tag.split(" ")

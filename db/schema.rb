@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209184124) do
+ActiveRecord::Schema.define(version: 20160209190325) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -181,6 +181,9 @@ ActiveRecord::Schema.define(version: 20160209184124) do
     t.integer  "position"
     t.text     "menu_title"
     t.boolean  "sliding"
+    t.boolean  "container_fluid"
+    t.integer  "margin"
+    t.integer  "num_elements"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
