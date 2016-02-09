@@ -2,7 +2,6 @@
 - style = 'float: left; margin-right: 10px'
 
 = button_to 'Add text block', path_for_create_block('text-with-image'), class: css_class, style: style
-= button_to 'Add images', path_for_create_block('image-block'), class: css_class, style: style
 - if @website.product
   = button_to 'Add products', path_for_create_block('products-block'), class: css_class, style: style
 = button_to 'Add links', path_for_create_block('links-block'), class: css_class, style: style
