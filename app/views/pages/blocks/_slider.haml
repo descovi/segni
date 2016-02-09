@@ -1,25 +1,33 @@
 .container
-  .col-sm-offset-1.col-sm-10(style="padding-top: 20px")
+  - if block.sliding
+    .col-sm-12(style="padding-top: 20px")
+      .row
+        #cycler
+          - block.images.each do |opera|
+            = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
+
+    :css
+      #cycler{
+        position:relative;
+      }
+      #cycler img{
+        position: absolute;
+        z-index:1; 
+        width: 100%; 
+      }
+      #cycler img.active{z-index:3}
+
+    :javascript
+      time = 3000 // global for debug
+
+      $(document).ready(function(){
+        $('#cycler img').first().addClass( "active" );
+        if ($('#cycler img').length() > 1) {
+          setInterval('cycleImages()', time);
+        }
+      })
+  - else
     .row
-      #cycler
-        - block.images.each do |opera|
-          = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
-
-:css
-  #cycler{
-    position:relative;
-  }
-  #cycler img{
-    position: absolute;
-    z-index:1; 
-    width: 100%; 
-  }
-  #cycler img.active{z-index:3}
-
-:javascript
-  time = 3000 // global for debug
-
-  $(document).ready(function(){
-    $('#cycler img').first().addClass( "active" );
-    setInterval('cycleImages()', time);
-  })
+      - block.images.each do |image|
+        - bg_img = asset_path(image.url(:block6)) 
+        .col-sm-4= image_tag image.url(:block6), class: 'img-responsive'

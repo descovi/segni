@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207190637) do
+ActiveRecord::Schema.define(version: 20160209180506) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20160207190637) do
     t.boolean  "colors_inverted"
     t.integer  "position"
     t.text     "menu_title"
+    t.boolean  "sliding"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
