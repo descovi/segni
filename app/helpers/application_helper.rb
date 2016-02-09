@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def margin_for_elements block
-    "#{block.margin}px" if block.margin.present? 
+    "margin: #{block.margin}px" if block.margin.present? 
   end
 
   def columns_for_elements block
