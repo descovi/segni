@@ -18,8 +18,15 @@ function setupCssLive(){
   $('#website_template_id').change(textCssJsChanged)
 }
 
+var timer
 function textCssJsChanged(){
-  $('.edit_website').submit();
+
+  clearTimeout(timer);
+  var ms = 600; // milliseconds
+  timer = setTimeout(function(event){
+      $('.edit_website').submit();
+  }, ms);
+
 }
 
 function setupWhenChangeImageRemoveCrop(){
