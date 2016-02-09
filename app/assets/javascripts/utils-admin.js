@@ -15,10 +15,11 @@ $('document').ready(function(){
 function setupCssLive(){
   $('#website_css').on('textchange', textCssJsChanged)
   $('#website_js').on('textchange', textCssJsChanged)
+  $('#website_template_id').change(textCssJsChanged)
 }
 
 function textCssJsChanged(){
-  $('#edit_website_6').submit();
+  $('.edit_website').submit();
 }
 
 function setupWhenChangeImageRemoveCrop(){
