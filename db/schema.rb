@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209180506) do
+ActiveRecord::Schema.define(version: 20160209184124) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -176,30 +176,6 @@ ActiveRecord::Schema.define(version: 20160209180506) do
     t.text     "action"
     t.boolean  "full_height"
     t.boolean  "background_color"
-    t.string   "image_1_file_name"
-    t.string   "image_1_content_type"
-    t.integer  "image_1_file_size"
-    t.datetime "image_1_updated_at"
-    t.string   "image_2_file_name"
-    t.string   "image_2_content_type"
-    t.integer  "image_2_file_size"
-    t.datetime "image_2_updated_at"
-    t.string   "image_3_file_name"
-    t.string   "image_3_content_type"
-    t.integer  "image_3_file_size"
-    t.datetime "image_3_updated_at"
-    t.string   "image_4_file_name"
-    t.string   "image_4_content_type"
-    t.integer  "image_4_file_size"
-    t.datetime "image_4_updated_at"
-    t.string   "image_5_file_name"
-    t.string   "image_5_content_type"
-    t.integer  "image_5_file_size"
-    t.datetime "image_5_updated_at"
-    t.string   "image_6_file_name"
-    t.string   "image_6_content_type"
-    t.integer  "image_6_file_size"
-    t.datetime "image_6_updated_at"
     t.string   "custom_type"
     t.boolean  "colors_inverted"
     t.integer  "position"
