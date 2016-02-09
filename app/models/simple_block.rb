@@ -5,7 +5,6 @@ class SimpleBlock < ActiveRecord::Base
 
   styles = { 
     medium: "300x300>", 
-    block6: "650x350>",
     big: "1024x1024#",
     big_standard: "1080x720",
     big_hq: "1600x1200"
@@ -13,18 +12,13 @@ class SimpleBlock < ActiveRecord::Base
 
   convert_options = {
     medium: '-quality 75 -strip',
-    block6: '-quality 90 -strip',
     big: '-quality 90 -strip',
     big_standard: '-quality 90 -strip',
     big_hq: '-quality 90 -strip',
   }
 
   has_attached_file :background_image, styles: styles, convert_options: convert_options
-
-  [1,2,3,4,5,6].each do |numero|
-    has_attached_file "image_#{numero}".to_sym, styles: styles, convert_options: convert_options
-  end
-    
+   
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   
   has_many :links, dependent: :destroy
@@ -32,7 +26,7 @@ class SimpleBlock < ActiveRecord::Base
 
   translates :title, :content, :action
   globalize_accessors locales: I18n.available_locales
-  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image image-block links-block gallery slider) }
+  validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image links-block gallery slider) }
   
   accepts_nested_attributes_for :links, allow_destroy: true
   accepts_nested_attributes_for :images, allow_destroy: true
