@@ -1,7 +1,8 @@
-.nested-fields.col-sm-12
+.nested-fields
 
-  = f.input :url, as: :file, label: false
-  - if f.object.url.present?
-    = image_tag f.object.url(:_100x100c)
-  %br
-  = link_to_remove_association 'remove', f
+  .col-xs-3
+    - if f.object.url.present?
+      = image_tag f.object.url(:_100x100c)
+  .col-sm-6
+    = link_to_remove_association 'Remove', f, class: 'btn btn-default btn-xs'
+    = f.input :url, as: :file, label: false

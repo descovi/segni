@@ -2,7 +2,7 @@
 / [  -  ]
 .col-sm-12
   = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
-  = f.input :content_it, as: :text,   input_html: { class: 'input-sm' }, placeholder: 'Content', label: false
+  = f.input :content_it, as: :text,   input_html: { class: 'input-sm', rows: 10 }, placeholder: 'Content', label: false
 / .col-sm-6
 /   = f.input :title_en,   as: :string
 /   = f.input :content_en, as: :text
@@ -11,6 +11,8 @@
     = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive', style: ''
   = f.input :background_image
 .col-sm-12
+  %strong CSS class custom
+  %br
   = f.input_field :full_height, label: false
   Full height
   = f.input_field :colors_inverted, label: false

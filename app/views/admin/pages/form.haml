@@ -1,5 +1,5 @@
 .row
-  = simple_form_for [:admin, @page] do |f|
+  = simple_form_for [:admin, @page], remote: true do |f|
     .col-sm-12
       = f.input :title_it
       = f.input :slug
@@ -11,7 +11,7 @@
       = f.button :submit, class: 'btn btn-primary btn-xs'
       
       - path = {controller: 'admin/pages', action: :first_page, page_id: @page.id}
-      = link_to 'First page', path, method: :post, class: 'btn btn-primary btn-xs' if @page.id.present?
+      = button_to 'First page', path, class: 'btn btn-primary btn-xs' if @page.id.present?
 
 - if action_name != 'new'
   %hr

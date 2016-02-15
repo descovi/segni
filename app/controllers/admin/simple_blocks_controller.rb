@@ -11,7 +11,11 @@ class Admin::SimpleBlocksController < AdminController
   def update
     block = SimpleBlock.find(params[:id])
     block.update(simple_block_params)
-    redirect_to [:edit, :admin, block.page, simple_block_updated: block.id], locale: 'it'
+    if request.xhr?
+      render js: "refreshIframe()"
+    else
+      redirect_to [:edit, :admin, block.page, simple_block_updated: block.id], locale: 'it'
+    end
   end
 
   def destroy

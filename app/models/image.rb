@@ -1,6 +1,6 @@
 class Image < ActiveRecord::Base
   has_attached_file :url, styles: { 
-    _100x100c: "100x100", 
+    _100x100c: "100x100#", 
     _1150x850d: "1150x850#",
     block6: "390x390#"
   }, 

@@ -1,4 +1,4 @@
-= simple_form_for [:admin, block] do |f|
+= simple_form_for [:admin, block] ,remote: true, authenticity_token: true do |f|
   .col-sm-12.form-for-block
     .panel.panel-default
       - open_or_close = 'panel-heading-open' if block.id == params[:simple_block_updated].to_i
