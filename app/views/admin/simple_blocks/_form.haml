@@ -15,11 +15,5 @@
       .panel-body
         .row
           = render 'admin/simple_blocks/blocks/'+block.name_of_view, block: block, f: f
-        
         %hr
-        %strong Options for block
-        = f.input :container_fluid
-        = f.input :margin
-        = f.input :num_elements
-        
         = render 'admin/simple_blocks/submit_and_delete', form: f

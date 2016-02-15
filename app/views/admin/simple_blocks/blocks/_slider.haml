@@ -1,6 +1,8 @@
-
-= f.input :sliding
 = f.simple_fields_for :images do |images|
   = render 'image_fields', f: images
-
-.col-sm-12= link_to_add_association 'add image', f, :images
+.col-sm-12= link_to_add_association 'Add image', f, :images, class: 'btn btn-block btn-default'
+.col-sm-12
+  = f.input :container_fluid
+  = f.input :sliding
+  = f.input :margin
+  = f.input :num_elements
