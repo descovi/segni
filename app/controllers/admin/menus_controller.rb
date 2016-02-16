@@ -61,10 +61,11 @@ class Admin::MenusController < AdminController
   # DELETE /products/1.json
   def destroy
     @menu.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_menus_path, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      if request.xhr?
+        render js: "$('#menuOrderable #sortable_index_#{@menu.id}').hide()"
+      else
+       redirect_to admin_menus_path, notice: 'Product was successfully destroyed.' 
+     end
   end
 
   def sort
