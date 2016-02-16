@@ -50,9 +50,9 @@ class Admin::SimpleBlocksController < AdminController
       :colors_inverted,
       :position,
       :container_fluid,
-      :margin,
       :num_elements,
       :menu_title,
+      :padding,
       :slider,
       links_attributes: [:name, :url, :background_image, :simple_block_id, :_destroy, :id, :_destroy],
       images_attributes: [:url, :_destroy, :id]
