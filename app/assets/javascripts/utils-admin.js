@@ -17,11 +17,13 @@ function setupCssLive(){
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
   $("select[name='website[template_id]']").change(textCssJsChanged)
   $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
-  $("input[name*='page'").on('textchange', textCssJsChanged)
+  $("input[name*='simple_block[title']").on('textchange', textCssJsChanged)
+  $("input[name*='page[titl'").on('textchange', textCssJsChanged)
   $("input[name='simple_block[container_fluid]'").change(textCssJsChanged)
   $("input[name='simple_block[sliding]'").change(textCssJsChanged)
   $("input[name='simple_block[padding]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
+  $("input[name='simple_block[background_image]']").change(textCssJsChanged)
 }
 
 var timer

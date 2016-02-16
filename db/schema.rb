@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216133229) do
+ActiveRecord::Schema.define(version: 20160216143107) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160216133229) do
     t.string  "url"
     t.integer "position"
     t.integer "website_id"
+    t.integer "page_id"
   end
 
   create_table "opera_translations", force: :cascade do |t|

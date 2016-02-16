@@ -25,7 +25,11 @@ class Admin::PagesController < AdminController
   
   def destroy
     @page.destroy
-    redirect_to [:admin, Page]
+    if request.xhr?
+      render js: "$('#sortable_index_#{@page.id}').hide()"
+    else
+      redirect_to [:admin, Page]
+    end
   end
   
   def first_page
