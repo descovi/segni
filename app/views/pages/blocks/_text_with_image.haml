@@ -11,10 +11,9 @@
       .container.block-content
         .block-content-inner
           %h2= block.title
-          - if block.content.present? or block.action.present?
-            %hr
-            - if block.content.present?
-              %p= simple_format block.content, {}, sanitize: false
+
+          - if block.content.present?
+            = simple_format block.content, {}, sanitize: false
 
     
   - else
@@ -24,8 +23,7 @@
       .container
         - if block.title.present?
           %h2= block.title
-        - if block.title.present? and block.content.present?
-          %hr
+
         - if block.content.present?
           - if block.content.present?
-            %p= simple_format block.content, {}, sanitize: false
+            = simple_format block.content, {}, sanitize: false
