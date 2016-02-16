@@ -15,5 +15,4 @@
       .panel-body
         .row
           = render 'admin/simple_blocks/blocks/'+block.name_of_view, block: block, f: f
-        %hr
         = f.button :submit, class: 'btn btn-primary btn-xs', style: 'display: none'
