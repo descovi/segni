@@ -21,6 +21,7 @@ class Admin::OperasController < AdminController
   # POST /operas.json
   def create
     @opera = Opera.new(opera_params)
+    @opera.website = @website
     respond_to do |format|
       if @opera.save
         format.html { redirect_to [:edit, :admin, @opera], notice: 'Opera was successfully created.' }

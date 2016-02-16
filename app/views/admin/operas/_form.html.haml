@@ -13,12 +13,6 @@
     .col-sm-12= f.input :size, as: :string
   = f.input :tag_list, input_html: {value: @opera.tag_list.to_s}
 
-  = f.input :description
-  - if current_user.websites.size > 1
-    = f.association :website, include_blank: false, collection: current_user.websites.order(:name)
-  - else
-    = f.input :website_id, input_html: {value: @website.id}, as: :hidden
-
       
   .row
     .col-sm-12= f.button :submit, class: 'btn btn-primary btn-block'
