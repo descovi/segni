@@ -1,8 +1,11 @@
 .nested-fields
-
-  .col-xs-3
-    - if f.object.url.present?
-      = image_tag f.object.url(:_100x100c)
-  .col-sm-6
+  .col-xs-12(style="margin-bottom: 5px")
+    .pull-left(style="margin-right: 10px;")
+      - if f.object.url.present?
+        = image_tag f.object.url(:_100x100c)
+      - else
+        = image_tag 'http://placehold.it/100x100'
+    
     = link_to_remove_association 'Remove', f, class: 'btn btn-default btn-xs'
     = f.input :url, as: :file, label: false
+    .clearfix
