@@ -16,17 +16,19 @@ function setupCssLive(){
   $('#website_css').on('textchange', textCssJsChanged)
   $('#website_js').on('textchange', textCssJsChanged)
   $('#website_template_id').change(textCssJsChanged)
+  $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
 }
 
 var timer
-function textCssJsChanged(){
-
+function textCssJsChanged(event){
+  var _form = this.form
+  var _this = this
   clearTimeout(timer);
   var ms = 600; // milliseconds
   timer = setTimeout(function(event){
-      $('.edit_website').submit();
+    console.log($(this))
+    $(_form).submit()
   }, ms);
-
 }
 
 function setupWhenChangeImageRemoveCrop(){
