@@ -13,10 +13,14 @@ $('document').ready(function(){
 
 
 function setupCssLive(){
-  $('#website_css').on('textchange', textCssJsChanged)
-  $('#website_js').on('textchange', textCssJsChanged)
-  $('#website_template_id').change(textCssJsChanged)
+  $("textarea[name='website[js]']").on('textchange', textCssJsChanged)
+  $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
+  $("select[name='website[template_id]']").change(textCssJsChanged)
   $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
+  $("input[name='simple_block[container_fluid]'").change(textCssJsChanged)
+  $("input[name='simple_block[sliding]'").change(textCssJsChanged)
+  $("input[name='simple_block[margin]']").change(textCssJsChanged)
+  $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
 }
 
 var timer
