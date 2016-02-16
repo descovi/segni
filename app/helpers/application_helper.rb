@@ -18,8 +18,8 @@ module ApplicationHelper
     "container"
   end
 
-  def margin_for_elements block
-    "margin: #{block.margin}px; padding: #{block.margin}px" if block.margin.present? 
+  def padding_for_elements block
+    "padding: #{block.padding}px" if block.padding.present?
   end
 
   def columns_for_elements block

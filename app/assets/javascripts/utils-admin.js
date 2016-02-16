@@ -17,20 +17,21 @@ function setupCssLive(){
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
   $("select[name='website[template_id]']").change(textCssJsChanged)
   $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
+  $("input[name*='page'").on('textchange', textCssJsChanged)
   $("input[name='simple_block[container_fluid]'").change(textCssJsChanged)
   $("input[name='simple_block[sliding]'").change(textCssJsChanged)
-  $("input[name='simple_block[margin]']").change(textCssJsChanged)
+  $("input[name='simple_block[padding]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
 }
 
 var timer
 function textCssJsChanged(event){
+  console.log("changed!")
   var _form = this.form
   var _this = this
   clearTimeout(timer);
   var ms = 600; // milliseconds
   timer = setTimeout(function(event){
-    console.log($(this))
     $(_form).submit()
   }, ms);
 }
