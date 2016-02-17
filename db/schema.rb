@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216143107) do
+ActiveRecord::Schema.define(version: 20160217093007) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -277,6 +277,7 @@ ActiveRecord::Schema.define(version: 20160216143107) do
     t.boolean  "opera"
     t.text     "css"
     t.text     "js"
+    t.text     "head"
   end
 
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"
