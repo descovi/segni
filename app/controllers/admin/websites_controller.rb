@@ -10,6 +10,6 @@ class Admin::WebsitesController < AdminController
     end
   end
   def website_params
-    params.require(:website).permit(:template_id, :css, :js)
+    params.require(:website).permit(:template_id, :css, :js, :head)
   end
 end
