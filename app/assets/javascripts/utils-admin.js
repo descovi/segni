@@ -14,6 +14,7 @@ $('document').ready(function(){
 
 function setupCssLive(){
   $("textarea[name='website[js]']").on('textchange', textCssJsChanged)
+  $("textarea[name='website[head]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
   $("select[name='website[template_id]']").change(textCssJsChanged)
   $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
