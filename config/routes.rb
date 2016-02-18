@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints subdomain: /.+/ do
+  
     scope "/:locale" do
       resources :products, only: [:show]
       resources :operas, only: [:show] do
@@ -45,7 +45,6 @@ Rails.application.routes.draw do
         end
       end
     end
-  end
 
   resources :images
 
