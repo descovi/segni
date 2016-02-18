@@ -7,6 +7,7 @@ website_one:
   secondary_color: MyString
   first_page: page_one
   template: template_one
+  user: user_one
 
 website_two:
   name: MyString
