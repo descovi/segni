@@ -5,7 +5,7 @@ class AdminController < ApplicationController
   
   def check_if_user_is_owner
     if current_user_can_edit_website? == false
-      return render text: 'You dont have permission for this website.'
+      return render text: 'You dont have permission for this website.', status: :forbidden
     end
   end
   
