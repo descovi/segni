@@ -9,7 +9,8 @@ class Admin::ProductsControllerTest < ActionController::TestCase
   end
 
   test 'show product' do
-    sign_in users(:user_one)
+    user = users(:user_one)
+    sign_in user
     get :show, locale: 'it', id: products(:product_one).id
     assert_response :success
     assert_not_nil assigns(:product)

@@ -4,7 +4,7 @@ class Website < ActiveRecord::Base
   has_many :pages
   has_many :products
   has_many :operas
-  belongs_to :user
+  has_and_belongs_to_many :users
   belongs_to :template
   belongs_to :first_page, class_name: 'Page'
 

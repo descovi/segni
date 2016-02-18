@@ -38,7 +38,7 @@ class GreatAdmin::WebsitesController < GreatAdminController
                                     :template_id,
                                     :product,
                                     :opera,
-                                    :user_id)
+                                    :user_ids => [])
   end
 
   def set_website
