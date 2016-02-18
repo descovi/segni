@@ -10,6 +10,12 @@ class GreatAdmin::WebsitesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:websites)
   end
 
+  test 'edit website' do
+    sign_in admins(:admin_one)
+    get :edit, id: websites(:website_one)
+    assert_response :success
+  end
+
   test "cant visit websites index if not logged" do
     get :index
     assert_response :redirect  
