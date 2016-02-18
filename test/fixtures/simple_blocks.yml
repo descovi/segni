@@ -16,11 +16,3 @@ simple_block_products:
   action: go
   full_height: false
   position: 1
-
-
-simple_block_image_block:
-  page: page_one
-  title: block one
-  custom_type: image-block
-  full_height: false
-  position: 1
