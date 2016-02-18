@@ -8,7 +8,9 @@
     = f.input :domain, as: :url
     = f.input :product
     = f.input :opera
+    / email_off
     = f.association :user, include_blank: false, collection: User.all.order(:email), label_method: :email
+    / /email_off
     = f.association :template, prompt: false
 
   .form-actions
