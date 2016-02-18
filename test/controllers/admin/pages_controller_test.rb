@@ -17,4 +17,11 @@ class Admin::PagesControllerTest < ActionController::TestCase
     assert_equal @website.first_page, page
   end
 
+  test 'user of other website cant log' do
+    sign_in users(:user_two)
+    page = pages(:page_one)
+    get :edit, id: page.id, locale: 'it'
+
+    assert_response 403
+  end
 end
