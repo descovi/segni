@@ -13,3 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require cycle_image
+//= require page-utils

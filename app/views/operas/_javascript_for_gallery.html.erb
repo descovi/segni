@@ -3,93 +3,50 @@
 <script type="text/javascript">
 
 $('img').hide()
-  $('#container').imagesLoaded( function() {
-  // images have loaded
-  //$("img").hide()
-  start()
 
+$('#container').imagesLoaded( function() {
+  start()
 });
 
-  
-
-  function start(){
-    $("img").fadeIn(100)
-    fix_image_height()
-    $(window).resize(fix_image_height)
-  }
-
-  function fix_image_height(){
-    if ( window_width_more_big_than_image()) {
-      height_at_100_per_cent()      
-    } else {
-      $('img').css('height', 'auto')  
-      $('img').css('min-width', '')  
-    }
-  }
+function start(){
+  $("img").fadeIn(100)
+  fix_image_height()
+  $(window).resize(fix_image_height)
+}
 
 
-  function window_width_more_big_than_image(){
-    var image = new Image()
-    image.src = $('img').attr('src')
-    return ($(window).width()) > image.naturalWidth+20
-  }
-
-
-
-  function height_at_100_per_cent(){
-    var img = $('img')
-    var offset = img.offset();
-    var altezza = $(window).height() - offset.top - 20
-    // 400px is a hard coded number that is a good relative measure
-    // when window height is too much little to contain entire image
-    if ($(window).height() < 400){
-      altezza = 400 - offset.top - 20
-    }
-    if (altezza > 0){
-      $('img').css('height', altezza)  
-    }
-    
-    var image = new Image()
-    image.src = $('img').attr('src')
-    
-    if ($('img').height() > image.naturalHeight && image.naturalHeight > 0){
-      $('img').height(image.naturalHeight)
-    }
-  }
-
-
-    function keydown_(e){
-      var key = e.which||e.keyCode;
-      switch(key){
-        //left arrow
-        case 37:
-          if ( $('#prev').length > 0 ) {
-            $("img").fadeOut(100)
-            $("#prev").css('background-color', '#e6e6e6')
-            $("#prev").css('border-color', '#adadad')
-            $("#prev").css('color', '#333333')
-            
-            $("#prev")[0].click()
-            
-          }
-        break;
-        //right arrow
-        case 39:
-          //$("#next").click()
-          if ( $('#next').length > 0 ) {
-            $("img").fadeOut(100)
-            
-            $("#next").css('background-color', '#e6e6e6')
-            $("#next").css('border-color', '#adadad')
-            $("#next").css('color', '#333333')
-            
-            $("#next")[0].click()
-            
-          }
-        break;
+function keydown_(e){
+  var key = e.which||e.keyCode;
+  switch(key){
+    //left arrow
+    case 37:
+      if ( $('#prev').length > 0 ) {
+        $("img").fadeOut(100)
+        $("#prev").css('background-color', '#e6e6e6')
+        $("#prev").css('border-color', '#adadad')
+        $("#prev").css('color', '#333333')
+        
+        $("#prev")[0].click()
+        
       }
-    }
+    break;
+    //right arrow
+    case 39:
+      //$("#next").click()
+      if ( $('#next').length > 0 ) {
+        $("img").fadeOut(100)
+        
+        $("#next").css('background-color', '#e6e6e6')
+        $("#next").css('border-color', '#adadad')
+        $("#next").css('color', '#333333')
+        
+        $("#next")[0].click()
+        
+      }
+    break;
+  }
+}
 
-   $(document).keyup(function(e){ keydown_(e) })
+$(document).keyup(function(e){ keydown_(e) })
 
 </script>
