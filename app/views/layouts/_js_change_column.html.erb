@@ -1,0 +1,45 @@
+<script type="text/javascript">
+$('.change-col').css('cursor', 'pointer')
+$('.change-col').click(function(e){
+  var current_size = $('#editor-container').attr('class').replace('col-xs-','')
+  var new_column_size_editor
+  var new_column_size_preview
+
+  if ($(this).data('go') == ">"){
+    new_column_size_editor = parseInt(current_size)+1
+    new_column_size_preview = 12-new_column_size_editor
+  } else if ($(this).data('go') == "<") {
+    new_column_size_editor = parseInt(current_size)-1
+    new_column_size_preview = 12-new_column_size_editor
+  } else if ($(this).data('go') == 'fullscreen') {
+    if (current_size!=12) {
+      new_column_size_editor = 12
+      new_column_size_preview = 0
+    } else {
+      new_column_size_editor = 3
+      new_column_size_preview = 9
+    }
+  } 
+
+
+  if (new_column_size_editor == 2){
+    $('#remove-col').hide()
+  } else {
+    $('#remove-col').show()
+  }
+
+  if (new_column_size_editor == 12){
+    $('#add-col').hide()
+  } else {
+    $('#add-col').show()
+  }
+
+  $('#editor-container').attr('class', '').addClass('col-xs-'+new_column_size_editor)
+  $('#iframe-container').attr('class', '').addClass('col-xs-'+new_column_size_preview)
+  if (new_column_size_preview == 0) {
+    $('#iframe-container').hide()
+  } else {
+  $('#iframe-container').show()
+  }
+})
+</script>

@@ -10,11 +10,20 @@
           
         #editor-container{style:"overflow: auto", class: "col-xs-#{cols}"}
           %hr(style="margin-top:0")
-          = render 'shared/notice'
           = link_to raw('<strong>Admin</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
+          
+          .pull-right
+            %span.change-col#remove-col(class="glyphicon glyphicon-triangle-left" data-go="<")
+            %span.change-col#add-col(class="glyphicon glyphicon-triangle-right" data-go=">")
+            %span.change-col#fullscreen(class="glyphicon glyphicon-fullscreen" data-go="fullscreen")
+
+          = render 'shared/notice'
+          
           %hr
           = yield
         - if @preview.present?
           #iframe-container.col-xs-8(style="padding:0")
             %iframe#iframe-preview{src: url_for(@preview), style: 'width: 100%; height: 100vh; border: none'}
         
+        = render 'layouts/js_change_column'
+          
