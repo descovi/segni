@@ -2,7 +2,7 @@
 / [  -  ]
 .col-sm-12
   = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
-  = f.input :content_it, as: :text,   input_html: { class: 'input-sm', rows: 10 }, placeholder: 'Content', label: false
+  = f.trix_editor :content_it
 / .col-sm-6
 /   = f.input :title_en,   as: :string
 /   = f.input :content_en, as: :text

@@ -39,4 +39,5 @@ gem 'browser'
 gem 'papercrop'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'aws-sdk', '< 2.0.0'
-gem "cocoon"
+gem 'cocoon'
+gem 'trix'
