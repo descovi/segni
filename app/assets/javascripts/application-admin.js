@@ -6,4 +6,3 @@
 //= require cocoon
 //= require jquery.textChange
 //= require utils-admin
-//= require trix
