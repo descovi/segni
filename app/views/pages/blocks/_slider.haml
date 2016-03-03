@@ -20,12 +20,26 @@
     :javascript
       time = 3000 // global for debug
 
-      $(document).ready(function(){
+      $(document).ready(function(){ setupCycler() })
+
+      function setupCycler(){
         $('#cycler img').first().addClass( "active" );
         if ($('#cycler img').length > 1) {
           setInterval('cycleImages()', time);
         }
-      })
+
+         resizeDiv()
+      }
+
+      function resizeDiv(){
+        var height = $('#cycler img').eq(0).css('height')
+        console.log(height);
+        $('#cycler').css('height', height)
+      }
+
+      $(window).resize(function(e){ resizeDiv() })
+
+
   - else
     - classe =""
     - if block.container_fluid == true
