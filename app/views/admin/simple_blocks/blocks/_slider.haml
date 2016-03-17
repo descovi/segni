@@ -1,9 +1,11 @@
-= f.simple_fields_for :images do |images|
-  = render 'image_fields', f: images
-.col-sm-12
-  = link_to_add_association 'Add another image', f, :images, class: 'btn btn-block btn-default btn-xs'
-.col-sm-12
-  = f.input :container_fluid
-  = f.input :sliding
-  = f.input :padding
-  = f.input :num_elements
+/ I need slider class for javascript behaviour
+.slider
+  = f.simple_fields_for :images do |images|
+    = render 'image_fields', f: images
+  .col-sm-12
+    = link_to_add_association 'Add another image', f, :images, class: 'btn btn-block btn-default btn-xs'
+  .col-sm-12
+    = f.input :container_fluid
+    = f.input :sliding
+    = f.input :padding
+    = f.input :num_elements

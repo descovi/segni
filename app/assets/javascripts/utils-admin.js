@@ -7,12 +7,12 @@ $('document').ready(function(){
   setupWhenChangeImageRemoveCrop()
   setupIframe()
   setupOpenCloseTab()
-  setupCssLive()
+  setupLiveEditing()
 
 })
 
 
-function setupCssLive(){
+function setupLiveEditing(){
   $("textarea[name='website[js]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[head]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
@@ -25,6 +25,7 @@ function setupCssLive(){
   $("input[name='simple_block[padding]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
+  $('.slider').on('change','input',textCssJsChanged)
 }
 
 var timer
