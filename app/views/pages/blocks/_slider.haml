@@ -4,7 +4,10 @@
       .row
         #cycler
           - block.images.each do |opera|
-            = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
+            - if block.quality.present?
+              = image_tag opera.url(block.quality.to_sym), class: 'center-block img-responsive'
+            - else
+              = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
 
     :css
       #cycler{
@@ -46,10 +49,12 @@
       - classe = "row"
 
     .simple-image{class: classe}
+      
       - block.images.each do |image|
-        - if padding_for_elements(block) == "padding: 0px" and columns_for_elements(block) == "col-sm-12"
-          - bg_img = asset_path(image.url(:_1150x850d))
-        - else
-          - bg_img = asset_path(image.url(:block6)) 
+        - bg_img = asset_path(image.url(:block6)) 
+        - if block.quality.present?
+          - bg_img = asset_path(image.url(block.quality.to_sym))
+        
+          
         .container-img{style: padding_for_elements(block), class: columns_for_elements(block)}
           = image_tag bg_img, class: 'img-responsive', style: 'min-width: 100%'

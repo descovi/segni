@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218151427) do
+ActiveRecord::Schema.define(version: 20160318145731) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20160218151427) do
     t.boolean  "container_fluid"
     t.integer  "num_elements"
     t.integer  "padding"
+    t.text     "quality"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"

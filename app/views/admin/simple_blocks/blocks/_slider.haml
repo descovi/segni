@@ -5,6 +5,7 @@
   .col-sm-12
     = link_to_add_association 'Add another image', f, :images, class: 'btn btn-block btn-default btn-xs'
   .col-sm-12
+    = f.input :quality, as: :string
     = f.input :container_fluid
     = f.input :sliding
     = f.input :padding
