@@ -48,5 +48,5 @@
     .simple-image{class: classe}
       - block.images.each do |image|
         - bg_img = asset_path(image.url(:block6)) 
-        %div{style: padding_for_elements(block), class: columns_for_elements(block)}
+        .container-img{style: padding_for_elements(block), class: columns_for_elements(block)}
           = image_tag image.url(:block6), class: 'img-responsive', style: 'min-width: 100%'
