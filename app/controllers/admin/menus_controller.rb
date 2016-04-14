@@ -51,6 +51,11 @@ class Admin::MenusController < AdminController
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
+        logger.warn "---- fra"
+        logger.warn "---- fra"
+        logger.warn @menu.errors.inspect
+        logger.warn "---- fra"
+        logger.warn "---- fra"
         format.html { render '_form' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end

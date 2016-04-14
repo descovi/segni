@@ -1,5 +1,4 @@
 = simple_form_for [:admin, @menu] do |f|
-
   = f.input :name
   = f.association :page, collection: @website.pages
   = f.input :url, as: :string, label: 'Manual url or external'
