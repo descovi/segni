@@ -9,7 +9,7 @@
       .carousel-inner{:role => "listbox"}
         - block.images.each_with_index do |opera, index|
           - css_class = ''
-          - css_class = 'active' if index == 1
+          - css_class = 'active' if index == 0
 
           .item{class: css_class}
             - if block.quality.present?
