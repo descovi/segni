@@ -8,7 +8,7 @@ class Menu < ActiveRecord::Base
   acts_as_list scope: :website
   
   def self.last_position
-    return last.position if last.present?
+    return order(:position).last.position if last.present?
     0
   end
 end

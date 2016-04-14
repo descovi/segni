@@ -36,13 +36,6 @@
             - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'
             - label = raw("#{label_icon} #{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}")
             = link_to label, url_for(controller: 'shopping_carts', action: 'show')
-          / - if action_name == 'show' or action_name == "hi"
-          /   - if I18n.locale == :en
-          /     - link = I18n.with_locale(:it){page_path(@page, locale: 'it')}
-          /     = link_to 'Italian', link
-          /   - elsif I18n.locale == :it
-          /     - link = I18n.with_locale(:en){page_path(@page, locale: 'en')}
-          /     = link_to 'English', link
             
     %hr(style="margin-bottom: 0")
     

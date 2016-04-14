@@ -36,12 +36,6 @@ class Admin::MenusController < AdminController
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render '_form' }
-        
-        logger.warn "---- fra"
-        logger.warn "---- fra"
-        logger.warn @menu.errors.inspect
-        logger.warn "---- fra"
-        logger.warn "---- fra"
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
