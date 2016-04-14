@@ -36,6 +36,12 @@ class Admin::MenusController < AdminController
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render '_form' }
+        
+        logger.warn "---- fra"
+        logger.warn "---- fra"
+        logger.warn @menu.errors.inspect
+        logger.warn "---- fra"
+        logger.warn "---- fra"
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
@@ -48,19 +54,9 @@ class Admin::MenusController < AdminController
 
     respond_to do |format|
       if @menu.update(menu_params)
-        logger.warn "---- fra2"
-        logger.warn "---- fra2"
-        logger.warn @menu.errors.inspect
-        logger.warn "---- fra2"
-        logger.warn "---- fra2"
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
-        logger.warn "---- fra"
-        logger.warn "---- fra"
-        logger.warn @menu.errors.inspect
-        logger.warn "---- fra"
-        logger.warn "---- fra"
         format.html { render '_form' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
