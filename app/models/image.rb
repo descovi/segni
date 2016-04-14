@@ -8,6 +8,7 @@ class Image < ActiveRecord::Base
     _1150x450d: '1150x450#',
     _1150x350d: '1150x350#',
     _1150x250d: '1150x250#',
+    photo1150:  '1150x1150>',
     block6:     '390x390#',
     _300height: '1150x300#'
   }, 
@@ -20,8 +21,9 @@ class Image < ActiveRecord::Base
     _1150x450d: '-quality 90 -strip',
     _1150x350d: '-quality 90 -strip',
     _1150x250d: '-quality 90 -strip',
-    block6:     '-quality 90 -strip',
-    _300height: '-quality 90 -strip'
+    _300height: '-quality 90 -strip',
+    photo1150:  '-quality 90 -strip',
+    block6:     '-quality 90 -strip'
   }
   crop_attached_file :url
   validates_attachment_content_type :url, content_type: /\Aimage\/.*\Z/
