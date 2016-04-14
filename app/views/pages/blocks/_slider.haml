@@ -1,9 +1,13 @@
 
-.images-block{class: container_fluid_or_not(block), style: 'padding-left: 0; padding-right: 0'}
+.images-block{class: container_fluid_or_not(block)}
+  - if block.container_fluid
+    :css
+      .images-block{ padding-left: 0; padding-right: 0 }
   - if block.sliding
     - if block.container_fluid
       :css
         .carousel-inner > .item > img { width: 100% }
+        
     .carousel.slide.carousel-fade{"data-ride" => "carousel"}
       / Wrapper for slides
       .carousel-inner{:role => "listbox"}
