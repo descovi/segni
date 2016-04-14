@@ -48,6 +48,11 @@ class Admin::MenusController < AdminController
 
     respond_to do |format|
       if @menu.update(menu_params)
+        logger.warn "---- fra2"
+        logger.warn "---- fra2"
+        logger.warn @menu.errors.inspect
+        logger.warn "---- fra2"
+        logger.warn "---- fra2"
         format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
