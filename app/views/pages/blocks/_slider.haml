@@ -8,7 +8,7 @@
       :css
         .carousel-inner > .item > img { width: 100% }
         
-    .carousel.slide.carousel-fade{"data-ride" => "carousel"}
+    .carousel.slide.carousel-fade{"data-ride" => "carousel", "data-interval" => '2000'}
       / Wrapper for slides
       .carousel-inner{:role => "listbox"}
         - block.images.each_with_index do |opera, index|
