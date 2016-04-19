@@ -1,3 +1,2 @@
 - @page.simple_blocks.each do |block|
-  %span{id: "#{block.id}_anchor"}
   = render "pages/blocks/#{block.name_of_view}", block: block
