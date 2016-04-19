@@ -16,6 +16,7 @@ function setupLiveEditing(){
   $("textarea[name='website[js]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[head]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
+  $("textarea[name='simple_block[content_it]']").on('textchange', textCssJsChanged)
 
   $("select[name='website[template_id]']").change(textCssJsChanged)
   $("textarea[id='simple_block_content']").on('textchange', textCssJsChanged)
@@ -24,7 +25,10 @@ function setupLiveEditing(){
   $("input[name='simple_block[container_fluid]']").change(textCssJsChanged)
   $("input[name='simple_block[sliding]']").change(textCssJsChanged)
   $("input[name='simple_block[padding]']").change(textCssJsChanged)
+  $("input[name='simple_block[full_height]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
+  $("input[name='simple_block[colors_inverted]']").change(textCssJsChanged)
+
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
   $("input[name='simple_block[quality]']").on('textchange',textCssJsChanged)
   $('.slider').on('change','input',textCssJsChanged)
