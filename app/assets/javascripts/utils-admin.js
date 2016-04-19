@@ -18,11 +18,11 @@ function setupLiveEditing(){
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
 
   $("select[name='website[template_id]']").change(textCssJsChanged)
-  $("textarea[id*='simple_block_content']").on('textchange', textCssJsChanged)
-  $("input[name*='simple_block[title']").on('textchange', textCssJsChanged)
-  $("input[name*='page[titl'").on('textchange', textCssJsChanged)
-  $("input[name='simple_block[container_fluid]'").change(textCssJsChanged)
-  $("input[name='simple_block[sliding]'").change(textCssJsChanged)
+  $("textarea[id='simple_block_content']").on('textchange', textCssJsChanged)
+  $("input[name='simple_block[title]']").on('textchange', textCssJsChanged)
+  $("input[name='page[title]']").on('textchange', textCssJsChanged)
+  $("input[name='simple_block[container_fluid]']").change(textCssJsChanged)
+  $("input[name='simple_block[sliding]']").change(textCssJsChanged)
   $("input[name='simple_block[padding]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
@@ -88,7 +88,6 @@ function setupOpenCloseTab(){
   $('.panel-heading').click(function(){
     $(this).next().slideToggle()
       $('textarea').autosize();
-
   })
   $('.panel-heading-open').next().toggle()
 }
@@ -97,7 +96,9 @@ function refreshIframe(){
   var iframe = document.getElementById('iframe-preview');
   iframe.src = iframe.src;
 }
-
+function getURLParameter(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
 function setupClickOfImageForUpload(){
   $('.btn-upload-img').css('cursor', 'pointer')
   $('.btn-upload-img').click(function(e){
