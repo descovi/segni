@@ -10,8 +10,8 @@
           
         #editor-container{style:"overflow: auto", class: "col-xs-#{cols}"}
           %hr(style="margin-top:0")
-          = link_to raw('<strong>Admin</strong>'), {controller: 'dashboard', action: 'home'}, class: 'btn btn-default btn-xs'
-          
+          = link_to raw('<strong>Pages</strong>'), {controller: 'dashboard', action: 'home', opened: 'pages'}, class: 'btn btn-default btn-xs'
+          = link_to raw('<strong>Menu</strong>'), {controller: 'dashboard', action: 'home', opened: 'menu'}, class: 'btn btn-default btn-xs'
           .pull-right
             %span.change-col#remove-col(class="glyphicon glyphicon-triangle-left" data-go="<")
             %span.change-col#add-col(class="glyphicon glyphicon-triangle-right" data-go=">")
