@@ -91,7 +91,7 @@ function setupOpenCloseTab(){
   $('.panel-body').hide()
   $('.panel-heading').css('cursor', 'pointer')
   $('.panel-heading').click(function(){
-    $(this).next().slideToggle()
+    $(this).next().toggle()
       $('textarea').autosize();
   })
   $('.panel-heading-open').next().toggle()
