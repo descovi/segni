@@ -60,7 +60,7 @@ function setupSortable(id, path){
 
 function doSortable(element, path){
   Sortable.create(element, {
-      handle: ".glyphicon-move",
+      handle: ".panel-heading",
       animation: 200,
       onEnd: function(evt){
         var id = $(evt.item).find('form').attr('id')
