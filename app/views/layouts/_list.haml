@@ -43,6 +43,6 @@
                   - icon_edit = "<span class='glyphicon glyphicon-pencil'></span>"
                   = link_to raw(icon_edit), [:edit, namespace, element], class: css_class_button
 
-                  - icon_trash = "<span class='glyphicon glyphicon-trash'></span>"
-                  = button_to [namespace, element], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: css_class_button, remote: true do
+                  - icon_trash = "<span class='glyphicon glyphicon-trash'></span>"  
+                  = button_to [namespace, element], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: css_class_button, form_class: 'pull-right', remote: true do
                     = raw icon_trash
