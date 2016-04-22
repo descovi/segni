@@ -24,8 +24,7 @@
     .block{style: style, class: block.css_class}
       .container
         - if block.title.present?
-          %h2= block.title
+          %h2.title= block.title
 
         - if block.content.present?
-          - if block.content.present?
-            = simple_format block.content, {}, sanitize: false
+          .content= simple_format block.content, {}, sanitize: false
