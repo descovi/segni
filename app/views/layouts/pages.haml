@@ -17,8 +17,7 @@
     .container#header
       .row
         .masthead-brand
-          %strong.title
-            = link_to @website.name, @website.first_page
+          %strong#title-of-website= link_to @website.name, @website.first_page
         .nav-masthead
           - if @website.menus.present?
             - @website.menus.each do |menu_voice|
