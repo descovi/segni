@@ -12,6 +12,7 @@
           %hr(style="margin-top:0")
           = link_to raw('<strong>Pages</strong>'), {controller: 'dashboard', action: 'home', opened: 'pages'}, class: 'btn btn-default btn-xs'
           = link_to raw('<strong>Operas</strong>'), {controller: 'dashboard', action: 'home', opened: 'operas'}, class: 'btn btn-default btn-xs' if @website.opera?
+          = link_to raw('<strong>Products</strong>'), {controller: 'dashboard', action: 'home', opened: 'products'}, class: 'btn btn-default btn-xs' if @website.product?
           = link_to raw('<strong>Menu</strong>'), {controller: 'dashboard', action: 'home', opened: 'menus'}, class: 'btn btn-default btn-xs'
 
           .pull-right
