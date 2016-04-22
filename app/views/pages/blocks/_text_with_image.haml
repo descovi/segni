@@ -7,10 +7,11 @@
     / [  ]
     / [  ]
     / [  ]
-    %section.block{style: "background-image: url('#{image_url}'); min-height: 60%;", class: block.css_class}
+    .block{style: "background-image: url('#{image_url}'); min-height: 60%;", class: block.css_class}
       .container.block-content
         .block-content-inner
-          %h2= block.title
+          - if block.title.present?
+            %h2= block.title
 
           - if block.content.present?
             = simple_format block.content, {}, sanitize: false
@@ -19,7 +20,8 @@
   - else
     / STANDARD BLOCK
     / [ ]
-    %section.block{style: "background-image: url('#{image_url}');", class: block.css_class}
+    - style = "background-image: url('#{image_url}');" if image_url.present?
+    .block{style: style, class: block.css_class}
       .container
         - if block.title.present?
           %h2= block.title
