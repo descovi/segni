@@ -5,8 +5,9 @@
       - body_elements = ['name', 'name_slug']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, collections: current_user.websites, resource_name: 'Website', add_resource: false, edit_resource: false, namespace: :admin
 
+  #menus.col-sm-12
+    = render 'layouts/list', head_elements: ['Name','Url'], body_elements: ['name', 'url'], collections: @website.menus, resource_name: 'Menu', add_resource: true, edit_resource: true, namespace: :admin, order_element: true
   #pages.col-sm-12
-    = render 'admin/menus/menu_list'
     = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
 
     
