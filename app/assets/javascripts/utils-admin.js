@@ -95,6 +95,8 @@ function setupOpenCloseTab(){
       $('textarea').autosize();
   })
   $('.panel-heading-open').next().toggle()
+  var panel_id_open = getURLParameter('opened')
+  $("#"+panel_id_open+" .panel-heading").trigger('click')
 }
 
 function refreshIframe(){
