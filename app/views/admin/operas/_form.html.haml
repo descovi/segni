@@ -11,6 +11,7 @@
     .col-sm-12= f.association :surface, prompt: true
     .col-sm-12= f.association :subject, prompt: true
     .col-sm-12= f.input :size, as: :string
+    .col-sm-12= f.input :description
   = f.input :tag_list, input_html: {value: @opera.tag_list.to_s}
 
       
