@@ -13,4 +13,8 @@ class AdminController < ApplicationController
     return true if @website.users.include? current_user
     false
   end
+
+  def goto_dashboard opened
+    "/#{I18n.locale}/admin?opened=menus"
+  end
 end

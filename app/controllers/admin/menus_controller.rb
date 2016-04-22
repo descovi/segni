@@ -32,7 +32,7 @@ class Admin::MenusController < AdminController
     @menu.position = Menu.last_position+1 if @menu.position.blank?
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to admin_menus_path, notice: 'menu was successfully created.' }
+        format.html { redirect_to goto_dashboard('menus'), notice: 'menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
         format.html { render '_form' }
@@ -48,7 +48,7 @@ class Admin::MenusController < AdminController
 
     respond_to do |format|
       if @menu.update(menu_params)
-        format.html { redirect_to admin_menus_path, notice: 'menu was successfully updated.' }
+        format.html { redirect_to goto_dashboard('menus'), notice: 'Menu was successfully updated.' }
         format.json { render :show, status: :ok, location: @menu }
       else
         format.html { render '_form' }
@@ -64,7 +64,7 @@ class Admin::MenusController < AdminController
       if request.xhr?
         render js: "$('#menuOrderable #sortable_index_#{@menu.id}').hide()"
       else
-       redirect_to admin_menus_path, notice: 'Product was successfully destroyed.' 
+       redirect_to goto_dashboard('menus'), notice: 'Product was successfully destroyed.' 
      end
   end
 
