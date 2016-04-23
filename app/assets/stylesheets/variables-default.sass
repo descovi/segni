@@ -44,7 +44,15 @@ $text-color: #000
       -webkit-transform: translate3d(0, 0, 0)
       transform: translate3d(0, 0, 0)
 
-/* USEFUL FOR ANIMATION WITH CSS  (example fadein gallery in application gallery) */
+
+// ANIMATION!!!
+// USEFUL FOR ANIMATION WITH CSS  (example fadein gallery in application gallery) 
+// Esempio
+// #opera-image img
+//   @include animation-name(fadeIn)
+//   @include animation-duration(0.5s)
+//   transition-property: max-height
+//   transition-duration: 1s
 
 =keyframes($name)
   @-o-keyframes #{$name}
@@ -119,9 +127,3 @@ $text-color: #000
     opacity: 0
   to
     opacity: 1
-
-#opera-image img
-  @include animation-name(fadeIn)
-  @include animation-duration(0.5s)
-  transition-property: max-height
-  transition-duration: 1s
