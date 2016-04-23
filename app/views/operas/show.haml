@@ -27,7 +27,7 @@
       - if opera_next.present?
         = link_to image_tag_, opera_path(opera_next, filter: filtro)
       - else
-        = link_to image_tag_, @opera.first_of_album(filtro)
+        = link_to image_tag_, opera_path(@opera.first_of_album(filtro), filter: filtro)
       - if @opera.description.present?
         %p#opera-description(style="margin-top:20px")= simple_format @opera.description
 - if !browser.mobile?
