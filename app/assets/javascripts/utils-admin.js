@@ -18,7 +18,8 @@ function setupLiveEditing(){
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
   $("textarea[name='simple_block[content_it]']").on('textchange', textCssJsChanged)
   $("textarea[id='simple_block_content']").on('textchange', textCssJsChanged)
-
+  $("textarea[name='simple_block[title]']").on('textchange', textCssJsChanged)
+  
   $("select[name='website[template_id]']").change(textCssJsChanged)
   
   $("input[name='simple_block[title]']").on('textchange', textCssJsChanged)
