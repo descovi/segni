@@ -10,8 +10,22 @@ $('#container').imagesLoaded( function() {
 
 function start(){
   $("img").fadeIn(100)
-//  fix_image_height()
-//  $(window).resize(fix_image_height)
+  $(window).resize(setupHeightImages)
+  setupHeightImages()
+}
+
+
+function setupHeightImages(){
+  var wh =$(window).height()
+  var topy = $('#gallery-single-image img').offset().top
+  var margine_sotto = 20
+  var calculate = wh-topy-margine_sotto 
+  if (calculate<300){
+  calculate = 300;
+  }
+  var misure = calculate+'px'
+
+  $('#gallery-single-image img').css('max-height', misure)
 }
 
 
