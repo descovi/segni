@@ -45,7 +45,7 @@ class Opera < ActiveRecord::Base
   def next filter
     if filter.present?
       tags = filter.split(" ")
-      opera = Opera.tagged_with(tags, any: true).where('id > ?', id)
+      opera = Opera.tagged_with(tags, any: true).where('id > ?', id).where(website: self.website)
     else
       opera = Opera.where('id > ?', id).where(website: self.website)
     end
@@ -55,18 +55,30 @@ class Opera < ActiveRecord::Base
   def prev filter
     if filter.present?
       tags = filter.split(" ") 
-      opera = Opera.tagged_with(tags, any: true).where('id < ?', id)
+      opera = Opera.tagged_with(tags, any: true).where('id < ?', id).where(website: self.website)
     else
       opera = Opera.where('id < ?', id).where(website: self.website)
     end
     opera.last
   end
 
-  def first_of_album
-    Opera.first
+  def first_of_album filter
+    if filter.present?
+      tags = filter.split(" ")
+      Opera.where(website: self.website)
+           .tagged_with(tags, any: true).first
+    else
+      Opera.where(website: self.website).first
+    end
   end
 
-  def last_of_album
-    Opera.last
+  def last_of_album filter
+    if filter.present?
+      tags = filter.split(" ")
+      Opera.where(website: self.website)
+           .tagged_with(tags, any: true).last
+    else
+      Opera.where(website: self.website).last
+    end
   end
 end
