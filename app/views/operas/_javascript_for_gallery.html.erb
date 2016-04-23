@@ -7,12 +7,9 @@ $('img').imagesLoaded().always( function( instance ) {
     console.log(instance)
   })
   .done( function( instance ) {
-    $('#opera-image img').fadeIn()
+    $('#opera-image img').fadeIn('fast')
     $(window).resize(setupHeightImages)
     setupHeightImages()
-    
-    console.log("DONE!")
-    console.log(instance)
   })
   .fail( function() {
     console.log('all images loaded, at least one is broken');
