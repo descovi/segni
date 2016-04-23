@@ -1,4 +1,11 @@
 - filtro = params[:filter]
+- opera_prev = @opera.prev(filtro)
+- opera_next = @opera.next(filtro)
+- if opera_next.present?
+  - next_path = opera_path(opera_next, filter: filtro)
+- else
+  - next_path = opera_path(@opera.first_of_album(filtro), filter: filtro)
+
 #opera-header.container
   .row
     .col-xs-8(style="padding-top:20px")
@@ -9,25 +16,23 @@
       = " / #{@opera.size}" if @opera.size.present?
     .col-xs-4(style="padding-top:20px")
       .pull-right
-        - opera_prev = @opera.prev(filtro)
+        
         - if opera_prev.present?
           = link_to '<', opera_path(opera_prev, filter: filtro), id: 'prev', class: 'btn btn-default btn-xs'
-        - opera_next = @opera.next(filtro)
-        - if opera_next.present?
-          = link_to '>', opera_path(opera_next, filter: filtro), id: 'next', class: 'btn btn-default btn-xs'
+        
+        - if next_path.present?
+          = link_to '>', next_path, id: 'next', class: 'btn btn-default btn-xs'
+        - else
+
 %hr
 #opera-image.container(style="padding-bottom: 20px")
   .row
     .col-sm-12
       - style = 'margin: 0 auto;'
-      - style= "#{style} display: none" if !browser.mobile?
         
-      - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: style
-
-      - if opera_next.present?
-        = link_to image_tag_, opera_path(opera_next, filter: filtro)
-      - else
-        = link_to image_tag_, opera_path(@opera.first_of_album(filtro), filter: filtro)
+      - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: 'margin: 0 auto;'
+      = link_to image_tag_, next_path
+      
       - if @opera.description.present?
         %p#opera-description(style="margin-top:20px")= simple_format @opera.description
 - if !browser.mobile?
