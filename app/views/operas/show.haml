@@ -6,6 +6,9 @@
 - else
   - next_path = opera_path(@opera.first_of_album(filtro), filter: filtro)
 
+- if !browser.mobile?
+  = render 'operas/javascript_for_gallery'
+
 #opera-header.container
   .row
     .col-xs-8(style="padding-top:20px")
@@ -35,5 +38,3 @@
       
       - if @opera.description.present?
         %p#opera-description(style="margin-top:20px")= simple_format @opera.description
-- if !browser.mobile?
-  = render 'operas/javascript_for_gallery'
