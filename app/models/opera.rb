@@ -47,7 +47,7 @@ class Opera < ActiveRecord::Base
       tags = filter.split(" ")
       opera = Opera.tagged_with(tags, any: true).where('id > ?', id)
     else
-      opera = Opera.where('id > ?', id)
+      opera = Opera.where('id > ?', id).where(website: self.website)
     end
     opera.first
   end
@@ -57,7 +57,7 @@ class Opera < ActiveRecord::Base
       tags = filter.split(" ") 
       opera = Opera.tagged_with(tags, any: true).where('id < ?', id)
     else
-      opera = Opera.where('id < ?', id)
+      opera = Opera.where('id < ?', id).where(website: self.website)
     end
     opera.last
   end
