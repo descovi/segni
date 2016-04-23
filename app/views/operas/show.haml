@@ -11,10 +11,10 @@
       .pull-right
         - opera_prev = @opera.prev(filtro)
         - if opera_prev.present?
-          = link_to '<', opera_prev, id: 'prev', class: 'btn btn-default btn-xs'
+          = link_to '<', opera_path(opera_prev, filter: filtro), id: 'prev', class: 'btn btn-default btn-xs'
         - opera_next = @opera.next(filtro)
         - if opera_next.present?
-          = link_to '>', opera_next, id: 'next', class: 'btn btn-default btn-xs'
+          = link_to '>', opera_path(opera_next, filter: filtro), id: 'next', class: 'btn btn-default btn-xs'
 %hr
 #opera-image.container(style="padding-bottom: 20px")
   .row
