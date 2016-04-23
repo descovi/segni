@@ -2,12 +2,24 @@
 
 <script type="text/javascript">
 
+$('#container').imagesLoaded()
+  .always( function( instance ) {
+    console.log('all images loaded');
+  })
+  .done( function( instance ) {
+    $(window).resize(setupHeightImages)
+    setupHeightImages()
+    $('#opera-image img').fadeIn()
+    console.log("DONE!")
+  })
+  .fail( function() {
+    console.log('all images loaded, at least one is broken');
+  })
+  .progress( function( instance, image ) {
+    var result = image.isLoaded ? 'loaded' : 'broken';
+    console.log( 'image is ' + result + ' for ' + image.img.src );
+  });
 
-$('body').imagesLoaded( function() {
-  $(window).resize(setupHeightImages)
-  setupHeightImages()
-  $('#opera-image img').fadeIn()
-});
 
 
 function setupHeightImages(){
