@@ -42,13 +42,23 @@ class Opera < ActiveRecord::Base
   end
 
 
-  def next
-    opera = Opera.where('id > ?', id)
+  def next filter
+    if filter.present?
+      tags = filter.split(" ")
+      opera = Opera.tagged_with(tags, any: true).where('id > ?', id)
+    else
+      opera = Opera.where('id > ?', id)
+    end
     opera.first
   end
 
-  def prev
-    opera = Opera.where('id < ?', id)
+  def prev filter
+    if filter.present?
+      tags = filter.split(" ") 
+      opera = Opera.tagged_with(tags, any: true).where('id < ?', id)
+    else
+      opera = Opera.where('id < ?', id)
+    end
     opera.last
   end
 
