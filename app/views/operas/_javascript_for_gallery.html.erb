@@ -4,13 +4,9 @@
 
 
 $('#container').imagesLoaded( function() {
-  start()
-});
-
-function start(){
   $(window).resize(setupHeightImages)
   setupHeightImages()
-}
+});
 
 
 function setupHeightImages(){
@@ -50,7 +46,7 @@ function keydown_(e){
   }
 }
 
-function colorize_button(id){
+function colorize_button(_id){
   $(_id).css('background-color', '#e6e6e6')
   $(_id).css('border-color', '#adadad')
   $(_id).css('color', '#333333')
