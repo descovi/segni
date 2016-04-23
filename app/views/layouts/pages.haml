@@ -13,29 +13,28 @@
       %script= @website.js.html_safe
     
   %body
-    - if controller_name != 'operas' and action_name != 'show'
-      #header-container
-        %hr(style="margin-top:0; border-color: white")
-        .container#header
-          .row
-            .masthead-brand
-              %strong#title-of-website= link_to @website.name, @website.first_page
-            .nav-masthead
-              - if @website.menus.present?
-                - @website.menus.each do |menu_voice|
-                  - if menu_voice.page.present?
-                    = link_to menu_voice.name, menu_voice.page
-                  - elsif menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
-                    = link_to menu_voice.name, menu_voice.url, target: '_blank'
-                  - else
-                    = menu_voice.name
-                  - if @website.menus.size > 1
-                    %span(style="color: #eee")= '/'
-              - if session[:shopping_cart_id].present?
-                - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
-                - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'
-                - label = raw("#{label_icon} #{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}")
-                = link_to label, url_for(controller: 'shopping_carts', action: 'show')        
-        %hr(style="margin-bottom: 0")
+    #header-container
+      %hr(style="margin-top:0; border-color: white")
+      .container#header
+        .row
+          .masthead-brand
+            %strong#title-of-website= link_to @website.name, @website.first_page
+          .nav-masthead
+            - if @website.menus.present?
+              - @website.menus.each do |menu_voice|
+                - if menu_voice.page.present?
+                  = link_to menu_voice.name, menu_voice.page
+                - elsif menu_voice.url.include? 'http://' or menu_voice.url.include? 'https://' or menu_voice.url.include? 'www.'
+                  = link_to menu_voice.name, menu_voice.url, target: '_blank'
+                - else
+                  = menu_voice.name
+                - if @website.menus.size > 1
+                  %span(style="color: #eee")= '/'
+            - if session[:shopping_cart_id].present?
+              - shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+              - label_icon = '<span class="glyphicon glyphicon-shopping-cart"></span>'
+              - label = raw("#{label_icon} #{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}")
+              = link_to label, url_for(controller: 'shopping_carts', action: 'show')        
+      %hr(style="margin-bottom: 0")
       
     = yield
