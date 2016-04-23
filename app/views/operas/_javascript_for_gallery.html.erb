@@ -2,15 +2,16 @@
 
 <script type="text/javascript">
 
-$('#container').imagesLoaded()
-  .always( function( instance ) {
+$('img').imagesLoaded().always( function( instance ) {
     console.log('all images loaded');
+    console.log(instance)
   })
   .done( function( instance ) {
     $(window).resize(setupHeightImages)
     setupHeightImages()
     $('#opera-image img').fadeIn()
     console.log("DONE!")
+    console.log(instance)
   })
   .fail( function() {
     console.log('all images loaded, at least one is broken');
