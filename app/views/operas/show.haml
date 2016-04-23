@@ -1,20 +1,22 @@
-.container
+- filtro = params[:filter]
+#opera-header.container
   .row
     .col-xs-8(style="padding-top:20px")
-      %strong
-        = @opera.name
+      %strong= @opera.name
       = " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
       = " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
       = " / #{@opera.surface.name}" if @opera.surface.present?
       = " / #{@opera.size}" if @opera.size.present?
     .col-xs-4(style="padding-top:20px")
       .pull-right
-        - if @opera.prev.present?
-          = link_to '<', @opera.prev, id: 'prev', class: 'btn btn-default btn-xs'
-        - if @opera.next.present?
-          = link_to '>', @opera.next, id: 'next', class: 'btn btn-default btn-xs'
+        - opera_prev = @opera.prev(filtro)
+        - if opera_prev.present?
+          = link_to '<', opera_prev, id: 'prev', class: 'btn btn-default btn-xs'
+        - opera_next = @opera.next(filtro)
+        - if opera_next.present?
+          = link_to '>', opera_next, id: 'next', class: 'btn btn-default btn-xs'
 %hr
-.container(style="padding-bottom: 20px")
+#opera-image.container(style="padding-bottom: 20px")
   .row
     .col-sm-12
       - style = 'margin: 0 auto;'
@@ -22,11 +24,11 @@
         
       - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: style
 
-      - if @opera.next.present?
-        = link_to image_tag_, @opera.next
+      - if opera_next.present?
+        = link_to image_tag_, opera_path(opera_next, filter: filtro)
       - else
-        = link_to image_tag_, @opera.first_of_album
+        = link_to image_tag_, opera_path(@opera.first_of_album, filter: filtro)
       - if @opera.description.present?
-        %p(style="margin-top:20px")= simple_format @opera.description
+        %p#opera-description(style="margin-top:20px")= simple_format @opera.description
 - if !browser.mobile?
   = render 'operas/javascript_for_gallery'
