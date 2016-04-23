@@ -18,8 +18,7 @@
   .row
     .col-sm-12
       - style = 'margin: 0 auto;'
-      - if !browser.mobile?
-        - style= "#{style} display: none"
+      - style= "#{style} display: none" if !browser.mobile?
         
       - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: style
 
