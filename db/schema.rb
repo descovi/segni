@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318145731) do
+ActiveRecord::Schema.define(version: 20160424094954) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -276,8 +276,8 @@ ActiveRecord::Schema.define(version: 20160318145731) do
     t.string   "name_slug"
     t.string   "primary_color"
     t.string   "secondary_color"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
     t.integer  "first_page_id"
     t.string   "domain"
@@ -287,6 +287,7 @@ ActiveRecord::Schema.define(version: 20160318145731) do
     t.text     "css"
     t.text     "js"
     t.text     "head"
+    t.boolean  "button_open_menu"
   end
 
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"
