@@ -7,13 +7,11 @@
     - if block.container_fluid
       :css
         .carousel-inner > .item > img { width: 100% }
-        
-    .carousel.slide.carousel-fade{"data-ride" => "carousel", "data-interval" => '2000'}
+    .carousel.slide.carousel-fade{"data-ride" => "carousel", "data-interval" => '2000' , "data-fullscreen-margin-bottom" => block.sliding_full_screen_margin_bottom, "data-sliding-full-screen" => block.sliding_full_screen.inspect}
       / Wrapper for slides
       .carousel-inner{:role => "listbox"}
         - block.images.order("RANDOM()").each_with_index do |opera, index|
-          - css_class = ''
-          - css_class = 'active' if index == 0
+          - css_class = (index == 0) ? 'active' : ''
 
           .item{class: css_class}
             - if block.quality.present?
