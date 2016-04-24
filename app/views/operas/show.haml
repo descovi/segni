@@ -10,10 +10,11 @@
   .row
     .col-xs-9(style="padding-top:20px")
       %strong= @opera.name
-      = " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
-      = " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
-      = " / #{@opera.surface.name}" if @opera.surface.present?
-      = " / #{@opera.size}" if @opera.size.present?
+      - if !browser.mobile?
+        = " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
+        = " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
+        = " / #{@opera.surface.name}" if @opera.surface.present?
+        = " / #{@opera.size}" if @opera.size.present?
     .col-xs-3(style="padding-top:20px")
       .pull-right
         
@@ -32,9 +33,14 @@
       - style = 'margin: 0 auto;' if browser.mobile? or browser.bot?
       - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: style
       = link_to image_tag_, next_path
-      
+      - if browser.mobile?
+        %p(style="margin-top:10px")
+          = "ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
+          = "#{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
+          = " / #{@opera.surface.name}" if @opera.surface.present?
+          = " / #{@opera.size}" if @opera.size.present?
       - if @opera.description.present?
-        %p#opera-description(style="margin-top:20px")= simple_format @opera.description
+        %p#opera-description(style="margin-top:10px")= simple_format @opera.description
 
 - if !browser.mobile?
   = render 'operas/javascript_for_gallery'
