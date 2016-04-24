@@ -28,11 +28,6 @@ function calculateHeight(_data){
   var win = $(window).height()
   var head = $('#header-container').height()
   var result = win-head-_data
-  console.log(_data)
-  console.log("_---")
-  console.log(result)
-  console.log("_---")
-
   return result
 }
 
@@ -62,7 +57,6 @@ $('.carousel img').each(function(e) {
 $(window).on('resize', function (){
   var mb = $(this).data("fullscreen-margin-bottom")
   $item.height(calculateHeight(mb));
-  console.log(calculateHeight(mb))
 });
 
 }
