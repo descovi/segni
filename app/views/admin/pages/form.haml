@@ -1,8 +1,5 @@
-- remote = true
-- if action_name == 'new'
-  - remote = false
 .row
-  = simple_form_for [:admin, @page], remote: remote do |f|
+  = simple_form_for [:admin, @page], remote: !(action_name == 'new')  do |f|
     .col-sm-12
       = f.input :title_it
       = f.input :slug
