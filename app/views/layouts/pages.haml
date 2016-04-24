@@ -19,8 +19,28 @@
         .row
           .masthead-brand
             %strong#title-of-website= link_to @website.name, @website.first_page
+          
+            - if @website.button_open_menu
+              .pull-right 
+                .visible-xs#button-menu
+                  %a(href="#open-menu" style="text-decoration: underline") Menu
+            
           .nav-masthead
-            = render 'layouts/website_menu'
+            - if @website.button_open_menu
+              .hidden-xs#menu= render 'layouts/website_menu'
+              :javascript
+                $(document).ready(function(){
+                  $(document).on('click', '#button-menu', function(e){
+                    if ($('#menu').hasClass('hidden-xs')) {
+                      $('#menu').toggleClass('hidden-xs')
+                      $('#menu').hide()
+                    }
+                    //
+                    $('#menu').slideToggle()
+                  })
+                })
+            - else
+              = render 'layouts/website_menu'
 
       %hr(style="margin-bottom: 0")
       
