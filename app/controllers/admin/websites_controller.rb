@@ -1,6 +1,8 @@
 class Admin::WebsitesController < AdminController
+  
   def set_first_page
   end
+  
   def update
     @website.update(website_params)
     if request.xhr?
@@ -9,7 +11,14 @@ class Admin::WebsitesController < AdminController
       redirect_to :back
     end
   end
+
   def website_params
-    params.require(:website).permit(:template_id, :css, :js, :head, :user_ids => [])
+    params.require(:website).permit(:template_id, 
+                                    :css, 
+                                    :js, 
+                                    :head,
+                                    :button_open_menu,
+                                    :user_ids => [])
+                                    
   end
 end
