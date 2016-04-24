@@ -30,7 +30,7 @@ function setupLiveEditing(){
   $("input[name='simple_block[full_height]']").change(textCssJsChanged)
   $("input[name='simple_block[num_elements]']").change(textCssJsChanged)
   $("input[name='simple_block[colors_inverted]']").change(textCssJsChanged)
-
+  $("input[name='website[button_open_menu]']").change(textCssJsChanged)
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
   $("input[name='simple_block[quality]']").on('textchange',textCssJsChanged)
   $('.slider').on('change','input',textCssJsChanged)
