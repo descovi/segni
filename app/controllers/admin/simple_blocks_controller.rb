@@ -46,6 +46,8 @@ class Admin::SimpleBlocksController < AdminController
       :full_height,
       :background_color,
       :sliding,
+      :sliding_full_screen,
+      :sliding_full_screen_margin_bottom,
       :custom_type,
       :colors_inverted,
       :position,
