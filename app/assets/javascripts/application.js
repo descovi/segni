@@ -13,3 +13,58 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+
+// MENU MOBILE
+$(document).on('click', '#button-menu', function(e){
+  if ($('#menu').hasClass('hidden-xs')) {
+    $('#menu').toggleClass('hidden-xs')
+    $('#menu').hide()
+  }
+  //
+  $('#menu').slideToggle()
+})
+
+function calculateHeight(_data){
+  var win = $(window).height()
+  var head = $('#header-container').height()
+  var result = win-head-_data
+  console.log(_data)
+  console.log("_---")
+  console.log(result)
+  console.log("_---")
+
+  return result
+}
+
+// FULL SCREEN
+$(document).ready(function(){
+
+if ($('.carousel').data('sliding-full-screen') == true) {
+
+var $item = $('.carousel .item');
+  var mb = $('.carousel').data("fullscreen-margin-bottom")
+
+$item.height(calculateHeight(mb));
+$item.addClass('full-screen');
+
+$('.carousel img').each(function(e) {
+  $(this).addClass('full-screen')
+  var $src = $(this).attr('src');
+
+  var $color = $(this).attr('data-color');
+  $(this).parent().css({
+    'background-image' : 'url(' + $src + ')',
+    'background-color' : $color
+  });
+  $(this).remove();
+});
+
+$(window).on('resize', function (){
+  var mb = $(this).data("fullscreen-margin-bottom")
+  $item.height(calculateHeight(mb));
+  console.log(calculateHeight(mb))
+});
+
+}
+
+})
