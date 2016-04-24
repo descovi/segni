@@ -28,17 +28,7 @@
           .nav-masthead
             - if @website.button_open_menu
               .hidden-xs#menu= render 'layouts/website_menu'
-              :javascript
-                $(document).ready(function(){
-                  $(document).on('click', '#button-menu', function(e){
-                    if ($('#menu').hasClass('hidden-xs')) {
-                      $('#menu').toggleClass('hidden-xs')
-                      $('#menu').hide()
-                    }
-                    //
-                    $('#menu').slideToggle()
-                  })
-                })
+
             - else
               = render 'layouts/website_menu'
 
