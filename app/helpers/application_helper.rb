@@ -36,4 +36,12 @@ module ApplicationHelper
     end
   end
 
+  def is_http_url? url
+    if url.include? 'http://' or url.include? 'https://' or url.include? 'www.'
+      true
+    else
+      false
+    end
+  end
+
 end
