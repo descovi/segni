@@ -3,7 +3,7 @@
 	[
 		{
 			"path": ".",
-      "folder_exclude_patterns": ["node_modules", "public/assets", ".git", ".hg", "CVS"],
+      "folder_exclude_patterns": ["node_modules", "public/assets", ".git", "tmp/", "CVS"],
 
 		}
 	]
