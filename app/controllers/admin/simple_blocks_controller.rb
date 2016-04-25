@@ -53,6 +53,7 @@ class Admin::SimpleBlocksController < AdminController
       :position,
       :container_fluid,
       :num_elements,
+      :num_elements_xs,
       :menu_title,
       :padding,
       :quality,

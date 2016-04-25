@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424180737) do
+ActiveRecord::Schema.define(version: 20160425093711) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 20160424180737) do
     t.text     "quality"
     t.boolean  "sliding_full_screen"
     t.integer  "sliding_full_screen_margin_bottom"
+    t.integer  "num_elements_xs"
   end
 
   add_index "simple_blocks", ["page_id"], name: "index_simple_blocks_on_page_id"
