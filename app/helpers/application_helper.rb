@@ -26,9 +26,6 @@ module ApplicationHelper
     classe = "col-sm-4 col-xs-12"
     classe.gsub!("col-sm-4", "col-sm-#{12/block.num_elements}") if block.num_elements.present?
     classe.gsub!("col-xs-12", "col-xs-#{12/block.num_elements_xs}") if block.num_elements_xs.present?
-    p 12/block.num_elements_xs
-    p 12/block.num_elements
-    p "--"
     return classe
   end
 
