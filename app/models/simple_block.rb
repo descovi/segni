@@ -62,4 +62,9 @@ class SimpleBlock < ActiveRecord::Base
     end
     css_class_custom
   end
+
+  def get_sliding_full_screen_margin_bottom
+    return 0 if self.sliding_full_screen_margin_bottom.blank?
+    self.sliding_full_screen_margin_bottom
+  end
 end
