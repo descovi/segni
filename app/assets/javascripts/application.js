@@ -31,33 +31,36 @@ function calculateHeight(_data){
   return result
 }
 
+function there_is_a_slider_with_fullscreen_option(){
+  return ($('.carousel').data('sliding-full-screen') == true)  
+}
+
 // FULL SCREEN
 $(document).ready(function(){
 
-if ($('.carousel').data('sliding-full-screen') == true) {
+if (there_is_a_slider_with_fullscreen_option()) { setupFullscreenSlider() }
 
-var $item = $('.carousel .item');
+function setupFullscreenSlider(){
+  var $item = $('.carousel .item');
   var mb = $('.carousel').data("fullscreen-margin-bottom")
 
-$item.height(calculateHeight(mb));
-$item.addClass('full-screen');
-
-$('.carousel img').each(function(e) {
-  $(this).addClass('full-screen')
-  var $src = $(this).attr('src');
-
-  var $color = $(this).attr('data-color');
-  $(this).parent().css({
-    'background-image' : 'url(' + $src + ')',
-    'background-color' : $color
-  });
-  $(this).remove();
-});
-
-$(window).on('resize', function (){
-  var mb = $(this).data("fullscreen-margin-bottom")
   $item.height(calculateHeight(mb));
-});
+  $item.addClass('full-screen');
+
+  $('.carousel img').each(function(e) {
+    $(this).addClass('full-screen')
+    var $src = $(this).attr('src');
+
+    $(this).parent().css({
+      'background-image' : 'url(' + $src + ')',
+    });
+    $(this).remove();
+  });
+
+  $(window).on('resize', function (e){
+    var mb = $('.carousel ').data("fullscreen-margin-bottom")
+    $item.height(calculateHeight(mb));
+  });
 
 }
 
