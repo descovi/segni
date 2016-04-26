@@ -1,5 +1,6 @@
 class Image < ActiveRecord::Base
   has_attached_file :url, styles: { 
+    _20x20c: '20x20#',
     _100x100c:  '100x100#', 
     _1150x850d: '1150x850#',
     _1150x750d: '1150x750#',
@@ -13,6 +14,7 @@ class Image < ActiveRecord::Base
     _300height: '1150x300#'
   }, 
   convert_options: { 
+    _20x20c: '-quality 90 -strip',
     _100x100c:  '-quality 90 -strip',
     _1150x850d: '-quality 90 -strip',
     _1150x750d: '-quality 90 -strip',
