@@ -1,0 +1,8 @@
+
+.row
+  .col-sm-12
+    = simple_form_for [:admin, @image] do |f|
+      = image_tag @image.url(:photo1150)
+      = f.input :url, as: :file
+      = f.button :submit, class: 'btn btn-primary btn-xs'
+    
