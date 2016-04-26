@@ -43,10 +43,12 @@ Rails.application.routes.draw do
         resources :simple_blocks do
           put :sort
         end
+
+        resources :images
       end
     end
 
-  resources :images
+
 
   get 'express_checkout', to: 'orders#express_checkout'
   get 'express_checkout_confirm', to: 'orders#express_checkout_confirm'
