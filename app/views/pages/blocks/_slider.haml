@@ -14,10 +14,21 @@
           - css_class = (index == 0) ? 'active' : ''
 
           .item{class: css_class}
+            - if opera.description?
+              - alt = opera.description
+
             - if block.quality.present?
-              = image_tag opera.url(block.quality.to_sym), class: 'center-block img-responsive'
+              - if opera.description?
+                = image_tag opera.url(block.quality.to_sym), class: 'center-block img-responsive', alt: opera.description
+              - else
+                = image_tag opera.url(block.quality.to_sym), class: 'center-block img-responsive'
+
             - else
-              = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
+              - if opera.description
+                = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive', alt: opera.description
+              - else
+                = image_tag opera.url(:_1150x850d), class: 'center-block img-responsive'
+
    
   - else
     - classe =""
