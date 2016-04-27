@@ -44,4 +44,7 @@
         
           
         .container-img{style: padding_for_elements(block), class: columns_for_elements(block)}
-          = image_tag bg_img, class: 'img-responsive', style: 'min-width: 100%'
+          - if image.description?
+            = image_tag bg_img, class: 'img-responsive', style: 'min-width: 100%', alt: image.description
+          - else
+            = image_tag bg_img, class: 'img-responsive', style: 'min-width: 100%'
