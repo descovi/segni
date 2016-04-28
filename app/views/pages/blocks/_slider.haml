@@ -7,14 +7,19 @@
     - if block.container_fluid
       :css
         .carousel-inner > .item > img { width: 100% }
+
     .carousel.slide.carousel-fade{"data-ride" => "carousel", "data-interval" => '2000' , "data-fullscreen-margin-bottom" => block.get_sliding_full_screen_margin_bottom, "data-sliding-full-screen" => block.sliding_full_screen.inspect}
       / Wrapper for slides
       .carousel-inner{:role => "listbox"}
-        - block.images.order("RANDOM()").each_with_index do |opera, index|
+        - block.images.order("RANDOM()").each_with_index do |image, index|
           - css_class = (index == 0) ? 'active' : ''
 
           .item{class: css_class}
-            = image_tag_for_slider opera, :_2300x1700d
+            - if block.quality.present?
+              - quality = block.quality
+            - else
+              - quality = :block6
+            = image_tag_for_slider image, quality
 
    
   - else
@@ -30,7 +35,10 @@
         - if block.quality.present?
           - bg_img = asset_path(image.url(block.quality.to_sym))
         
-          
         .container-img{style: padding_for_elements(block), class: columns_for_elements(block)}
-          = image_tag_for_slider image, :_2300x1700d
+          - if block.quality.present?
+            - quality = block.quality
+          - else
+            - quality = :_1150x550
+          = image_tag_for_slider image, block.quality
 
