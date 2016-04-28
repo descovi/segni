@@ -21,8 +21,9 @@
     - classe =""
     - if block.container_fluid == true
       - classe = "row"
+      - style = "margin-left: 0; margin-right: 0"
 
-    .simple-image{class: classe}
+    .simple-image{class: classe, style: style}
       
       - block.images.each do |image|
         - bg_img = asset_path(image.url(:block6)) 
