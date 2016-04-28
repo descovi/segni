@@ -46,4 +46,12 @@ module ApplicationHelper
     end
   end
 
+  def image_tag_for_slider opera, quality=:_1150x850d
+    if opera.description
+      image_tag opera.url(quality), class: 'center-block img-responsive', alt: opera.description
+    else
+      image_tag opera.url(quality), class: 'center-block img-responsive'
+    end
+  end
+
 end
