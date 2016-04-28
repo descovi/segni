@@ -18,7 +18,7 @@
             - if block.quality.present?
               - quality = block.quality
             - else
-              - quality = :block6
+              - quality = :_1150x550
             = image_tag_for_slider image, quality
 
    
@@ -39,6 +39,6 @@
           - if block.quality.present?
             - quality = block.quality
           - else
-            - quality = :_1150x550
+            - quality = :block6
           = image_tag_for_slider image, block.quality
 
