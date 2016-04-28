@@ -9,6 +9,7 @@ class Image < ActiveRecord::Base
     _1150x450d: '1150x450#',
     _1150x350d: '1150x350#',
     _1150x250d: '1150x250#',
+    _2300x1700d: '2300x1700>',
     photo1150:  '1150x1150>',
     block6:     '390x390#',
     _300height: '1150x300#'
@@ -24,6 +25,7 @@ class Image < ActiveRecord::Base
     _1150x350d: '-quality 90 -strip',
     _1150x250d: '-quality 90 -strip',
     _300height: '-quality 90 -strip',
+    _2300x1700d: '2300x1700>',
     photo1150:  '-quality 90 -strip',
     block6:     '-quality 90 -strip'
   }
