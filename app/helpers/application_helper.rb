@@ -46,11 +46,15 @@ module ApplicationHelper
     end
   end
 
-  def image_tag_for_slider image, _quality
+  def image_tag_for_slider image, _quality, _quality_default: :block6
+    qualita = _quality_default
+    if _quality.present?
+      qualita = _quality
+    end
     if image.description.present?
-      image_tag image.url(_quality), class: 'center-block img-responsive', alt: image.description
+      image_tag image.url(qualita), class: 'center-block img-responsive', alt: image.description
     else
-      image_tag image.url(_quality), class: 'center-block img-responsive'
+      image_tag image.url(qualita), class: 'center-block img-responsive'
     end
   end
 
