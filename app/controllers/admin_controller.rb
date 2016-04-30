@@ -10,7 +10,7 @@ class AdminController < ApplicationController
   end
   
   def current_user_can_edit_website?
-    return true if @website.users.include? current_user
+    return true if @website.present? and @website.users.include? current_user
     false
   end
 
