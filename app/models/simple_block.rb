@@ -18,7 +18,6 @@ class SimpleBlock < ActiveRecord::Base
   }
 
   has_attached_file :background_image, styles: styles, convert_options: convert_options
-   
   validates_attachment_content_type :background_image, content_type: /\Aimage\/.*\Z/
   
   has_many :links, dependent: :destroy
@@ -56,7 +55,8 @@ class SimpleBlock < ActiveRecord::Base
     css_class_custom = ''
     [
       ['block-background-photo', self.background_image.present?],
-      ['block-colors-inverted', self.colors_inverted]
+      ['block-colors-inverted', self.colors_inverted],
+      ['block-full-height', self.full_height]
     ].each do |option|
       css_class_custom += "#{option[0]} " if option[1] == true
     end

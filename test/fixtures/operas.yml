@@ -2,4 +2,8 @@
 
 opera_one:
   name: MyText
+  year: 1995
+  archive_index: 1
   website: website_one
+  images: image_one, image_two
+  image_paper_content_type: "image/jpeg"

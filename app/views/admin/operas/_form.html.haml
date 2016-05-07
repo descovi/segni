@@ -2,7 +2,10 @@
   .row
     .col-sm-12= f.input :name, as: :string
   .row
-    .col-sm-12= f.input :image
+    .col-sm-12= f.input :image_paper
+  = f.simple_fields_for :pictures do |images|
+    .col-sm-12
+      = link_to_add_association 'Add another image', f, :images, class: 'btn btn-block btn-default btn-xs'
   .row
     .col-sm-12= f.input :archive_index
     .col-sm-12= f.input :year, as: :date, discard_day: true, discard_month: true, default: {year: 1980}, start_year: 1970, end_year: 1996, prompt: true

@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   test "products of same website" do
     product = products(:product_one)
     another_product = Product.create(name: 'another',  website: product.website)

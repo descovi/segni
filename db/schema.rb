@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426105620) do
+ActiveRecord::Schema.define(version: 20160507085209) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160426105620) do
     t.integer  "simple_block_id"
     t.text     "description"
   end
+
+  create_table "images_operas", id: false, force: :cascade do |t|
+    t.integer "image_id"
+    t.integer "opera_id"
+  end
+
+  add_index "images_operas", ["image_id"], name: "index_images_operas_on_image_id"
+  add_index "images_operas", ["opera_id"], name: "index_images_operas_on_opera_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "name"
@@ -74,12 +82,12 @@ ActiveRecord::Schema.define(version: 20160426105620) do
     t.date     "year"
     t.integer  "archive_index"
     t.integer  "website_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "image_paper_file_name"
+    t.string   "image_paper_content_type"
+    t.integer  "image_paper_file_size"
+    t.datetime "image_paper_updated_at"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.text     "description"
     t.text     "tecnical"
     t.text     "size"

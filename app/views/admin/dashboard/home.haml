@@ -22,7 +22,7 @@
   - if @website.opera?
     #operas.col-sm-12
       - head_elements = ['', 'Name', 'Year']
-      - body_elements = ['image', 'name', 'year.year']
+      - body_elements = ['image_paper', 'name', 'year.year']
       = render 'layouts/list', head_elements: head_elements, body_elements: body_elements, add_resource: true, resource_name: 'Opera', collections: @website.operas, edit_resource: true, namespace: :admin
 
 = render 'design_tab'

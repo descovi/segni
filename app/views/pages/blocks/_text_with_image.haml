@@ -2,27 +2,12 @@
 
 - if block.content.present? or block.title.present?
 
-  - if block.full_height.present?
-    / BLOCK FULL HEIGHT
-    / [  ]
-    / [  ]
-    / [  ]
-    .block{style: "background-image: url('#{image_url}'); min-height: 60%;", class: block.css_class}
-      .container.block-content
-        .block-content-inner
-          - if block.title.present?
-            %h2= block.title
-
-          - if block.content.present?
-            = simple_format block.content, {}, sanitize: false
-
-    
-  - else
-    / STANDARD BLOCK
-    / [ ]
-    - style = "background-image: url('#{image_url}');" if image_url.present?
-    .block{style: style, class: block.css_class}
-      .container
+  / STANDARD BLOCK
+  / [ ]
+  - style = "background-image: url('#{image_url}');" if image_url.present?
+  .block{style: style, class: block.css_class, id: "block-id-#{block.id}"}
+    .container.block-content
+      .block-content-inner
         - if block.title.present?
           %h2.title= block.title
 

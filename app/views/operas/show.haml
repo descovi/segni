@@ -31,7 +31,7 @@
     .col-sm-12
       - style = 'margin: 0 auto;display: none'
       - style = 'margin: 0 auto;' if browser.mobile? or browser.bot?
-      - image_tag_ = image_tag @opera.image.url('_1150x850d'), class: 'img-responsive', style: style
+      - image_tag_ = image_tag @opera.image_paper.url('_1150x850d'), class: 'img-responsive', style: style
       = link_to image_tag_, next_path
       - if browser.mobile?
         %p(style="margin-top:10px")

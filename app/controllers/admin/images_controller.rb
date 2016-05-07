@@ -34,5 +34,4 @@ class Admin::ImagesController < AdminController
     @image = @website.images.find params[:id]
   end
 
-
 end

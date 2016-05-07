@@ -66,13 +66,23 @@ class Admin::OperasController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opera_params
-      params.require(:opera).permit!#.permit(
-        # :name, 
-        # :year, 
-        # :archive_index, 
-        # :website_id, 
-        # :image, 
-        # :description,
-        # :website_id)
+      params.require(:opera).permit(
+        :name, 
+        "year(3i)",
+        "year(2i)", 
+        "year(1i)",
+        :circa_date,
+        :surface_id,
+        :subject_id,
+        :size,
+        :tag_list,
+        :locale,
+        :archive_index, 
+        :website_id, 
+        :image_paper,
+        :images,
+        {images_attributes: [:url, :_destroy, :id]},
+        :description,
+        :website_id)
     end
 end
