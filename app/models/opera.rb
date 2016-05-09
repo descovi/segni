@@ -32,7 +32,12 @@ class Opera < ActiveRecord::Base
   belongs_to :website
   belongs_to :surface
   belongs_to :subject
-  has_and_belongs_to_many :images
+  has_many :images_operas
+  has_many :images, :through => :images_operas
+  
+  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :images_operas, allow_destroy: true
+
   validates :website_id, presence: true
 
   acts_as_taggable
