@@ -74,13 +74,11 @@ class Admin::OperasController < AdminController
         :image_paper,
         :images,
         :website_id,
-        image_attributes: [:id,:_destroy,:url],
         images_operas_attributes: [ :image_id, 
                                     :url, 
-                                    :_destroy, 
+                                    :_destroy,
                                     :id,
-                                    image_attributes: [:id,:_destroy,:url]
-                                  
+                                    image_attributes: [:id,:_destroy,:url]              
                                   ]
       )
     end
