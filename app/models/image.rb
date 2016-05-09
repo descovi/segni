@@ -32,5 +32,9 @@ class Image < ActiveRecord::Base
   crop_attached_file :url
   validates_attachment_content_type :url, content_type: /\Aimage\/.*\Z/
   belongs_to :simple_block
-  belongs_to :images_operas
+  has_many :images_opera
+  has_many :opera, through: :images_opera
+  belongs_to :user
+  belongs_to :website
+
 end
