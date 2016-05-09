@@ -68,21 +68,20 @@ class Admin::OperasController < AdminController
     def opera_params
       params.require(:opera).permit(
         :name, 
-        "year(3i)",
-        "year(2i)", 
-        "year(1i)",
-        :circa_date,
-        :surface_id,
-        :subject_id,
-        :size,
-        :tag_list,
-        :locale,
-        :archive_index, 
-        :website_id, 
+        "year(3i)", "year(2i)", "year(1i)",
+        :circa_date, :surface_id, :subject_id,
+        :size, :tag_list, :locale, :archive_index, :website_id, :description,
         :image_paper,
         :images,
-        {images_attributes: [:url, :_destroy, :id]},
-        :description,
-        :website_id)
+        :website_id,
+        image_attributes: [:id,:_destroy,:url],
+        images_operas_attributes: [ :image_id, 
+                                    :url, 
+                                    :_destroy, 
+                                    :id,
+                                    image_attributes: [:id,:_destroy,:url]
+                                  
+                                  ]
+      )
     end
 end
