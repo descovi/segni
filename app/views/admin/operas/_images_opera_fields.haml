@@ -1,0 +1,6 @@
+.nested-fields.images-opera-fields
+  #images_from_list
+    = f.association :image, :collection => Image.where(website: @website), :prompt => 'Choose an existing tag' 
+  = link_to_add_association 'Carica un file dal tuo computer', f, :image, class: 'btn btn-default btn-xs'
+  %br
+  = link_to_remove_association "Rimuovi immagine", f, class: 'btn btn-default btn-xs'
