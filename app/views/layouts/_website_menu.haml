@@ -1,6 +1,6 @@
 - if @website.menus.present?
   
-  - @website.menus.each do |menu_voice|
+  - @website.menus.includes(:page => [:translations]).each do |menu_voice|
     - if menu_voice.page.present?
       = link_to menu_voice.name, menu_voice.page
     - elsif is_http_url? menu_voice.url
