@@ -33,7 +33,7 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :url, content_type: /\Aimage\/.*\Z/
   belongs_to :simple_block
   has_many :images_opera
-  has_many :opera, through: :images_opera
+  has_many :operas, through: :images_opera
   belongs_to :user
   belongs_to :website
 
