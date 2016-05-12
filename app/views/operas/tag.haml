@@ -3,4 +3,4 @@
     - @operas.order('archive_index').each do |opera|
       .opera-tag-grid-element
         - img = image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%')
-        = link_to  img, opera, filter: 
+        = link_to  img, opera, filter: params[:tag]
