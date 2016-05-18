@@ -2,6 +2,8 @@ class Website < ActiveRecord::Base
   validates :name, presence: true
   has_many :menus, -> {order 'position ASC'}
   has_many :pages
+  has_many :images, through: :simple_blocks
+  has_many :simple_blocks, through: :pages
   has_many :products
   has_many :operas
   has_and_belongs_to_many :users
