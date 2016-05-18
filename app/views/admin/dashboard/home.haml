@@ -10,7 +10,8 @@
   #pages.col-sm-12
     = render 'layouts/list', head_elements: ['Title'], body_elements: ['title_it'], collections: @website.pages, resource_name: 'Page', add_resource: true, edit_resource: true, namespace: :admin
 
-    
+  #images.col-sm-12
+    = render 'layouts/list', head_elements: ['Preview', 'Description'], body_elements: ['image-url','description'], collections: @website.images, resource_name: 'Image', add_resource: true, edit_resource: true, namespace: :admin  
 
   - if @website.product?
     #products.col-sm-12
