@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: redirect("#{I18n.locale}/admin")
+    resources :images
   end
 
   scope "/:locale" do
@@ -46,7 +47,7 @@ Rails.application.routes.draw do
       end
     end
 
-  resources :images
+  
 
   get 'express_checkout', to: 'orders#express_checkout'
   get 'express_checkout_confirm', to: 'orders#express_checkout_confirm'
