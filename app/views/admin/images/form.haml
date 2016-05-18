@@ -1,0 +1,12 @@
+.row
+  .col-sm-12
+    = simple_form_for [:admin, @image] do |f|
+      %p  
+        %strong Usata nella pagina:
+        = link_to @image.simple_block.page.title, @image.simple_block.page
+      = image_tag @image.url(:photo1150), class:'img-responsive', style: 'margin-bottom: 20px'
+      
+      = f.input :url, as: :file
+      = f.input :description, as: :string, label: 'Description for alt tag'
+      = f.button :submit, class: 'btn btn-primary btn-xs'
+    
