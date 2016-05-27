@@ -52,6 +52,16 @@ class SimpleBlock < ActiveRecord::Base
     end
   end
 
+  def operas
+    tag = self.title
+    if tag.present?
+      tags = tag.split(" ")
+      Opera.tagged_with(tags, any: true).where(website: self.page.website).order('archive_index')
+    else
+      Opera.where(website: self.page.website).order('archive_index')
+    end
+  end
+
   def css_class
     css_class_custom = ''
     [
