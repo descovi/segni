@@ -1,4 +1,4 @@
-.panel.panel-default
+.panel.panel-default.dashboard-panel
   .panel-heading
     %strong #{resource_name.pluralize}
   .panel-body(style="padding: 10px; margin: 0;")
@@ -18,7 +18,10 @@
             %tr.item{id: "sortable_index_#{element.id}"}
               - body_elements.each do |body_el|
                 %td
-                  - if body_el.include? 'image' # ex: image-of-collections
+                  - if body_el == 'image-url'
+
+                    = image_tag element.url(:_20x20c)
+                  - elsif body_el.include? 'images' # ex: image-of-collections
                     = image_tag element.send(body_el).url(:_20x20c)
                   - elsif body_el.include? '.' # ex: association.name
                     - splitted = body_el.split('.')

@@ -8,9 +8,23 @@ $('document').ready(function(){
   setupIframe()
   setupOpenCloseTab()
   setupLiveEditing()
-
+  setupClickTabHeadToOpenPanel()
 })
 
+function setupClickTabHeadToOpenPanel(){
+  // list with editing button
+  if ($('.glyphicon-pencil').parents('.dashboard-panel').length){
+    $('.glyphicon-pencil').parents('.item').css('cursor','pointer')
+    $('.glyphicon-pencil').parents('.item').click(function(e){
+
+      var a = $(this).find('.glyphicon-pencil').parent()
+      console.log(a.attr('href'))
+      location.href = a.attr('href')
+
+    })
+
+  }
+}
 
 function setupLiveEditing(){
   $("textarea[name='website[js]']").on('textchange', textCssJsChanged)
