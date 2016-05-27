@@ -28,16 +28,7 @@ module ApplicationHelper
     classe.gsub!("col-xs-12", "col-xs-#{12/block.num_elements_xs}") if block.num_elements_xs.present?
     return classe
   end
-
-  def operas_from_tag_and_website tag, website
-    if tag.present?
-      tags = tag.split(" ")
-      Opera.tagged_with(tags, any: true).where(website: website).order('archive_index')
-    else
-      Opera.where(website: website).order('archive_index')
-    end
-  end
-
+  
   def is_http_url? url
     if url.include? 'http://' or url.include? 'https://' or url.include? 'www.'
       true

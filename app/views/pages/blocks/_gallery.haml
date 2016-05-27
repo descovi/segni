@@ -1,5 +1,5 @@
 .container#gallery-operas
   .row(style="padding-top: 20px")
-    - operas_from_tag_and_website(block.title, @website).each do |opera|
+    - block.operas.each do |opera|
       %div{class: columns_for_elements(block), style:"margin-top:10px; margin-bottom: 20px"}
         = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%'), opera_path(opera,filter: block.title)
