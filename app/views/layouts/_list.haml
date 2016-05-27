@@ -18,9 +18,9 @@
             %tr.item{id: "sortable_index_#{element.id}"}
               - body_elements.each do |body_el|
                 %td
-                  - if body_el == 'image-url'
+                  - if body_el == 'image'
 
-                    = image_tag element.url(:_20x20c)
+                    = image_tag element.image(:_20x20c)
                   - elsif body_el.include? 'images' # ex: image-of-collections
                     = image_tag element.send(body_el).url(:_20x20c)
                   - elsif body_el.include? '.' # ex: association.name
