@@ -13,5 +13,5 @@ Rails.application.config.assets.precompile += %w( themes/application-orange.css
                                                   themes/application-gallery.css 
                                                   themes/application-base.css 
                                                   application-admin.js
-                                                  masonry.pkgd.js
+                                                  packery-mode.pkgd.min.js
                                                   application-admin.css )
