@@ -1,5 +1,33 @@
-.container#gallery-operas
-  .row(style="padding-top: 20px")
-    - block.operas.each do |opera|
-      %div{class: columns_for_elements(block), style:"margin-top:10px; margin-bottom: 20px"}
-        = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%'), opera_path(opera,filter: block.title)
+- if true
+  = javascript_include_tag 'masonry.pkgd.js'
+  %script(src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js")
+
+  .grid
+    .grid-sizer
+    .gutter-sizer
+    - block.operas.each_with_index do |opera, index|
+      - style = "background-image: url(#{opera.image.url('_400x400c')}); background-size: cover; background-position: center"
+      - if index == 3
+        %a.grid-item.grid-item--width2{style: style, href: url_for(opera)}
+      - elsif index == 8
+        - style = "background-image: url(#{opera.image.url('_400x400c')}); background-size: cover; background-position: center"
+
+        %a.grid-item.grid-item--width4{style: style, href: url_for(opera)}
+      - else
+        %a.grid-item{style: style, href: url_for(opera)}
+
+  :css
+    .grid{margin-left: 1%}
+    .grid-item, .grid-sizer { width: 24% }
+    .grid-item { height: 200px; margin-bottom: 1% }
+    .gutter-sizer { width: 1%; }
+    .grid-item--width2 { width: 49%; }
+    .grid-item--width4 { width: 99%; }
+  :javascript
+    masonry_setup()
+- else
+  .container#gallery-operas
+    .row(style="padding-top: 20px")
+      - block.operas.each do |opera|
+        %div{class: columns_for_elements(block), style:"margin-top:10px; margin-bottom: 20px"}
+          = link_to image_tag(opera.image.url('_400x400c'), class: 'img-responsive', style: 'min-width: 100%'), opera_path(opera,filter: block.title)
