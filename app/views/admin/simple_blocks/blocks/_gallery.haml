@@ -1,5 +1,25 @@
 / GALLERY
 .col-sm-12
   = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
-  = f.input :num_elements
-  = f.input :num_elements_xs
+  = f.input :sliding, label: 'Masonry'
+  #bootstrap-grid-options
+    = f.input :num_elements
+    = f.input :num_elements_xs
+
+:javascript
+  $(document).ready(function(){
+    $('#simple_block_sliding').change(function(e){
+      hideBootstrapGridOptionsIfMasonrySelected()
+  
+    })
+    hideBootstrapGridOptionsIfMasonrySelected()
+  })
+
+  function hideBootstrapGridOptionsIfMasonrySelected(){
+    if ($('#simple_block_sliding').is(':checked')){
+      $('#bootstrap-grid-options').hide()
+    } else {
+      $('#bootstrap-grid-options').show()
+    }
+  }
+
