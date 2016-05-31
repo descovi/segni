@@ -1,6 +1,5 @@
 - if block.masonry_selected
   %script(src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")
-
   %script(src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js")
   = javascript_include_tag 'packery-mode.pkgd.min.js'
   .container
@@ -8,8 +7,8 @@
       .grid-sizer
       .gutter-sizer
       - block.operas.each_with_index do |opera, index|
-        - style = "background-image: url(#{opera.image.url('_400x400c')}); background-size: cover; background-position: center; height: #{opera.vertical_space}*200"
-        %a.grid-item{style: style, href: url_for(opera)}
+        - style = "background-image: url(#{opera.image.url('_400x400c')}); background-size: cover; background-position: center;"
+        %a.grid-item{style: style, href: url_for(opera), class: "grid-item--width#{opera.horizontal_space} grid-item--height#{opera.vertical_space}"}
 
   :css
     .grid-sizer,
@@ -19,6 +18,12 @@
     /* spans 2 columns: 24% + 1% + 24% = 48% */
     .grid-item--width2 { width: 49%; }
     .grid-item--height2 { height: 410px; }
+
+    .grid-item--width3 { width: 74%; }
+    .grid-item--height3 { height: 620px; }
+    
+    .grid-item--width4 { width: 99%; }
+    .grid-item--height4 { height: 830px; }
   :javascript
     isotope_setup()
 - else
