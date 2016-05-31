@@ -33,23 +33,22 @@
   }
 
   function set_space_changed(evt){
-        console.log(evt.target)
-      var id = evt.target.id.replace("horizontal_","").replace("vertical_","")
-      var path = "/admin/opera_set_space_"
-      if ($(evt.target).hasClass('set_space_horizontal')){
-        path += "horizontal"
-      } else {
-        path += "vertical"
-      }
-      $.ajax({
-          type: "PUT",
-          url: path+'/'+id,
-          data: {
-            new_value: evt.target.value
-          }
-        }).done(function(msg){
-          refreshIframe()        
-      });
+    var id = evt.target.id.replace("horizontal_","").replace("vertical_","")
+    var path = "/admin/opera_set_space_"
+    if ($(evt.target).hasClass('set_space_horizontal')){
+      path += "horizontal"
+    } else {
+      path += "vertical"
+    }
+    $.ajax({
+        type: "PUT",
+        url: path+'/'+id,
+        data: {
+          new_value: evt.target.value
+        }
+      }).done(function(msg){
+        refreshIframe()        
+    });
   }
 
   function hideBootstrapGridOptionsIfMasonrySelected(){
