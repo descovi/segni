@@ -6,6 +6,13 @@
     = f.input :num_elements
     = f.input :num_elements_xs
 
+#website-operas
+  - @website.operas.each do |opera|
+    .col-sm-6
+      = image_tag opera.image(:_20x20c)
+      = number_field_tag 'horizontal', 1, style: 'width: 40px'
+      = number_field_tag 'vertical', 1, style: 'width: 40px'
+
 :javascript
   $(document).ready(function(){
     $('#simple_block_sliding').change(function(e){
