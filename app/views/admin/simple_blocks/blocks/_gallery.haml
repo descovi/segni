@@ -3,8 +3,8 @@
   = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
   = f.input :sliding, label: 'Masonry'
   #bootstrap-grid-options
-    = f.input :num_elements
-    = f.input :num_elements_xs
+    = f.input :num_elements, min: 1, max: 4
+    = f.input :num_elements_xs, min: 1, max: 4
 
 #website-operas
   - f.object.operas.each do |opera|
