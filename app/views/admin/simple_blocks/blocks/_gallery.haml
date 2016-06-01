@@ -1,17 +1,18 @@
 / GALLERY
-.col-sm-12
-  = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
-  = f.input :sliding, label: 'Masonry'
-  #bootstrap-grid-options
-    = f.input :num_elements, min: 1, max: 4
-    = f.input :num_elements_xs, min: 1, max: 4
+.gallery-form-container
+  .gallery-form-inputs.col-sm-12
+    = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
+    = f.input :sliding, label: 'Masonry'
+    .bootstrap-grid-options
+      = f.input :num_elements, min: 1, max: 4
+      = f.input :num_elements_xs, min: 1, max: 4
 
-#website-operas
-  - f.object.operas.each do |opera|
-    .col-sm-6
-      = image_tag opera.image(:_20x20c)
-      = number_field_tag "horizontal_#{opera.id}", opera.horizontal_space, style: 'width: 40px', class: "set_space_horizontal"
-      = number_field_tag "vertical_#{opera.id}", opera.vertical_space, style: 'width: 40px', class: "set_space_vertical"
+  .website-operas
+    - f.object.operas.each do |opera|
+      .col-sm-6
+        = image_tag opera.image(:_20x20c)
+        = number_field_tag "horizontal_#{opera.id}", opera.horizontal_space, style: 'width: 40px', class: "set_space_horizontal"
+        = number_field_tag "vertical_#{opera.id}", opera.vertical_space, style: 'width: 40px', class: "set_space_vertical"
 
 :javascript
 
@@ -21,10 +22,13 @@
   })
 
   function setupHideShowMasonry(){
-    $('#simple_block_sliding').change(function(e){
-      hideBootstrapGridOptionsIfMasonrySelected()
+    $("input[name='simple_block[sliding]']").change(function(e){
+      hideBootstrapGridOptionsIfMasonrySelected($(e.target))
     })
-    hideBootstrapGridOptionsIfMasonrySelected()
+
+    $.each($("input[name='simple_block[sliding]']"), function(index, element){
+      hideBootstrapGridOptionsIfMasonrySelected($(element))
+    })
   }
 
   function setupVerticalHorizontalGridSpace(){
@@ -51,13 +55,16 @@
     });
   }
 
-  function hideBootstrapGridOptionsIfMasonrySelected(){
-    if ($('#simple_block_sliding').is(':checked')){
-      $('#bootstrap-grid-options').hide()
-      $('#website-operas').show()
+  function hideBootstrapGridOptionsIfMasonrySelected($box){
+
+    if (($box).is(':checked')){
+      console.log("checked!")
+      console.log($box.closest(".bootstrap-grid-options").eq(0).hide())
+      $box.closest(".gallery-form-container").find('.bootstrap-grid-options').hide()
+      $box.closest(".gallery-form-container").find('.website-operas').show()
     } else {
-      $('#bootstrap-grid-options').show()
-      $('#website-operas').hide()
+      $box.closest(".gallery-form-container").find('.bootstrap-grid-options').show()
+      $box.closest(".gallery-form-container").find('.website-operas').hide()
     }
   }
 
