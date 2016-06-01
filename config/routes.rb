@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/', to: redirect("#{I18n.locale}/admin")
+    put 'opera_set_space_horizontal/:id' => "operas#set_space_horizontal"
+    put 'opera_set_space_vertical/:id' => "operas#set_space_vertical"
   end
 
   scope "/:locale" do
@@ -18,33 +20,32 @@ Rails.application.routes.draw do
       post 'down/:product_id' => 'shopping_carts#down'
     end
   end
-
   
-    scope "/:locale" do
-      resources :products, only: [:show]
-      resources :operas, only: [:show] do
-        collection do
-          get 'tag/:tag' => 'operas#tag'
-        end
-      end
-      resources :pages, only: [:show]
-      
-      namespace :admin do
-        get '/' => 'dashboard#home'
-        resources :pages do
-          post 'first_page' # 'pages#first_page'
-        end
-        resources :products
-        resources :menus do
-          put :sort
-        end
-        resources :operas
-        resources :websites
-        resources :simple_blocks do
-          put :sort
-        end
+  scope "/:locale" do
+    resources :products, only: [:show]
+    resources :operas, only: [:show] do
+      collection do
+        get 'tag/:tag' => 'operas#tag'
       end
     end
+    resources :pages, only: [:show]
+    
+    namespace :admin do
+      get '/' => 'dashboard#home'
+      resources :pages do
+        post 'first_page' # 'pages#first_page'
+      end
+      resources :products
+      resources :menus do
+        put :sort
+      end
+      resources :operas
+      resources :websites
+      resources :simple_blocks do
+        put :sort
+      end
+    end
+  end
 
   resources :images
 

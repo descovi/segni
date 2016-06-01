@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require isotope-setup.js
 
 // MENU MOBILE
 $(document).on('click', '#button-menu', function(e){

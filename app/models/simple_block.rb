@@ -77,4 +77,9 @@ class SimpleBlock < ActiveRecord::Base
     return 0 if self.sliding_full_screen_margin_bottom.blank?
     self.sliding_full_screen_margin_bottom
   end
+
+  # Alias for sliding (used in form _gallery)
+  def masonry_selected
+    self.sliding
+  end
 end

@@ -1,5 +1,70 @@
 / GALLERY
-.col-sm-12
-  = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
-  = f.input :num_elements
-  = f.input :num_elements_xs
+.gallery-form-container
+  .gallery-form-inputs.col-sm-12
+    = f.input :title, label: 'Filter tag', placeholder: 'landscape, body'
+    = f.input :sliding, label: 'Masonry'
+    .bootstrap-grid-options
+      = f.input :num_elements, min: 1, max: 4
+      = f.input :num_elements_xs, min: 1, max: 4
+
+  .website-operas
+    - f.object.operas.each do |opera|
+      .col-sm-6
+        = image_tag opera.image(:_20x20c)
+        = number_field_tag "horizontal_#{opera.id}", opera.horizontal_space, style: 'width: 40px', class: "set_space_horizontal"
+        = number_field_tag "vertical_#{opera.id}", opera.vertical_space, style: 'width: 40px', class: "set_space_vertical"
+
+:javascript
+
+  $(document).ready(function(){
+    setupHideShowMasonry()
+    setupVerticalHorizontalGridSpace()
+  })
+
+  function setupHideShowMasonry(){
+    $("input[name='simple_block[sliding]']").change(function(e){
+      hideBootstrapGridOptionsIfMasonrySelected($(e.target))
+    })
+
+    $.each($("input[name='simple_block[sliding]']"), function(index, element){
+      hideBootstrapGridOptionsIfMasonrySelected($(element))
+    })
+  }
+
+  function setupVerticalHorizontalGridSpace(){
+    $('.set_space_horizontal').change(set_space_changed)
+    $('.set_space_vertical').change(set_space_changed)
+  }
+
+  function set_space_changed(evt){
+    var id = evt.target.id.replace("horizontal_","").replace("vertical_","")
+    var path = "/admin/opera_set_space_"
+    if ($(evt.target).hasClass('set_space_horizontal')){
+      path += "horizontal"
+    } else {
+      path += "vertical"
+    }
+    $.ajax({
+        type: "PUT",
+        url: path+'/'+id,
+        data: {
+          new_value: evt.target.value
+        }
+      }).done(function(msg){
+        refreshIframe()        
+    });
+  }
+
+  function hideBootstrapGridOptionsIfMasonrySelected($box){
+
+    if (($box).is(':checked')){
+      console.log("checked!")
+      console.log($box.closest(".bootstrap-grid-options").eq(0).hide())
+      $box.closest(".gallery-form-container").find('.bootstrap-grid-options').hide()
+      $box.closest(".gallery-form-container").find('.website-operas').show()
+    } else {
+      $box.closest(".gallery-form-container").find('.bootstrap-grid-options').show()
+      $box.closest(".gallery-form-container").find('.website-operas').hide()
+    }
+  }
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425093711) do
+ActiveRecord::Schema.define(version: 20160531153609) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,7 +37,11 @@ ActiveRecord::Schema.define(version: 20160425093711) do
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
     t.integer  "simple_block_id"
+    t.integer  "opera_id"
+    t.text     "description"
   end
+
+  add_index "images", ["opera_id"], name: "index_images_on_opera_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "name"
@@ -77,8 +81,8 @@ ActiveRecord::Schema.define(version: 20160425093711) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.text     "description"
     t.text     "tecnical"
     t.text     "size"
@@ -86,6 +90,8 @@ ActiveRecord::Schema.define(version: 20160425093711) do
     t.integer  "subject_id"
     t.boolean  "circa_date"
     t.boolean  "cover_slider"
+    t.integer  "horizontal_space",   default: 1
+    t.integer  "vertical_space",     default: 1
   end
 
   create_table "orders", force: :cascade do |t|
