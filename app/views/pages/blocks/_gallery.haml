@@ -2,13 +2,13 @@
   %script(src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")
   %script(src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js")
   = javascript_include_tag 'packery-mode.pkgd.min.js'
-  .container(style="margin-bottom: 5px;")
+  .container(style="margin-bottom: 5px; margin-top: 5px")
     .grid(style="margin-top: -5px")
       .grid-sizer
       .gutter-sizer
       - block.operas.each_with_index do |opera, index|
         - size = '_400x400c'
-        / - size = '_1024x768d' if opera.horizontal_space + opera.vertical_space > 2
+        - size = '_1024x768d' if opera.horizontal_space + opera.vertical_space > 2
         - style = "background-image: url(\"#{opera.image.url(size)}\"); background-size: cover; background-position: center;"
         %a.grid-item{style: style, href: url_for(opera), class: "grid-item--width#{opera.horizontal_space} grid-item--height#{opera.vertical_space}"}
 
