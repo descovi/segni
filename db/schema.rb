@@ -37,11 +37,7 @@ ActiveRecord::Schema.define(version: 20160531153609) do
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
     t.integer  "simple_block_id"
-    t.integer  "opera_id"
-    t.text     "description"
   end
-
-  add_index "images", ["opera_id"], name: "index_images_on_opera_id"
 
   create_table "links", force: :cascade do |t|
     t.string   "name"

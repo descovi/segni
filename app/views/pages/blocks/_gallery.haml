@@ -8,7 +8,7 @@
       .gutter-sizer
       - block.operas.each_with_index do |opera, index|
         - size = '_400x400c'
-        - size = '_1024x768d' if opera.horizontal_space + opera.vertical_space > 3
+        - size = '_1024x768d' if opera.horizontal_space + opera.vertical_space > 1
         - style = "background-image: url(#{opera.image.url(size)}); background-size: cover; background-position: center;"
         %a.grid-item{style: style, href: url_for(opera), class: "grid-item--width#{opera.horizontal_space} grid-item--height#{opera.vertical_space}"}
 
