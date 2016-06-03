@@ -2,8 +2,8 @@
   %script(src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")
   %script(src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js")
   = javascript_include_tag 'packery-mode.pkgd.min.js'
-  .container(style="margin-bottom: 5px; margin-top: 10px")
-    .grid(style="margin-top: -5px")
+  .container(style="margin-bottom: 5px; margin-top: 25px")
+    .grid(style="margin-top: -5px; margin-left: -5px; margin-right:-5px")
       .grid-sizer
       .gutter-sizer
       - block.operas.each_with_index do |opera, index|
@@ -14,7 +14,7 @@
 
   :css
     .grid-sizer,
-    .grid-item { width: 25%; height: 200px; display: block; border: 5px solid #fff }
+    .grid-item { width: 25%; height: 200px; display: block; border: 5px solid #fff; }
 
     .gutter-sizer { width: 0; }
     /* spans 2 columns: 24% + 1% + 24% = 48% */
