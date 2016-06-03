@@ -2,7 +2,7 @@
   %script(src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js")
   %script(src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js")
   = javascript_include_tag 'packery-mode.pkgd.min.js'
-  .container
+  .container(style="margin-bottom: 10px")
     .grid
       .grid-sizer
       .gutter-sizer
@@ -16,7 +16,7 @@
     .grid-sizer,
     .grid-item { width: 24%; height: 200px; display: block }
 
-    .gutter-sizer { width: 1%; }
+    .gutter-sizer { width: 10px; }
     /* spans 2 columns: 24% + 1% + 24% = 48% */
     .grid-item--width2 { width: 49%; }
     .grid-item--height2 { height: 410px; }
