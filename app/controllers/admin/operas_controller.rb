@@ -70,6 +70,12 @@ class Admin::OperasController < AdminController
     render text: opera.save
   end
 
+  def set_pos_vertical
+    opera = Opera.find params[:id]
+    opera.pos_y = params[:new_value]
+    render text: opera.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_opera

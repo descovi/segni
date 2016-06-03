@@ -13,6 +13,7 @@
         = image_tag opera.image(:_20x20c)
         = number_field_tag "horizontal_#{opera.id}", opera.horizontal_space, style: 'width: 40px', class: "set_space_horizontal"
         = number_field_tag "vertical_#{opera.id}", opera.vertical_space, style: 'width: 40px', class: "set_space_vertical"
+        = number_field_tag "vertical_position_#{opera.id}", opera.pos_y, style: 'width: 40px', class: "set_pos_vertical"
 
 :javascript
 
@@ -34,15 +35,19 @@
   function setupVerticalHorizontalGridSpace(){
     $('.set_space_horizontal').change(set_space_changed)
     $('.set_space_vertical').change(set_space_changed)
+    $('.set_pos_vertical').change(set_space_changed)
   }
 
   function set_space_changed(evt){
-    var id = evt.target.id.replace("horizontal_","").replace("vertical_","")
+    var id = evt.target.id.replace("horizontal_","").replace("vertical_","").replace("position_","")
     var path = "/admin/opera_set_space_"
-    if ($(evt.target).hasClass('set_space_horizontal')){
+    var current_button = $(evt.target).attr('class')
+    if (current_button == 'set_space_horizontal'){
       path += "horizontal"
-    } else {
+    } else if (current_button == 'set_space_vertical'){
       path += "vertical"
+    } else if (current_button == 'set_pos_vertical') {
+      path = "/admin/opera_set_pos_vertical"
     }
     $.ajax({
         type: "PUT",

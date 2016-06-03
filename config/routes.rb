@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get '/', to: redirect("#{I18n.locale}/admin")
     put 'opera_set_space_horizontal/:id' => "operas#set_space_horizontal"
     put 'opera_set_space_vertical/:id' => "operas#set_space_vertical"
+    put 'opera_set_pos_vertical/:id' => "operas#set_pos_vertical"
   end
 
   scope "/:locale" do

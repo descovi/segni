@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531153609) do
+ActiveRecord::Schema.define(version: 20160603134312) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20160531153609) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.text     "description"
     t.text     "tecnical"
     t.text     "size"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20160531153609) do
     t.boolean  "cover_slider"
     t.integer  "horizontal_space",   default: 1
     t.integer  "vertical_space",     default: 1
+    t.integer  "pos_y",              default: 50
   end
 
   create_table "orders", force: :cascade do |t|
