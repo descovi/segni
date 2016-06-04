@@ -19,7 +19,8 @@
         .row
           .masthead-brand
             - if @website.logo.present?
-              %strong#title-of-website.title-of-website-logo{ style: "background-image: url(#{@website.logo});" }
+              %strong#title-of-website
+                %a.title-of-website-logo{ href: url_for(@website.first_page), style: "background-image: url(#{@website.logo});" }
             - else
               %strong#title-of-website= link_to @website.name, @website.first_page
           
