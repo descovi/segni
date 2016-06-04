@@ -65,7 +65,7 @@ class Admin::MenusController < AdminController
       render js: "$('#menuOrderable #sortable_index_#{@menu.id}').hide()"
     else
      redirect_to goto_dashboard('menus'), notice: 'Product was successfully destroyed.' 
-   end
+    end
   end
 
   def sort
