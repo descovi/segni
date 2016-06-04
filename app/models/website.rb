@@ -7,6 +7,8 @@ class Website < ActiveRecord::Base
   has_and_belongs_to_many :users
   belongs_to :template
   belongs_to :first_page, class_name: 'Page'
+  has_attached_file :logo
+  validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   def products_first_page
     products.where(first_page: true)
