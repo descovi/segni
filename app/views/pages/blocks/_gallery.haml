@@ -11,7 +11,7 @@
         - size = '_1024x768d' if opera.horizontal_space + opera.vertical_space > 2
         - style = "background-image: url(\"#{opera.image.url(size)}\"); background-size: cover; background-position: center;"
         - style += "background-position-y: #{opera.pos_y}%"
-        %a.grid-item{style: style, href: url_for(opera), class: "grid-item--width#{opera.horizontal_space} grid-item--height#{opera.vertical_space}"}
+        %a.grid-item{style: style, href: url_for(opera, filter: block.title), class: "grid-item--width#{opera.horizontal_space} grid-item--height#{opera.vertical_space}"}
 
   :css
     .grid-sizer,
