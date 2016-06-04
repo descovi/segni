@@ -28,7 +28,7 @@ function calculateHeight(_data){
 }
 
 function there_is_a_slider_with_fullscreen_option(){
-  return ($('.carousel').data('sliding-full-screen') == true)  
+  return ($('.carousel').data('sliding-full-screen') === true)  
 }
 
 // FULL SCREEN

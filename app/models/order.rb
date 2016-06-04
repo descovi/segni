@@ -1,3 +1,4 @@
+
 class Order < ActiveRecord::Base
   belongs_to :shopping_cart
   validates :ip, :express_token, :shopping_cart_id, presence: true
@@ -43,8 +44,6 @@ class Order < ActiveRecord::Base
     self.update_attribute(:purchased_at, Time.zone.now) if response.success?
     log_paypal_response if Rails.env.development?
   end
-
-  private
 
   def log_paypal_response response
     logger.warn """
