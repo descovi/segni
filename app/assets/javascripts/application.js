@@ -17,12 +17,7 @@
 
 // MENU MOBILE
 $(document).on('click', '#button-menu', function(e){
-  if ($('#menu').hasClass('hidden-xs')) {
-    $('#menu').toggleClass('hidden-xs')
-    $('#menu').hide()
-  }
-  //
-  $('#menu').slideToggle()
+  $('#menu').toggleClass('hidden-xs')
 })
 
 function calculateHeight(_data){
