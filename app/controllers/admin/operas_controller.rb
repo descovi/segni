@@ -59,24 +59,23 @@ class Admin::OperasController < AdminController
   end
 
   def set_space_horizontal
-    opera = Opera.find params[:id]
-    opera.horizontal_space = params[:new_value]
-    render text: opera.save
+    render text: set_attribute_and_return_result('horizontal_space', params)
   end
 
   def set_space_vertical
-    opera = Opera.find params[:id]
-    opera.vertical_space = params[:new_value]
-    render text: opera.save
+    render text: set_attribute_and_return_result('vertical_space', params)
   end
 
   def set_pos_vertical
-    opera = Opera.find params[:id]
-    opera.pos_y = params[:new_value]
-    render text: opera.save
+    render text: set_attribute_and_return_result('pos_y', params)
   end
 
   private
+  def set_attribute_and_return_result column, params
+    opera = Opera.find params[:id]
+    opera[column] = params[:new_value]
+    opera.save
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_opera
       @opera = Opera.find(params[:id])
