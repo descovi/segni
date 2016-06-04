@@ -47,9 +47,7 @@ function setupFullscreenSlider(){
     $(this).addClass('full-screen')
     var $src = $(this).attr('src');
 
-    $(this).parent().css({
-      'background-image' : 'url(' + $src + ')',
-    });
+    $(this).parent().css({'background-image' : 'url(' + $src + ')'});
     $(this).remove();
   });
 
