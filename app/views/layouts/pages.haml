@@ -18,7 +18,10 @@
       .container#header
         .row
           .masthead-brand
-            %strong#title-of-website= link_to @website.name, @website.first_page
+            - if @website.logo.present?
+              %strong#title-of-website.title-of-website-logo{ style: "background-image: url(#{@website.logo});" }
+            - else
+              %strong#title-of-website= link_to @website.name, @website.first_page
           
             - if @website.button_open_menu
               .pull-right 
