@@ -41,6 +41,7 @@ Rails.application.configure do
 
   # Paypal Active Merchant
   config.after_initialize do
+    if ENV["PP_API_USERNAME"].present?
     ActiveMerchant::Billing::Base.mode = :test
     paypal_options = {
       login: ENV["PP_API_USERNAME"],
@@ -48,5 +49,6 @@ Rails.application.configure do
       signature: ENV["PP_API_SIGNATURE"]
     }
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+    end
   end
 end

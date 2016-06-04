@@ -15,7 +15,8 @@ class Admin::WebsitesController < AdminController
   def website_params
     params.require(:website).permit(:template_id, 
                                     :css, 
-                                    :js, 
+                                    :js,
+                                    :logo,
                                     :head,
                                     :button_open_menu,
                                     :user_ids => [])
