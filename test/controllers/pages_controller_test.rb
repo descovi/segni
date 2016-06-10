@@ -14,6 +14,16 @@ class PagesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:page)
   end
 
+
+  test "should get english page from slug" do
+    page = pages(:page_one)
+    
+    get :show, id: page.slug, locale: 'en'
+
+    assert_response :redirect
+    assert_not_nil assigns(:page)
+  end
+
   test "should get page also withou block" do
     page = pages(:page_one)
     
@@ -24,7 +34,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test "dont get page from slug (different website)" do
-    page = pages(:page_two)
+    page = pages(:page_two) # page two come from different website
     assert_raises(ActiveRecord::RecordNotFound) do
       get :show, id: page.id, locale: 'it'
     end

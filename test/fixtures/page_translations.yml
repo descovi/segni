@@ -1,5 +1,11 @@
 page_translations:
   page: page_one
   locale: it
-  title: title
-  slug: title
+  title: titolo in italiano
+  slug: titolo-in-italiano
+
+page_translations_en:
+  page: page_one
+  locale: en
+  title: english title
+  slug: english-title
