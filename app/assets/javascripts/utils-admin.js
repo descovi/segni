@@ -31,12 +31,13 @@ function setupLiveEditing(){
   $("textarea[name='website[head]']").on('textchange', textCssJsChanged)
   $("textarea[name='website[css]']").on('textchange', textCssJsChanged)
   $("textarea[name='simple_block[content_it]']").on('textchange', textCssJsChanged)
+  $("textarea[name='simple_block[content_en]']").on('textchange', textCssJsChanged)
   $("textarea[id='simple_block_content']").on('textchange', textCssJsChanged)
-  $("textarea[name='simple_block[title]']").on('textchange', textCssJsChanged)
   
   $("select[name='website[template_id]']").change(textCssJsChanged)
   
-  $("input[name='simple_block[title]']").on('textchange', textCssJsChanged)
+  $("input[name='simple_block[title_en]']").on('textchange', textCssJsChanged)
+  $("input[name='simple_block[title_it]']").on('textchange', textCssJsChanged)
   $("input[name='page[title]']").on('textchange', textCssJsChanged)
   $("input[name='simple_block[container_fluid]']").change(textCssJsChanged)
   $("input[name='simple_block[sliding]']").change(textCssJsChanged)
@@ -49,6 +50,17 @@ function setupLiveEditing(){
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
   $("input[name='simple_block[quality]']").on('textchange',textCssJsChanged)
   $('.slider').on('change','input',textCssJsChanged)
+
+  // when change tab 
+  $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var new_tab = e.target.getAttribute("href")
+    console.log(new_tab)
+    if (new_tab=="#en"){
+      changeIframeLanguage("it", "en")
+    } else {
+      changeIframeLanguage("en", "it")
+    }
+  })
 }
 
 var timer
@@ -115,13 +127,43 @@ function setupOpenCloseTab(){
   $("#"+panel_id_open+" .panel-heading").trigger('click')
 }
 
-function refreshIframe(){
-  var iframe = document.getElementById('iframe-preview');
-  iframe.src = iframe.src;
+
+function currentIframeLanguage(){
+  var cur_url = currentUrlIframe()
+  if (cur_url.indexOf("/it/") > 0 ){
+    return "it"
+  } else {
+    return "en"
+  }
 }
+
+function changeIframeLanguage(startLanguage, endLanguage) {
+  var url = currentUrlIframe()
+  var urlChanged = url.replace(startLanguage, endLanguage)
+  refreshIframe(urlChanged)
+}
+
+function currentUrlIframe(){
+  return currentIframe().contentWindow.location.href
+}
+
+function currentIframe(){
+  return document.getElementById('iframe-preview');
+}
+
+function refreshIframe(percorso){
+  if (percorso != null){
+    currentIframe().src = percorso;
+  } else {
+    console.log("reload semplice")
+    currentIframe().src = currentUrlIframe();
+  }
+}
+
 function getURLParameter(name) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 }
+
 function setupClickOfImageForUpload(){
   $('.btn-upload-img').css('cursor', 'pointer')
   $('.btn-upload-img').click(function(e){

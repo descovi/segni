@@ -7,3 +7,4 @@
 //= require jquery.textChange
 //= require utils-admin
 //= require jquery.autosize
+//= require bootstrap

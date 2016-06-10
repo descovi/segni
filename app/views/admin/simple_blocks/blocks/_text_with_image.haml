@@ -1,11 +1,21 @@
 / TEXT WITH IMAGE
 / [  -  ]
 .col-sm-12
-  = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
-  = f.input :content_it, as: :text,   input_html: { class: 'input-sm', rows: 10 }, placeholder: 'Content', label: false
-/ .col-sm-6
-/   = f.input :title_en,   as: :string
-/   = f.input :content_en, as: :text
+  .nav-container( role="navigation" style="margin-bottom: 20px")
+    %ul.nav.nav-tabs.nav-justified
+      %li.active(role="presentation")
+        %a(href="#it" data-toggle="tab" aria-controls="it") Italiano
+      %li(role="presentation") 
+        %a(href="#en" data-toggle="tab" aria-controls="en") English
+
+  .tab-content
+    #it.tab-pane.active.fade.in(role="tabpanel")
+      = f.input :title_it,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
+      = f.input :content_it, as: :text,   input_html: { class: 'input-sm', rows: 10 }, placeholder: 'Content', label: false
+    #en.tab-pane.fade(role="tabpanel")
+      = f.input :title_en,   as: :string, input_html: { class: 'input-sm' }, placeholder: 'Title', label: false
+      = f.input :content_en, as: :text,   input_html: { class: 'input-sm', rows: 10 }, placeholder: 'Content', label: false
+          
 .col-sm-12
   - if block.background_image.present?
     = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive', style: ''
