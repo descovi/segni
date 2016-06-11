@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604134636) do
+ActiveRecord::Schema.define(version: 20160611184405) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20160604134636) do
     t.datetime "background_image_updated_at"
     t.integer  "simple_block_id"
   end
+
+  create_table "menu_translations", force: :cascade do |t|
+    t.integer  "menu_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
+  add_index "menu_translations", ["locale"], name: "index_menu_translations_on_locale"
+  add_index "menu_translations", ["menu_id"], name: "index_menu_translations_on_menu_id"
 
   create_table "menus", force: :cascade do |t|
     t.string  "name"
