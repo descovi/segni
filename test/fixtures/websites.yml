@@ -16,3 +16,4 @@ website_two:
   secondary_color: MyString
   first_page: page_two
   template: template_one
+  users: user_two
