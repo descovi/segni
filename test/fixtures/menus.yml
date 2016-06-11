@@ -1,5 +1,9 @@
 menu_one:
+  url: 'http://gazzetta.it'
   website: website_one
+  position: 1
 
 menu_two:
+  page: page_one
   website: website_two
+  position: 1

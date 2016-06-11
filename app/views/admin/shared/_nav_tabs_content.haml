@@ -1,0 +1,8 @@
+.tab-content
+  - ['it', 'en'].each_with_index do |lng, index|
+
+    - css_class = "tab-pane active fade "
+    - css_class += 'in' if index == 0
+    %div{role:"tabpanel", id: lng, class: css_class}
+      - data.each do |column|
+        = f.input "#{column[0]}_#{lng}".to_sym, as: column[1].to_sym, input_html: {class: 'input-sm'}, placeholder: column[0].capitalize

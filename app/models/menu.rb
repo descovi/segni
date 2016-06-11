@@ -7,7 +7,8 @@ class Menu < ActiveRecord::Base
   validates :position, uniqueness: { scope: :website_id, message: "This is position is already used " }
   acts_as_list scope: :website
   translates :name
-  
+  globalize_accessors locales: I18n.available_locales
+
   def self.last_position
     return order(:position).last.position if last.present?
     0

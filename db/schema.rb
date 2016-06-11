@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611184405) do
+ActiveRecord::Schema.define(version: 20160611194918) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20160611184405) do
   add_index "menu_translations", ["menu_id"], name: "index_menu_translations_on_menu_id"
 
   create_table "menus", force: :cascade do |t|
-    t.string  "name"
     t.string  "url"
     t.integer "position"
     t.integer "website_id"
