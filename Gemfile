@@ -9,7 +9,7 @@ gem 'jquery-rails'
 
 group :development do
   gem 'spring'
-  gem 'quiet_assets'
+  #gem 'quiet_assets'
 end
 
 group :test do
@@ -23,7 +23,7 @@ end
 gem 'haml-rails'
 gem 'paperclip'
 gem 'simple_form'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'rails-i18n'
 gem 'devise-i18n'
