@@ -18,7 +18,20 @@
     .col-xs-3(style="padding-top:20px")
       .pull-right
         - if @opera.description.present?
-          %span.glyphicon.glyphicon-info-sign(aria-hidden="true")
+          %span#info.glyphicon.glyphicon-info-sign.btn.btn-default.btn-xs(aria-hidden="true")
+          :javascript
+            $('document').ready(function(){
+            $('#info').click(function(e){
+            console.log("ciao")
+            // Getting the height of the document
+            var n = $(document).height();
+            $('#info').css('cursor','pointer')
+            $('html, body').animate({ scrollTop: n }, 1000);
+            $('#opera-description').animate({opacity: 0},0,function(e){ 
+            $(this).animate({opacity:1},1000)
+            })
+            })
+            })
         - if opera_prev.present?
           = link_to '<', opera_path(opera_prev, filter: filtro), id: 'prev', class: 'btn btn-default btn-xs'
         
@@ -41,7 +54,8 @@
           = " / #{@opera.surface.name}" if @opera.surface.present?
           = " / #{@opera.size}" if @opera.size.present?
       - if @opera.description.present?
-        %p#opera-description(style="margin-top:10px")= simple_format @opera.description
+        #opera-description(style="margin-top:10px")
+          = simple_format @opera.description
 
 - if !browser.mobile?
   = render 'operas/javascript_for_gallery'
