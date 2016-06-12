@@ -17,7 +17,8 @@
         = " / #{@opera.size}" if @opera.size.present?
     .col-xs-3(style="padding-top:20px")
       .pull-right
-        
+        - if @opera.description.present?
+          %span.glyphicon.glyphicon-info-sign(aria-hidden="true")
         - if opera_prev.present?
           = link_to '<', opera_path(opera_prev, filter: filtro), id: 'prev', class: 'btn btn-default btn-xs'
         
