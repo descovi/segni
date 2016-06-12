@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require isotope-setup.js
 
 // MENU MOBILE
