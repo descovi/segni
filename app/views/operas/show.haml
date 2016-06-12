@@ -22,7 +22,6 @@
           :javascript
             $('document').ready(function(){
             $('#info').click(function(e){
-            console.log("ciao")
             // Getting the height of the document
             var n = $(document).height();
             $('#info').css('cursor','pointer')
@@ -33,10 +32,12 @@
             })
             })
         - if opera_prev.present?
-          = link_to '<', opera_path(opera_prev, filter: filtro), id: 'prev', class: 'btn btn-default btn-xs'
+          - label = "<span class='glyphicon glyphicon-chevron-left btn btn-default btn-xs'></span>"
+          = link_to raw(label), opera_path(opera_prev, filter: filtro), id: 'prev'
         
         - if next_path.present?
-          = link_to '>', next_path, id: 'next', class: 'btn btn-default btn-xs'
+          - label = "<span class='glyphicon glyphicon-chevron-right btn btn-default btn-xs'></span>"
+          = link_to raw(label), next_path, id: 'next'
         - else
 
 %hr
