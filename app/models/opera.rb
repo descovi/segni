@@ -35,7 +35,8 @@ class Opera < ActiveRecord::Base
   validates :website_id, presence: true
 
   acts_as_taggable
-  #translates :title, :description
+  translates :name, :description
+  globalize_accessors locales: I18n.available_locales, attributes: [:name, :description]
 
   def other_from_same_websites
     Opera.where(website: self.website).where.not(id: self.id)
