@@ -1,0 +1,11 @@
+simple_blocks_it:
+  simple_block_id: simple_block_one
+  locale: it
+  title: titolo in italiano
+  content: titolo-in-italiano
+
+simple_blocks_en:
+  simple_block_id: simple_block_one
+  locale: en
+  title: english title
+  content: english content

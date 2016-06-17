@@ -24,4 +24,12 @@ class Admin::PagesControllerTest < ActionController::TestCase
 
     assert_response 403
   end
+
+  test 'edit page of pages' do
+    sign_in users(:user_one)
+    page = pages(:page_one)
+    get :edit, id: page.id, locale: 'it'
+    assert_response :success
+  end
+
 end

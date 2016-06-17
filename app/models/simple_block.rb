@@ -25,7 +25,7 @@ class SimpleBlock < ActiveRecord::Base
   has_many :images, dependent: :destroy
 
   translates :title, :content, :action
-  globalize_accessors locales: I18n.available_locales
+  globalize_accessors locales: I18n.available_locales, attributes: [:title, :content]
   validates :custom_type, presence: true, inclusion: { in: %w(products-block text-with-image links-block gallery slider) }
   
   accepts_nested_attributes_for :links, allow_destroy: true
