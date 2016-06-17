@@ -24,9 +24,9 @@ class PagesController < ApplicationController
     return page
   end
   
-  def find_page _slug
-    result = Page.where(website: @website).friendly.exists?(_slug)
-    return Page.where(website: @website).friendly.find _slug if result == true
+  def find_page slug
+    result = Page.where(website: @website).friendly.exists?(slug)
+    return Page.where(website: @website).friendly.find slug if result == true
     nil
   end
 

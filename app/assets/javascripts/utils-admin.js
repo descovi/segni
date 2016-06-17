@@ -56,7 +56,7 @@ function setupLiveEditing(){
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var new_tab = e.target.getAttribute("href")
     console.log(new_tab)
-    if (new_tab=="#en"){
+    if (new_tab==="#en"){
       changeIframeLanguage("it", "en")
     } else {
       changeIframeLanguage("en", "it")
@@ -153,7 +153,7 @@ function currentIframe(){
 }
 
 function refreshIframe(percorso){
-  if (percorso != null){
+  if (percorso !== null){
     currentIframe().src = percorso;
   } else {
     console.log("reload semplice")
