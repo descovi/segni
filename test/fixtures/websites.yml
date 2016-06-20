@@ -18,3 +18,4 @@ website_two:
   first_page: page_two
   template: template_one
   users: user_two
+  button_open_menu: false
