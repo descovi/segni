@@ -1,25 +1,21 @@
 class Admin::WebsitesController < AdminController
   
-  def set_first_page
-  end
-  
   def update
-    @website.update(website_params)
-    if request.xhr?
-      render format: :js, text: 'refreshIframe()'
+    if  @website.update(website_params)
+      render js: 'refreshIframe()' if request.xhr?
     else
-      redirect_to :back
+      logger.warn @website.errors.inspect
+      raise 'error in website#update'
     end
   end
 
   def website_params
     params.require(:website).permit(:template_id, 
-                                    :css, 
+                                    :css,
                                     :js,
                                     :logo,
                                     :head,
-                                    :button_open_menu,
-                                    :user_ids => [])
+                                    :button_open_menu)
                                     
   end
 end

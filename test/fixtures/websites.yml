@@ -8,6 +8,7 @@ website_one:
   first_page: page_one
   template: template_one
   users: user_one
+  button_open_menu: true
 
 website_two:
   name: MyString
