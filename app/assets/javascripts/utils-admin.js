@@ -47,6 +47,7 @@ function setupLiveEditing(){
   $("input[name='simple_block[num_elements_xs]']").change(textCssJsChanged)
   $("input[name='simple_block[colors_inverted]']").change(textCssJsChanged)
   $("input[name='website[button_open_menu]']").change(textCssJsChanged)
+  $("input[name='website[button_language]']").change(textCssJsChanged)
   $("input[name='website[logo]']").change(textCssJsChanged)
   $("input[name='simple_block[background_image]']").change(textCssJsChanged)
   $("input[name='simple_block[quality]']").on('textchange',textCssJsChanged)
@@ -153,7 +154,7 @@ function currentIframe(){
 }
 
 function refreshIframe(percorso){
-  if (percorso !== null){
+  if (percorso != null){
     currentIframe().src = percorso;
   } else {
     console.log("reload semplice")
