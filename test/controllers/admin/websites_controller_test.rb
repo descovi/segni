@@ -18,7 +18,7 @@ class Admin::WebsitesControllerTest < ActionController::TestCase
 
   def post_button name_btn, value
     xhr :post, :update, { 
-                          website: { "button_#{name_btn}": 0 }, 
+                          website: { "button_#{name_btn}": value }, 
                           id: @website.id, locale: 'it'
                         }
     assert_response :success
