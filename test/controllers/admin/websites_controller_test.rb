@@ -10,14 +10,15 @@ class Admin::WebsitesControllerTest < ActionController::TestCase
 
   test 'edit page of pages' do
     sign_in users(:user_one)
-    post_button_open_menu true
-    post_button_open_menu false
+    post_button "open_menu", true
+    post_button "open_menu", false
+    post_button "language", true
+    post_button "language", false
   end
 
-  def post_button_open_menu value
-
+  def post_button name_btn, value
     xhr :post, :update, { 
-                          website: { button_open_menu: 0 }, 
+                          website: { "button_#{name_btn}": value }, 
                           id: @website.id, locale: 'it'
                         }
     assert_response :success

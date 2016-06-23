@@ -15,7 +15,8 @@ class Admin::WebsitesController < AdminController
                                     :js,
                                     :logo,
                                     :head,
-                                    :button_open_menu)
+                                    :button_open_menu,
+                                    :button_language)
                                     
   end
 end

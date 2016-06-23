@@ -17,7 +17,8 @@
   - label = raw("#{label_icon} #{t(:Shopping_cart)} #{shopping_cart.size_with_parentheses}")
   = link_to label, url_for(controller: 'shopping_carts', action: 'show')  
 
-- if I18n.locale == I18n.default_locale 
-  = link_to "English", :locale=>'en'
-- else
-  = link_to "Italiano", :locale=>'it'
+- if @website.button_language == true
+  - if I18n.locale == I18n.default_locale 
+    = link_to "English", :locale=>'en'
+  - else
+    = link_to "Italiano", :locale=>'it'
