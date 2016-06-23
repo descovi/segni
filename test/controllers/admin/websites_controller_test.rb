@@ -12,8 +12,8 @@ class Admin::WebsitesControllerTest < ActionController::TestCase
     sign_in users(:user_one)
     post_button "open_menu", true
     post_button "open_menu", false
-    post_button "activate_language", true
-    post_button "activate_language", false
+    post_button "language", true
+    post_button "language", false
   end
 
   def post_button name_btn, value

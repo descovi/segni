@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612134358) do
+ActiveRecord::Schema.define(version: 20160623125051) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -309,6 +309,7 @@ ActiveRecord::Schema.define(version: 20160612134358) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.boolean  "button_language"
   end
 
   add_index "websites", ["user_id"], name: "index_websites_on_user_id"
