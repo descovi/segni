@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/', to: redirect('great_admin/websites')
     resources :websites
     resources :users
+    resources :surfaces
   end
 
   namespace :admin do
