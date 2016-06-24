@@ -1,0 +1,9 @@
+surface_trans_it:
+  surface_id: surface_one
+  locale: it
+  name: name it
+
+surface_trans_en:
+  surface_id: surface_one
+  locale: en
+  name: name en

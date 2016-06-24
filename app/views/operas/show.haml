@@ -11,10 +11,10 @@
     .col-xs-9(style="padding-top:20px")
       %strong= @opera.name
       - if !browser.mobile?
-        = " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
-        = " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
-        = " / #{@opera.surface.name}" if @opera.surface.present?
-        = " / #{@opera.size}" if @opera.size.present?
+        %span#opera-year= " / ca. #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == true
+        %span#opera-year= " / #{@opera.year.year}" if @opera.year.present? and @opera.circa_date == false
+        %span#opera-surface= " / #{@opera.surface.name}" if @opera.surface.present?
+        %span#opera-size= " / #{@opera.size}" if @opera.size.present?
     .col-xs-3(style="padding-top:20px")
       .pull-right
         - if @opera.description.present?

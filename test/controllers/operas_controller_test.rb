@@ -11,6 +11,8 @@ class OperasControllerTest < ActionController::TestCase
     get :show, id: opera.id, locale: lng
     assert_response :success
     assert_not_nil assigns(:opera)
+    p opera.surface.inspect
+    assert_select "#opera-surface", "/ name #{lng}"
    end
 
   end
