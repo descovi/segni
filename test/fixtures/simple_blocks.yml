@@ -16,3 +16,8 @@ simple_block_products:
   action: go
   full_height: false
   position: 1
+
+simple_block_opera:
+  page: page_with_opera
+  custom_type: gallery
+  position: 2

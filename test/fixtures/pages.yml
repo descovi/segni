@@ -4,3 +4,5 @@ page_other:
   website: website_one
 page_two:
   website: website_two
+page_with_opera:
+  website: website_one
