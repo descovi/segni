@@ -1,6 +1,6 @@
 .nav-container( role="navigation" style="margin-bottom: 20px")
   %ul.nav.nav-tabs.nav-justified
     %li.active(role="presentation")
-      %a(href="#it" data-toggle="tab" aria-controls="it") Italiano
-    %li(role="presentation") 
-      %a(href="#en" data-toggle="tab" aria-controls="en") English
+      %a{href: "#it-#{form.object.id}", data: {toggle:"tab"}, aria: {controls:"it"}} Italiano
+    %li(role="presentation")
+      %a{href: "#en-#{form.object.id}", data: {toggle:"tab"}, aria: {controls:"en"}} English

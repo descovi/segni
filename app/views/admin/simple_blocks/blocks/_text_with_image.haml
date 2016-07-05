@@ -1,12 +1,12 @@
 / TEXT WITH IMAGE
 / [  -  ]
 .col-sm-12
-  = render 'admin/shared/nav_tabs_container'
-  = render 'admin/shared/nav_tabs_content', data: [['title','string'],['content','text']], f: f
+  = render 'admin/shared/nav_tabs_container', form: f
+  = render 'admin/shared/nav_tabs_content', data: [['title','string'],['content','text']], form: f
           
 .col-sm-12
   - if block.background_image.present?
-    = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive', style: ''
+    = image_tag block.background_image.url(:medium), class: 'btn-upload-img img-responsive'
   = f.input :background_image
 .col-sm-12
   %strong CSS class custom

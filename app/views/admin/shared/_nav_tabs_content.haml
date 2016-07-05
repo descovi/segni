@@ -1,8 +1,12 @@
 .tab-content
   - ['it', 'en'].each_with_index do |lng, index|
-
-    - css_class = "tab-pane fade "
+    - css_class = "tab-pane fade"
     - css_class += 'in active' if index == 0
-    %div{role:"tabpanel", id: lng, class: css_class}
+    %div{role:"tabpanel", id: "#{lng}-#{form.object.id}", class: css_class}
       - data.each do |column|
-        = f.input "#{column[0]}_#{lng}".to_sym, as: column[1].to_sym, input_html: {class: 'input-sm'}, placeholder: column[0].capitalize, label: column[0].capitalize
+        - label = "#{column[0].capitalize} #{lng}"
+        - label = "Title" if label == 'Title en'
+        - label = "Content" if label == 'Content en'
+        - label = "Titolo" if label == 'Title it'
+        - label = "Contenuto" if label == "Content it"
+        = form.input "#{column[0]}_#{lng}".to_sym, as: column[1].to_sym, input_html: {class: 'input-sm'}, label: label
