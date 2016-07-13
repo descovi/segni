@@ -13,7 +13,7 @@
         - block.images.order("RANDOM()").each_with_index do |opera, index|
           - css_class = (index == 0) ? 'active' : ''
 
-          .item.item-opera-slide{class: css_class, id: "opera-slide-#{index}"}
+          .item.item-opera-slide{class: css_class, id: "opera-slide-#{opera.id}"}
             - if block.quality.present?
               = image_tag opera.url(block.quality.to_sym), class: 'center-block img-responsive'
             - else
