@@ -1,6 +1,6 @@
 = simple_form_for [:admin, @menu] do |f|
-  = render 'admin/shared/nav_tabs_container'
-  = render 'admin/shared/nav_tabs_content', data: [['name','string']], f: f
+  = render 'admin/shared/nav_tabs_container', form: f
+  = render 'admin/shared/nav_tabs_content', data: [['name','string']], form: f
   = f.association :page, collection: @website.pages
   = f.input :url, as: :string, label: 'External url (ex: http://facebook.com)'
   = f.button :submit, class: 'btn btn-primary btn-block'
