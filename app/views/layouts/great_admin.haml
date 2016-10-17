@@ -10,10 +10,15 @@
     .container
       .masthead-brand
         %strong Great Admin Area
-      .nav-masthead
+        = "/"
         = link_to 'Users', great_admin_users_path
+        = "/"
         = link_to 'Websites', great_admin_websites_path
+        = "/"
         = link_to 'Surfaces', great_admin_surfaces_path
+        .pull-right= link_to 'Esci', destroy_user_session_path, method: :delete
+      
+
     %hr
     .container
       = yield
