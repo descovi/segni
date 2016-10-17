@@ -1,8 +1,8 @@
 = simple_form_for [:admin, @opera] do |f|
   .row
     .col-sm-12
-      = render 'admin/shared/nav_tabs_container'
-      = render 'admin/shared/nav_tabs_content', data: [['name', 'string'],['description','text']], f:f
+      = render 'admin/shared/nav_tabs_container', form: f
+      = render 'admin/shared/nav_tabs_content', data: [['name', 'string'],['description','text']], form:f
   .row
     .col-sm-12= f.input :image
   .row
