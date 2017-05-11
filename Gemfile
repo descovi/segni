@@ -9,7 +9,7 @@ gem 'jquery-rails'
 
 group :development do
   gem 'spring'
-  #gem 'quiet_assets'
+  gem 'quiet_assets'
 end
 
 group :test do
@@ -41,3 +41,4 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'aws-sdk', '< 2.0.0'
 gem 'cocoon'
 gem 'autosize-rails'
+gem 'local-subdomain'

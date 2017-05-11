@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :get_site
   before_action :set_locale
-  
+  include LocalSubdomain
+
+
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
