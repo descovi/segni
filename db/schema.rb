@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160623125051) do
   create_table "images", force: :cascade do |t|
     t.string   "url_file_name"
     t.string   "url_content_type"
-    t.integer  "url_file_size"
+    t.integer  "url_file_size",    limit: 8
     t.datetime "url_updated_at"
     t.integer  "simple_block_id"
   end
@@ -293,8 +293,8 @@ ActiveRecord::Schema.define(version: 20160623125051) do
     t.string   "name_slug"
     t.string   "primary_color"
     t.string   "secondary_color"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
     t.integer  "first_page_id"
     t.string   "domain"
@@ -307,7 +307,7 @@ ActiveRecord::Schema.define(version: 20160623125051) do
     t.boolean  "button_open_menu"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
-    t.integer  "logo_file_size"
+    t.integer  "logo_file_size",    limit: 8
     t.datetime "logo_updated_at"
     t.boolean  "button_language"
   end
